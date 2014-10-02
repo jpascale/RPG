@@ -15,6 +15,15 @@ public class Status {
 	public boolean isDead(){
 		return this.isdead;
 	}
+	
+	public void receiveDamage(int damage){
+		if(damage >= minhp){
+			minhp = 0;
+			isdead = true;
+		}
+		else 
+			minhp -= damage;
+	}
 
 	/*
 	 *		Getters & Setters

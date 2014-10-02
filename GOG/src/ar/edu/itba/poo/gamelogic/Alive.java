@@ -27,7 +27,9 @@ public class Alive {
 	public void moveWest(){
 		
 	}
-	
+	void receiveAttack(int damage){
+		status.receiveDamage(damage);
+	}
 	
 	/*
 	 *		Getters & Setters

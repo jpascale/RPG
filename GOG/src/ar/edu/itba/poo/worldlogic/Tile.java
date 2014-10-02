@@ -21,4 +21,11 @@ public class Tile {
 		this.alive = null;
 	}
 	
+	public boolean legalPos(){
+		return alive == null;
+	}
+	
+	public boolean hasItem(){
+		return !(item == null);
+	}
 }

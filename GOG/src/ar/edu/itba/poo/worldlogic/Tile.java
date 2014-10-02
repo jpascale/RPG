@@ -12,14 +12,13 @@ public class Tile {
 	private Item item;
 	private Alive alive;
 	
-	//Near tiles
-	private Tile north;
-	private Tile south;
-	private Tile east;
-	private Tile west;
 	
-	public Tile(){
+	public Tile(int x, int y){
+		this.x = x;
+		this.y = y;
 		
+		this.item = null;
+		this.alive = null;
 	}
 	
 }

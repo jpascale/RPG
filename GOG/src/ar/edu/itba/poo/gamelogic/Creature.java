@@ -37,6 +37,7 @@ public class Creature extends Alive {
 	public void setGold(int gold) {
 		this.gold = gold;
 	}
+
 	
 	
 }

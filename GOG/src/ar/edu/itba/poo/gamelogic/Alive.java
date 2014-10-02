@@ -2,12 +2,12 @@ package ar.edu.itba.poo.gamelogic;
 
 import ar.edu.itba.poo.worldlogic.Tile;
 
-public abstract class Alive {
+public class Alive {
 	
 	private Status status;
+	
 	private Tile pos;
 
-	
 	public Alive() {
 		
 	}
@@ -28,7 +28,6 @@ public abstract class Alive {
 		
 	}
 	
-	public abstract void strategicAttack(Alive alive);
 	
 	/*
 	 *		Getters & Setters

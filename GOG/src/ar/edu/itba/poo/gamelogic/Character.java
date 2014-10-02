@@ -18,6 +18,10 @@ public class Character extends Alive {
 		
 	}
 
+	public void strategicAttack(Alive alive) {
+		
+	}
+	
 	/*
 	 *		Getters & Setters
 	 */
@@ -45,5 +49,6 @@ public class Character extends Alive {
 	public void setStrategy(Strategy strategy) {
 		this.strategy = strategy;
 	}
+
 
 }

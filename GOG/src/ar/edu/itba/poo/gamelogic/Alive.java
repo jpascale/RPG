@@ -15,9 +15,19 @@ public class Alive {
 	
 	public void move(Dir dir){
 		
+		Tile next;
+		
+		//TODO: Personalized exception 
+		try {
+			next = pos.getNext(dir);
+			this.pos = next;
+		} catch (Exception e){
+			;
+		}
 		
 		this.heading = dir;
 	}
+		
 	void receiveAttack(int damage){
 		status.receiveDamage(damage);
 	}

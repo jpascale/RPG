@@ -14,7 +14,7 @@ public class Main {
 		// Tile Test - OK
 		//
 		
-//		TileMap map = TileMap.getInstance();
+		TileMap map = TileMap.getInstance();
 //		
 //		try{
 //			Tile tile = map.getTile(8,8);
@@ -35,6 +35,35 @@ public class Main {
 //			System.out.println("Exception:");
 //			for (; ; tile = tile.getNext(Dir.SOUTH))
 //				System.out.println("1");
+//			
+//		} catch (Exception e) {
+//			System.out.println("End of map");
+//		}
+		
+		//
+		//		Movement Test - OK
+		//
+		
+//		Alive asd = new Alive();
+//		
+//		try{
+//			asd.setPos(map.getTile(8, 8));
+//			System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());
+//			
+//			asd.move(Dir.NORTH);
+//			System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());
+//			
+//			asd.move(Dir.EAST);
+//			System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());
+//			
+//			asd.move(Dir.WEST);
+//			System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());
+//			
+//			asd.move(Dir.SOUTH);
+//			System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());
+//			
+//			for ( ; ; asd.move(Dir.NORTH))
+//				System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());
 //			
 //		} catch (Exception e) {
 //			System.out.println("End of map");

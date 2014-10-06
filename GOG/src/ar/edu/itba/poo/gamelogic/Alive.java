@@ -1,5 +1,6 @@
 package ar.edu.itba.poo.gamelogic;
 
+import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.TileMap.Dir;
 
@@ -13,7 +14,7 @@ public class Alive {
 		
 	}
 	
-	public void move(Dir dir){
+	public void move(Dir dir) throws EndOfMapException{
 		
 		Tile next;
 		
@@ -22,7 +23,7 @@ public class Alive {
 			next = pos.getNext(dir);
 			this.pos = next;
 		} catch (Exception e){
-			;
+			throw new EndOfMapException();
 		}
 		
 		this.heading = dir;

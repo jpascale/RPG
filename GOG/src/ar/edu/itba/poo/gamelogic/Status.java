@@ -17,7 +17,8 @@ public class Status {
 	}
 	
 	public void receiveDamage(int damage){
-		if(damage >= minhp){
+		
+		if (damage >= minhp){
 			minhp = 0;
 			isdead = true;
 		}

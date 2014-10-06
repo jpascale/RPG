@@ -1,35 +1,28 @@
 package ar.edu.itba.poo.gamelogic;
 
 import ar.edu.itba.poo.worldlogic.Tile;
+import ar.edu.itba.poo.worldlogic.TileMap.Dir;
 
 public class Alive {
 	
+	private Dir heading;
 	private Status status;
-	
 	private Tile pos;
 
 	public Alive() {
 		
 	}
 	
-	public void moveNorth(){
+	public void move(Dir dir){
 		
-	}
-	
-	public void moveSouth(){
 		
-	}
-	
-	public void moveEast(){
-		
-	}
-	
-	public void moveWest(){
-		
+		this.heading = dir;
 	}
 	void receiveAttack(int damage){
 		status.receiveDamage(damage);
 	}
+	
+	
 	
 	/*
 	 *		Getters & Setters
@@ -51,7 +44,12 @@ public class Alive {
 		this.pos = pos;
 	}
 	
+	public Dir getHeading() {
+		return this.heading;
+	}
 	
-	
+	public void setHeading(Dir heading){
+		this.heading = heading;
+	}
 	
 }

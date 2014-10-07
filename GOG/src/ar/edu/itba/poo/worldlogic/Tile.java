@@ -88,6 +88,7 @@ public class Tile {
 
 	public void setItem(Item item) {
 		this.item = item;
+		//TODO: Notify.
 	}
 	
 }

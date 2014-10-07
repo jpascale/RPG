@@ -1,6 +1,6 @@
 package ar.edu.itba.poo.gamelogic;
 
-public class Strategy {
+public abstract class Strategy implements Combat {
 	
 	private int minHit;
 	private int maxHit;
@@ -25,5 +25,8 @@ public class Strategy {
 	public void setMaxHit(int maxHit) {
 		this.maxHit = maxHit;
 	}
+	 
+	@Override
+	public abstract void attack(Alive alive);
 	
 }

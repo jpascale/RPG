@@ -81,4 +81,17 @@ public class Tile {
 	public int getY(){
 		return this.y;
 	}
+	
+	/*
+	 *		Getters & Setters
+	 */
+	
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
+	
 }

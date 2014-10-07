@@ -11,11 +11,19 @@ public class Character extends Alive {
 	}
 	
 	public void pickUp(){
-		
+		if (this.getPos().hasItem()){
+			inventory.slots.add(this.getPos().getItem());
+			this.getPos().setItem(null);
+		}
+		//TODO si no hay item para levantar (exception?)
 	}
-	
-	public void throwDown(){
-		
+	//revisar
+	public void throwItem(Item item){
+		if (!this.getPos().hasItem()){
+			this.getPos().setItem(item);
+			inventory.slots.remove(item);
+		}
+		//TODO si no hay item para tirar o ya hay un item en el lugar  (exception?)
 	}
 
 	public void strategicAttack(Alive alive) {

@@ -1,6 +1,8 @@
 package ar.edu.itba.poo.gamelogic;
 
-public class Creature extends Alive {
+import java.util.Random;
+
+public class Creature extends Alive implements Combat {
 	
 	private Item item;
 	private int exp;
@@ -9,6 +11,28 @@ public class Creature extends Alive {
 	public Creature(){
 		
 	}
+	
+	public void throwItem(){
+		if (!this.getPos().hasItem()){
+			this.getPos().setItem(item);
+			item = null;
+		}
+		//TODO si no hay item para tirar o ya hay un item en el lugar  (exception?)
+	}
+	
+	//TODO arreglar attack
+	
+	/*
+	public void attack(Alive alive) {
+		alive.receiveAttack(randInt(this.getMinHit(),this.getMaxHit()));
+	}
+	
+	public static int randInt(int min, int max) {
+	    Random rand = new Random();
+	    int randomNum = rand.nextInt((max - min) + 1) + min;
+	    return randomNum;
+	}
+	*/
 	
 	/*
 	 *		Getters & Setters
@@ -37,6 +61,8 @@ public class Creature extends Alive {
 	public void setGold(int gold) {
 		this.gold = gold;
 	}
+	
+	
 
 	
 	

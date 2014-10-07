@@ -10,9 +10,9 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
-		//
+		//*********************************************************************************
 		// Tile Test - OK
-		//
+		//*********************************************************************************
 		
 		TileMap map = TileMap.getInstance();
 //		
@@ -40,9 +40,9 @@ public class Main {
 //			System.out.println("End of map");
 //		}
 		
-		//
+		//*********************************************************************************
 		//		Movement Test - OK
-		//
+		//*********************************************************************************
 		
 //		Alive asd = new Alive();
 //		
@@ -68,6 +68,21 @@ public class Main {
 //		} catch (Exception e) {
 //			System.out.println("End of map");
 //		}
+		
+		//*********************************************************************************
+		//		Level Profile - OK
+		//*********************************************************************************
+		
+		LevelProfile lvl = new LevelProfile();
+		System.out.println("Level: " + lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
+		lvl.gainExp(30);
+		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
+		lvl.gainExp(1000);
+		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
+		lvl.gainExp(10000);
+		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
+		lvl.gainExp(100000);
+		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
 	}
 
 }

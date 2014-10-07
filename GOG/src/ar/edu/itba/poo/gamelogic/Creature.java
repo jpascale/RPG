@@ -22,11 +22,11 @@ public class Creature extends Alive implements Combat {
 	
 	//TODO arreglar attack
 	
-	/*
+	@Override
 	public void attack(Alive alive) {
-		alive.receiveAttack(randInt(this.getMinHit(),this.getMaxHit()));
+	//	alive.receiveAttack(randInt(this.getMinHit(),this.getMaxHit()));
 	}
-	
+	/*
 	public static int randInt(int min, int max) {
 	    Random rand = new Random();
 	    int randomNum = rand.nextInt((max - min) + 1) + min;
@@ -61,9 +61,5 @@ public class Creature extends Alive implements Combat {
 	public void setGold(int gold) {
 		this.gold = gold;
 	}
-	
-	
-
-	
 	
 }

@@ -73,16 +73,16 @@ public class Main {
 		//		Level Profile - OK
 		//*********************************************************************************
 		
-		LevelProfile lvl = new LevelProfile();
-		System.out.println("Level: " + lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
-		lvl.gainExp(30);
-		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
-		lvl.gainExp(1000);
-		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
-		lvl.gainExp(10000);
-		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
-		lvl.gainExp(100000);
-		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
+//		LevelProfile lvl = new LevelProfile();
+//		System.out.println("Level: " + lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
+//		lvl.gainExp(30);
+//		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
+//		lvl.gainExp(1000);
+//		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
+//		lvl.gainExp(10000);
+//		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
+//		lvl.gainExp(100000);
+//		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
 	}
 
 }

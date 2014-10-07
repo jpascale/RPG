@@ -30,4 +30,13 @@ public class Inventory {
 		
 	}
 	
+	public void addItem(Item item){
+		
+		if (slots.size() - 1 >= MAX_INVENTORY_SLOTS)
+			;//TODO: Exception
+		
+		slots.add(item);
+		//TODO: Notify;
+	}
+	
 }

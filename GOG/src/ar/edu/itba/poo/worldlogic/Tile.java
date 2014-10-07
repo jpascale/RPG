@@ -82,10 +82,6 @@ public class Tile {
 		return this.y;
 	}
 	
-	/*
-	 *		Getters & Setters
-	 */
-	
 	public Item getItem() {
 		return item;
 	}

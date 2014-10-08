@@ -4,6 +4,7 @@ import java.util.Random;
 
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
+import ar.edu.itba.poo.worldlogic.TileMap;
 import ar.edu.itba.poo.worldlogic.TileMap.Dir;
 
 public class Alive {
@@ -12,8 +13,14 @@ public class Alive {
 	private Status status;
 	private Tile pos;
 
-	public Alive() {
-		
+	public Alive(int hp, int man, int x, int y) {
+		try{
+			this.heading = Dir.NORTH;
+			this.status = new Status(hp, man);
+			this.setPos(TileMap.getInstance().getTile(x, y));
+		} catch(Exception e){
+			;
+		}
 	}
 	
 	public void move(Dir dir) throws EndOfMapException{
@@ -60,6 +67,7 @@ public class Alive {
 
 	public void setPos(Tile pos) {
 		this.pos = pos;
+		pos.setAlive(this);
 	}
 	
 	public Dir getHeading() {

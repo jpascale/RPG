@@ -1,9 +1,16 @@
 package ar.edu.itba.poo.gamelogic;
 
-public class LevelProfile {
+import java.util.ArrayList;
+
+import ar.edu.itba.poo.observer.Observable;
+import ar.edu.itba.poo.observer.Observer;
+
+public class LevelProfile implements Observable {
 	
 	public static int MAX_LVL = 47;
 	public static int EXP_CONST = 50;
+	
+	ArrayList<Observer> observers;
 	
 	private int level;
 	
@@ -11,6 +18,7 @@ public class LevelProfile {
 	private int maxexp;
 	
 	public LevelProfile(){
+		observers = new ArrayList<Observer>();
 		
 		this.level = 1;
 		this.exp = 0;
@@ -23,7 +31,8 @@ public class LevelProfile {
 			this.exp = 0;
 			this.maxexp = EXP_CONST * this.level;
 			
-			//TODO: Update stats (+ combo hit);
+			//Level up, time to update stats!
+			notifyObservers();
 		}
 	}
 	
@@ -42,6 +51,29 @@ public class LevelProfile {
 			//TODO: notify observer
 		
 	}
+	
+	/*
+	 *		Observer methods
+	 */
+	
+	@Override
+	public void addObserver(Observer observer) {
+		observers.add(observer);
+	}
+
+	@Override
+	public void removeObserver(Observer observer) {
+		observers.remove(observer);
+	}
+
+	@Override
+	public void notifyObservers() {
+		
+		for (Observer ob : this.observers){
+			ob.handleUpdate(this);
+		}
+	}
+	
 	
 	/*
 	 *		Getters & Setters
@@ -70,5 +102,6 @@ public class LevelProfile {
 	public void setMaxexp(int maxexp) {
 		this.maxexp = maxexp;
 	}
+
 	
 }

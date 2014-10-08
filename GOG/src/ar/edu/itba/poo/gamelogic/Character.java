@@ -1,15 +1,21 @@
 package ar.edu.itba.poo.gamelogic;
 
-public class Character extends Alive {
+import ar.edu.itba.poo.observer.Observer;
 
+public class Character extends Alive implements Observer{
+
+	private static int CHAR_INITIAL_HP = 50;
+	private static int CHAR_INITIAL_MAN = 0;
+	
 	private LevelProfile lvl;
 	private Inventory inventory;
 	private Strategy strategy;
 	
-	public Character() {
-		super();
+	public Character(int x, int y) {
+		
+		super(CHAR_INITIAL_HP, CHAR_INITIAL_MAN, x, y);
 		this.lvl = new LevelProfile();
-		// TODO Auto-generated constructor stub
+		this.inventory = new Inventory();
 	}
 	
 	public void pickUp(){
@@ -24,7 +30,7 @@ public class Character extends Alive {
 		
 		if (!this.getPos().hasItem()){
 			this.getPos().setItem(item);
-			inventory.slots.remove(item);
+			inventory.removeItem(item);
 		}
 		//TODO si no hay item para tirar o ya hay un item en el lugar  (exception? JP: SI)
 	}
@@ -32,6 +38,30 @@ public class Character extends Alive {
 	public void strategicAttack(Alive alive) {
 		
 	}
+	
+	public void gainExp(int exp){
+		this.lvl.gainExp(exp);
+	}
+	
+	/* 
+	 *		Observer methods
+	 */
+	
+	public void handleUpdate(Object data){
+		
+		if (data instanceof LevelProfile)
+			handleUpdateStats((LevelProfile)data);
+	}
+	
+	public void handleUpdateStats(LevelProfile data){
+		
+		int hpmodif = this.getStrategy().getHpmodif();
+		int manmodif = this.getStrategy().getManmodif();
+		
+		this.getStatus().updateNextLvlStatus(hpmodif, manmodif);
+				
+	}
+	
 	
 	/*
 	 *		Getters & Setters

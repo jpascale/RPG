@@ -4,8 +4,12 @@ import java.util.Random;
 
 public class Warrior extends Strategy {
 
-	public Warrior() {
-		// TODO Auto-generated constructor stub
+	private static String WARRIOR_NAME = "Warrior";
+	private static int WARRIOR_HP_MODIF = 10;
+	private static int WARRIOR_MAN_MODIF = 0;
+	
+	public Warrior(String name) {
+		super(WARRIOR_NAME, WARRIOR_HP_MODIF, WARRIOR_MAN_MODIF);
 	}
 	
 	//TODO attack needs modifier from Character.Inventory.Item.

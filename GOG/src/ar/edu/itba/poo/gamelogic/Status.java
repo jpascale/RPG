@@ -2,13 +2,16 @@ package ar.edu.itba.poo.gamelogic;
 
 public class Status {
 	
+	private static int HP_DELTA_UP = 5;
+	private static int MAN_DELTA_UP = 5;
+	
 	private int minhp;
 	private int maxhp;
 	private int minman;
 	private int maxman;
 	private boolean isdead;
 	
-	public Status(int hp, int man){
+	public Status(int hp, int man) {
 		this.minhp = this.maxhp = hp;
 		this.minman = this.maxman = man;
 		this.isdead = false;
@@ -18,7 +21,7 @@ public class Status {
 		return this.isdead;
 	}
 	
-	public void receiveDamage(int damage){
+	public void receiveDamage(int damage) {
 		
 		if (damage >= minhp){
 			minhp = 0;
@@ -26,6 +29,20 @@ public class Status {
 		}
 		else 
 			minhp -= damage;
+	}
+	
+	public void updateNextLvlStatus(int hpmodif, int manmodif) {
+		
+		int hpdelta = Alive.randInt(hpmodif, hpmodif + HP_DELTA_UP);
+		int mandelta = Alive.randInt(manmodif, manmodif + MAN_DELTA_UP) * 10;
+		
+		this.maxhp += hpdelta;
+		this.minhp += hpdelta;
+		
+		this.maxman += mandelta;
+		this.minman += mandelta;
+				
+		//TODO:Update visual
 	}
 
 	/*

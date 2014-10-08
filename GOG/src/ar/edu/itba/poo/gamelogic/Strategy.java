@@ -2,12 +2,22 @@ package ar.edu.itba.poo.gamelogic;
 
 public abstract class Strategy implements Combat {
 	
+	String name;
 	private int minHit;
 	private int maxHit;
 	
-	public Strategy(){
-		
+	private final double hpmodif;
+	private final double manmodif;
+	
+	public Strategy(String name, double hpmodif, double manmodif){
+		this.name = name;
+		this.hpmodif = hpmodif;
+		this.manmodif = manmodif;
 	}
+	
+	@Override
+	public abstract void attack(Alive alive);
+
 	
 	/*
 	 *		Getters & Setters
@@ -26,7 +36,11 @@ public abstract class Strategy implements Combat {
 		this.maxHit = maxHit;
 	}
 	 
-	@Override
-	public abstract void attack(Alive alive);
-	
+	public int getHpmodif() {
+		return minHit;
+	}
+	public int getManmodif() {
+		return minHit;
+	}
+		
 }

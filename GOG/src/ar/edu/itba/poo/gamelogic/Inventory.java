@@ -7,7 +7,7 @@ public class Inventory {
 	public static int MAX_INVENTORY_SLOTS = 10;
 	
 	private int gold;
-	ArrayList<Item> slots;
+	private ArrayList<Item> slots;
 	
 	public Inventory(){
 		
@@ -37,6 +37,10 @@ public class Inventory {
 		
 		slots.add(item);
 		//TODO: Notify;
+	}
+
+	public void removeItem(Item item) {
+		slots.remove(item);
 	}
 	
 }

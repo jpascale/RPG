@@ -1,5 +1,8 @@
 package ar.edu.itba.poo.gamelogic;
 
+import ar.edu.itba.poo.worldlogic.Tile;
+import ar.edu.itba.poo.worldlogic.TileMap.Dir;
+
 public abstract class Strategy implements Combat {
 	
 	String name;
@@ -35,12 +38,14 @@ public abstract class Strategy implements Combat {
 	public void setMaxHit(int maxHit) {
 		this.maxHit = maxHit;
 	}
-	 
+	
 	public int getHpmodif() {
 		return minHit;
 	}
 	public int getManmodif() {
 		return minHit;
 	}
-		
+	
+	@Override
+	public abstract void attack(Tile pos, Dir heading, Equipment equipment);
 }

@@ -1,5 +1,8 @@
 package ar.edu.itba.poo.gamelogic;
 
+import ar.edu.itba.poo.worldlogic.Tile;
+import ar.edu.itba.poo.worldlogic.TileMap.Dir;
+
 public class Wizard extends Strategy {
 	
 	private static String WIZARD_NAME = "Wizard";
@@ -13,7 +16,7 @@ public class Wizard extends Strategy {
 
 	//TODO Implement attack.
 	@Override
-	public void attack(Alive alive) {
+	public void attack(Tile pos, Dir heading, Equipment equipment) {
 		// TODO Auto-generated method stub
 		
 	}

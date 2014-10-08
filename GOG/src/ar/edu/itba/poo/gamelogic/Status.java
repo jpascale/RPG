@@ -8,8 +8,10 @@ public class Status {
 	private int maxman;
 	private boolean isdead;
 	
-	public Status(){
-		
+	public Status(int hp, int man){
+		this.minhp = this.maxhp = hp;
+		this.minman = this.maxman = man;
+		this.isdead = false;
 	}
 
 	public boolean isDead(){

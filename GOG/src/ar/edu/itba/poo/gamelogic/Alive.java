@@ -1,5 +1,7 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.util.Random;
+
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.TileMap.Dir;
@@ -33,6 +35,11 @@ public class Alive {
 		status.receiveDamage(damage);
 	}
 	
+	public static int randInt(int min, int max) {
+	    Random rand = new Random();
+	    int randomNum = rand.nextInt((max - min) + 1) + min;
+	    return randomNum;
+	}
 	
 	
 	/*

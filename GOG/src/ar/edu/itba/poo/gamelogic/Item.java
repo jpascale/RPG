@@ -3,10 +3,26 @@ package ar.edu.itba.poo.gamelogic;
 //TODO: Make Abstract
 public class Item {
 	
-	String name;
-	double modifier;
+	private String name;
+	private double modifier;
 	
-	public Item(){
-		
+	public Item(String name, double modifier) {
+		super();
+		this.name = name;
+		this.modifier = modifier;
 	}
+
+	/*
+	 *		Getters & Setters
+	 */
+	
+	public double getModifier() {
+		return modifier;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	
 }

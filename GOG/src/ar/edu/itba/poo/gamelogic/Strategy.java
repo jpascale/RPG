@@ -1,5 +1,8 @@
 package ar.edu.itba.poo.gamelogic;
 
+import ar.edu.itba.poo.worldlogic.Tile;
+import ar.edu.itba.poo.worldlogic.TileMap.Dir;
+
 public abstract class Strategy implements Combat {
 	
 	private int minHit;
@@ -27,6 +30,6 @@ public abstract class Strategy implements Combat {
 	}
 	 
 	@Override
-	public abstract void attack(Alive alive);
+	public abstract void attack(Tile pos, Dir heading, Equipment equipment);
 	
 }

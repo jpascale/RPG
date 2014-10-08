@@ -90,5 +90,13 @@ public class Tile {
 		this.item = item;
 		//TODO: Notify.
 	}
+
+	public Alive getAlive() {
+		return alive;
+	}
+
+	public void setAlive(Alive alive) {
+		this.alive = alive;
+	}
 	
 }

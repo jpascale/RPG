@@ -5,6 +5,7 @@ public class Character extends Alive {
 	private LevelProfile lvl;
 	private Inventory inventory;
 	private Strategy strategy;
+	private Equipment equip;
 	
 	public Character() {
 		super();
@@ -12,15 +13,15 @@ public class Character extends Alive {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void pickUp(){
+	public void pickUp() throws NoItemException{
 		if (this.getPos().hasItem()){
 			this.inventory.addItem(this.getPos().getItem());
 			this.getPos().setItem(null);
 		}
-		//TODO si no hay item para levantar (exception? JP:SI)
+		else throw new NoItemException();
 	}
 	//revisar
-	public void throwItem(Item item){
+	public void throwItem(Item item) throws NoItemException{
 		
 		if (!this.getPos().hasItem()){
 			this.getPos().setItem(item);
@@ -29,8 +30,8 @@ public class Character extends Alive {
 		//TODO si no hay item para tirar o ya hay un item en el lugar  (exception? JP: SI)
 	}
 
-	public void strategicAttack(Alive alive) {
-		
+	public void strategicAttack() {
+		strategy.attack(super.getPos(),super.getHeading(),equip);
 	}
 	
 	/*

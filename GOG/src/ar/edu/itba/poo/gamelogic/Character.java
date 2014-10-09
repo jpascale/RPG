@@ -19,21 +19,21 @@ public class Character extends Alive{
 		this.inventory = new Inventory();
 	}
 	
-	public void pickUp() throws NoItemException{
+	//TODO: Manage errors
+	public void pickUp(){
 		if (this.getPos().hasItem()){
 			this.inventory.addItem(this.getPos().getItem());
 			this.getPos().setItem(null);
 		}
-		else throw new NoItemException();
 	}
-	//revisar
-	public void throwItem(Item item) throws NoItemException{
+	//TODO: Manage errors
+	public void throwItem(Item item){
 		
 		if (!this.getPos().hasItem()){
 			this.getPos().setItem(item);
 			inventory.removeItem(item);
 		}
-		//TODO si no hay item para tirar o ya hay un item en el lugar  (exception? JP: SI)
+		
 	}
 
 	public void strategicAttack() {

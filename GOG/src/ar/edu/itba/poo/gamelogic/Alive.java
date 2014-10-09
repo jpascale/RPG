@@ -5,7 +5,7 @@ import java.util.Random;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.TileMap;
-import ar.edu.itba.poo.worldlogic.TileMap.Dir;
+import ar.edu.itba.poo.worldlogic.Dir;
 
 public class Alive {
 	
@@ -25,17 +25,25 @@ public class Alive {
 	
 	public void move(Dir dir) throws EndOfMapException{
 		
+		Tile actual;
 		Tile next;
 		
-		//TODO: Personalized exception 
+		actual = this.getPos();
+		
+		this.heading = dir;
+		
+		//TODO: Exception?
 		try {
-			next = pos.getNext(dir);
-			this.pos = next;
+			
+			next = actual.getNext(dir);
+			this.setPos(next);
+			actual.freeAlive();
+			
 		} catch (Exception e){
 			throw new EndOfMapException();
 		}
 		
-		this.heading = dir;
+		;
 	}
 		
 	void receiveAttack(int damage){

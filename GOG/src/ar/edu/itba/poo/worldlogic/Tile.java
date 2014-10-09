@@ -3,7 +3,7 @@ package ar.edu.itba.poo.worldlogic;
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.Alive;
 
-import ar.edu.itba.poo.worldlogic.TileMap.Dir;
+import ar.edu.itba.poo.worldlogic.Dir;
 
 public class Tile {
 	
@@ -97,6 +97,10 @@ public class Tile {
 
 	public void setAlive(Alive alive) {
 		this.alive = alive;
+	}
+	
+	public void freeAlive(){
+		this.setAlive(null);
 	}
 	
 }

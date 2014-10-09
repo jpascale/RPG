@@ -34,12 +34,6 @@ public class TileMap {
 		return instance;
 	}
 	
-	public enum Dir {
-		NORTH,
-		SOUTH,
-		EAST,
-		WEST
-	}
 	
 	//TODO: Complete doc
 	

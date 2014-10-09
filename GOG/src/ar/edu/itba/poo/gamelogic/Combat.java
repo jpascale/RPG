@@ -1,7 +1,7 @@
 package ar.edu.itba.poo.gamelogic;
 
 import ar.edu.itba.poo.worldlogic.Tile;
-import ar.edu.itba.poo.worldlogic.TileMap.Dir;
+import ar.edu.itba.poo.worldlogic.Dir;
 
 public interface Combat {
 	

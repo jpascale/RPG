@@ -1,10 +1,10 @@
 package ar.edu.itba.poo.main;
-import ar.edu.itba.poo.gamelogic.*
+import ar.edu.itba.poo.gamelogic.*;
 import ar.edu.itba.poo.observer.ObserverLevelProfile;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.TileMap;
-import ar.edu.itba.poo.worldlogic.TileMap.Dir;
+import ar.edu.itba.poo.worldlogic.Dir;
 
 public class Main {
 
@@ -44,24 +44,35 @@ public class Main {
 		//*********************************************************************************
 		//		Movement Test - OK
 		//*********************************************************************************
-		
-//		Alive asd = new Alive();
+//		
+//		Alive asd = new Alive(20, 100, 8, 8);
 //		
 //		try{
-//			asd.setPos(map.getTile(8, 8));
 //			System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());
 //			
 //			asd.move(Dir.NORTH);
 //			System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());
+//			System.out.println(asd.getPos().getAlive() == null);
+//			System.out.println(map.getTile(8, 8).getAlive() == null);
+//			System.out.println(asd.getHeading());
 //			
 //			asd.move(Dir.EAST);
 //			System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());
+//			System.out.println(asd.getPos().getAlive() == null);
+//			System.out.println(map.getTile(8, 7).getAlive() == null);
+//			System.out.println(asd.getHeading());
 //			
 //			asd.move(Dir.WEST);
 //			System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());
+//			System.out.println(asd.getPos().getAlive() == null);
+//			System.out.println(map.getTile(9, 7).getAlive() == null);
+//			System.out.println(asd.getHeading());
 //			
 //			asd.move(Dir.SOUTH);
 //			System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());
+//			System.out.println(asd.getPos().getAlive() == null);
+//			System.out.println(map.getTile(9, 8).getAlive() == null);
+//			System.out.println(asd.getHeading());
 //			
 //			for ( ; ; asd.move(Dir.NORTH))
 //				System.out.println(asd.getPos().getX() + ";" + asd.getPos().getY());

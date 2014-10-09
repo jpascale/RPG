@@ -14,7 +14,7 @@ public class ObserverLevelProfile implements Observer<LevelProfile> {
 	
 	@Override
 	public void handleUpdate(LevelProfile data) {
-		game.getCharacter().handleUpdateStats();
+		game.getCharacter().handleUpdateStats(data);
 	}
 
 }

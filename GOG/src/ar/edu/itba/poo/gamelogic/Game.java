@@ -1,18 +1,25 @@
 package ar.edu.itba.poo.gamelogic;
 
 import java.util.ArrayList;
+
 import ar.edu.itba.poo.gamelogic.Character;
+import ar.edu.itba.poo.worldlogic.TileMap;
 
 //TODO: MAKE SINGLETON
 
 public class Game {
 	
 	private static Game instance = null;
-	Character character;
-	ArrayList<Creature> creatures;
+	
+	private String name;
+	
+	private Character character;
+	private ArrayList<Creature> creatures;
+	
+	private TileMap map;
 	
 	private Game(){
-		
+		this.name = "Player";
 	}
 	
 	public static Game getInstance(){
@@ -22,5 +29,10 @@ public class Game {
 		}
 		return instance;
 	}
-	//setPlayer
+	
+	public Character getCharacter(){
+		return this.character;
+	}
+	//startTileMap
+	//startPlayer
 }

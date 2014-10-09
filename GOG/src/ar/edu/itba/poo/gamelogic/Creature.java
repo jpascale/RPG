@@ -2,10 +2,6 @@ package ar.edu.itba.poo.gamelogic;
 
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
-<<<<<<< HEAD
-import ar.edu.itba.poo.worldlogic.Dir;
-=======
->>>>>>> 31c52e1e98d8857af9992930412deaac2fe73e78
 
 public class Creature extends Alive implements Combat {
 	

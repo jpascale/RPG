@@ -1,6 +1,6 @@
 package ar.edu.itba.poo.main;
-import ar.edu.itba.poo.gamelogic.*;
-import ar.edu.itba.poo.gamelogic.Warrior;
+import ar.edu.itba.poo.gamelogic.*
+import ar.edu.itba.poo.observer.ObserverLevelProfile;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.TileMap;

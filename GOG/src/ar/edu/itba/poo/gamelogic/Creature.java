@@ -2,7 +2,10 @@ package ar.edu.itba.poo.gamelogic;
 
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
+<<<<<<< HEAD
 import ar.edu.itba.poo.worldlogic.Dir;
+=======
+>>>>>>> 31c52e1e98d8857af9992930412deaac2fe73e78
 
 public class Creature extends Alive implements Combat {
 	
@@ -24,12 +27,14 @@ public class Creature extends Alive implements Combat {
 		//TODO si no hay item para tirar o ya hay un item en el lugar  (exception?)
 	}
 	
-	//TODO arreglar attack
 	@Override
-	public void attack(Tile pos, Dir heading, Equipment equipment) {
+	public void attack() {
 		try {
-			if(!pos.getNext(heading).legalPos()){
-				pos.getNext(heading).getAlive().receiveAttack((int) Math.round(Alive.randInt(this.getMinHit(),this.getMaxHit())*equipment.getWeapon().getModifier()));
+			Tile posNext = super.getPos().getNext(super.getHeading());
+			
+			if(!posNext.legalPos()){
+				int damage = Alive.randInt(getMinHit(),getMaxHit());
+				posNext.getAlive().receiveAttack(damage);
 			}
 			else{
 				;//TODO if there is no creature.

@@ -1,8 +1,7 @@
 package ar.edu.itba.poo.gamelogic;
 
-import ar.edu.itba.poo.observer.Observer;
 
-public class Character extends Alive{
+public class Character extends Alive implements Combat{
 
 	private static int CHAR_INITIAL_HP = 50;
 	private static int CHAR_INITIAL_MAN = 0;
@@ -34,10 +33,6 @@ public class Character extends Alive{
 			inventory.removeItem(item);
 		}
 		
-	}
-
-	public void strategicAttack() {
-		strategy.attack(super.getPos(),super.getHeading(),equip);
 	}
 	
 	public void gainExp(int exp){
@@ -84,6 +79,12 @@ public class Character extends Alive{
 
 	public void setStrategy(Strategy strategy) {
 		this.strategy = strategy;
+	}
+
+	@Override
+	public void attack() {
+		strategy.attack(super.getPos(),super.getHeading(),equip);
+		
 	}
 
 

@@ -18,6 +18,7 @@ public class Warrior extends Strategy {
 	public void attack(Tile pos, Dir heading, Equipment equipment) {
 		try {
 			if(!pos.getNext(heading).legalPos()){
+				//TODO this is ugly
 				pos.getNext(heading).getAlive().receiveAttack((int) Math.round(Alive.randInt(this.getMinHit(),this.getMaxHit())*equipment.getWeapon().getModifier()));
 			}
 			else{

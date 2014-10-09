@@ -85,6 +85,11 @@ public class Main {
 //		lvl.gainExp(100000);
 //		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
 	
+		Game game = Game.getInstance();
+		//game.set (...)
+		//game.setCharacter(...);
+		
+		game.setObserverLevelProfile(new ObserverLevelProfile(game));
 	
 	}
 

@@ -2,7 +2,7 @@ package ar.edu.itba.poo.gamelogic;
 
 import ar.edu.itba.poo.observer.Observer;
 
-public class Character extends Alive implements Observer{
+public class Character extends Alive{
 
 	private static int CHAR_INITIAL_HP = 50;
 	private static int CHAR_INITIAL_MAN = 0;
@@ -47,12 +47,6 @@ public class Character extends Alive implements Observer{
 	/* 
 	 *		Observer methods
 	 */
-	
-	public void handleUpdate(Object data){
-		
-		if (data instanceof LevelProfile)
-			handleUpdateStats((LevelProfile)data);
-	}
 	
 	public void handleUpdateStats(LevelProfile data){
 		

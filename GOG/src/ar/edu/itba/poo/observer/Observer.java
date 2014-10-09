@@ -1,6 +1,6 @@
 package ar.edu.itba.poo.observer;
 
-public interface Observer {
+public interface Observer<T extends Observable> {
 	
-	public void handleUpdate(Object data);
+	public void handleUpdate(T data);
 }

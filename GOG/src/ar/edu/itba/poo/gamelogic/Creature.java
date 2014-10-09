@@ -12,8 +12,8 @@ public class Creature extends Alive implements Combat {
 	private int minHit;
 	private int maxHit;
 	
-	public Creature(){
-		
+	public Creature(int hp, int man, int x, int y){
+		super(hp, man, x, y);
 	}
 	
 	public void throwItem(){

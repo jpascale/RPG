@@ -1,8 +1,6 @@
 package ar.edu.itba.poo.worldlogic;
-
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.Alive;
-
 import ar.edu.itba.poo.worldlogic.Dir;
 
 public class Tile {
@@ -17,6 +15,7 @@ public class Tile {
 	
 	
 	public Tile(int x, int y){
+		
 		this.x = x;
 		this.y = y;
 		

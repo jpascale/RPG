@@ -8,7 +8,7 @@ public class Character extends Alive implements Combat{
 	
 	private LevelProfile lvl;
 	private Inventory inventory;
-	private Strategy strategy;
+	private Type type;
 	private Equipment equip;
 	
 	public Character(int x, int y) {
@@ -45,8 +45,8 @@ public class Character extends Alive implements Combat{
 	
 	public void handleUpdateStats(LevelProfile data){
 		
-		int hpmodif = this.getStrategy().getHpmodif();
-		int manmodif = this.getStrategy().getManmodif();
+		int hpmodif = this.getType().getHpmodif();
+		int manmodif = this.getType().getManmodif();
 		
 		this.getStatus().updateNextLvlStatus(hpmodif, manmodif);
 				
@@ -73,17 +73,17 @@ public class Character extends Alive implements Combat{
 		this.inventory = inventory;
 	}
 
-	public Strategy getStrategy() {
-		return strategy;
+	public Type getType() {
+		return type;
 	}
 
-	public void setStrategy(Strategy strategy) {
-		this.strategy = strategy;
+	public void setStrategy(Type strategy) {
+		this.type = type;
 	}
 
 	@Override
 	public void attack() {
-		strategy.attack(super.getPos(),super.getHeading(),equip);
+		type.attack(super.getPos(),super.getHeading(),equip);
 		
 	}
 

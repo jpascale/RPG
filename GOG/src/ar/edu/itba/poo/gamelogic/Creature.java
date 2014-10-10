@@ -27,7 +27,7 @@ public class Creature extends Alive implements Combat {
 		try {
 			Tile posNext = this.getPos().getNext(this.getHeading());
 			
-			if(!posNext.legalPos()){
+			if(posNext.getAlive() != null){
 				int damage = Alive.randInt(getMinHit(),getMaxHit());
 				posNext.getAlive().receiveAttack(damage);
 			}

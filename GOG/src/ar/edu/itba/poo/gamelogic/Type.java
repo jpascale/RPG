@@ -12,10 +12,13 @@ public abstract class Type{
 	private final double hpmodif;
 	private final double manmodif;
 	
-	public Type (String name, double hpmodif, double manmodif){
+	
+	public Type (String name, double hpmodif, double manmodif, int minHit, int maxHit){
 		this.name = name;
 		this.hpmodif = hpmodif;
 		this.manmodif = manmodif;
+		this.minHit = minHit;
+		this.maxHit = maxHit;
 	}
 	
 	/*
@@ -34,7 +37,6 @@ public abstract class Type{
 	public void setMaxHit(int maxHit) {
 		this.maxHit = maxHit;
 	}
-	
 	public int getHpmodif() {
 		return minHit;
 	}

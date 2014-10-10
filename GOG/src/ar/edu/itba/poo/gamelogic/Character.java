@@ -16,6 +16,7 @@ public class Character extends Alive implements Combat{
 		super(CHAR_INITIAL_HP, CHAR_INITIAL_MAN, x, y);
 		this.lvl = new LevelProfile();
 		this.inventory = new Inventory();
+		this.equip = new Equipment();
 	}
 	
 	//TODO: Manage errors
@@ -79,6 +80,10 @@ public class Character extends Alive implements Combat{
 
 	public void setStrategy(Type strategy) {
 		this.type = type;
+	}
+
+	public Equipment getEquip() {
+		return equip;
 	}
 
 	@Override

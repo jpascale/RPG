@@ -1,6 +1,14 @@
 package ar.edu.itba.poo.main;
+<<<<<<< HEAD
+import ar.edu.itba.poo.gamelogic.*;
+import ar.edu.itba.poo.gamelogic.Character;
+import ar.edu.itba.poo.observer.ObserverLevelProfile;
+import ar.edu.itba.poo.worldlogic.EndOfMapException;
+import ar.edu.itba.poo.worldlogic.Tile;
+=======
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.handlers.StatsLevelUpUpdater;
+>>>>>>> d990d6abd53ee732303b62031b35698d65ed3cc4
 import ar.edu.itba.poo.worldlogic.TileMap;
 
 public class Main {
@@ -97,7 +105,36 @@ public class Main {
 		//game.set (...)
 		//game.setCharacter(...);
 		
+		
+		//TODO Aca creo q es un merging problem...
+		game.setObserverLevelProfile(new ObserverLevelProfile(game));
+		
 		game.setObserverLevelProfile(new StatsLevelUpUpdater(game));
+		
+		
+		//*********************************************************************************
+		//		Attack Test - Not done
+		//*********************************************************************************
+		/*
+		Character player = new Character(4,4);
+		player.setStrategy(new Warrior("Paladin", 5, 13));
+		player.getEquip().setItem(new Item("Nudillos",1.0));
+		
+		Creature bicho = new Creature(50,0,5,5, 5, 10);
+		
+		try {
+			player.move(Dir.EAST);
+			System.out.println(player.getPos().getX() + ";" + player.getPos().getY());
+			player.move(Dir.SOUTH);
+			System.out.println(player.getPos().getX() + ";" + player.getPos().getY());
+			System.out.println("HP bicho: " + bicho.getStatus().getMaxhp());
+			player.attack();
+			System.out.println("HP bicho: " + bicho.getStatus().getMaxhp());
+		} catch (EndOfMapException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
 	
 	}
 

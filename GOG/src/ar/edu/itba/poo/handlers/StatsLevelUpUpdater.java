@@ -1,14 +1,14 @@
-package ar.edu.itba.poo.observer;
+package ar.edu.itba.poo.handlers;
 
 
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.gamelogic.LevelProfile;
 
-public class ObserverLevelProfile implements Observer<LevelProfile> {
+public class StatsLevelUpUpdater implements Observer<LevelProfile> {
 	
 	Game game;
 	
-	public ObserverLevelProfile(Game game){
+	public StatsLevelUpUpdater(Game game){
 		this.game = game;
 	}
 	

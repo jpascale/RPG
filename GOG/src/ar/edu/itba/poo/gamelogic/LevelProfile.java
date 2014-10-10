@@ -2,8 +2,8 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.util.ArrayList;
 
-import ar.edu.itba.poo.observer.Observable;
-import ar.edu.itba.poo.observer.Observer;
+import ar.edu.itba.poo.handlers.Observable;
+import ar.edu.itba.poo.handlers.Observer;
 
 public class LevelProfile implements Observable {
 	

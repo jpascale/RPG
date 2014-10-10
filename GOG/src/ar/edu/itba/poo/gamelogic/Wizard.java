@@ -3,7 +3,7 @@ package ar.edu.itba.poo.gamelogic;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.Dir;
 
-public class Wizard extends Strategy {
+public class Wizard extends Type {
 	
 	private static String WIZARD_NAME = "Wizard";
 	private static int WIZARD_HP_MODIF = 5;

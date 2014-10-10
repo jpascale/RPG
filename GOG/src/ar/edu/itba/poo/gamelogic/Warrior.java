@@ -4,7 +4,7 @@ import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.Dir;
 
-public class Warrior extends Strategy {
+public class Warrior extends Type {
 
 	private static String WARRIOR_NAME = "Warrior";
 	private static int WARRIOR_HP_MODIF = 10;

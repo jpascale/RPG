@@ -22,15 +22,14 @@ public class Creature extends Alive implements Combat {
 			this.getPos().setItem(item);
 			item = null;
 		}
-		//TODO si no hay item para tirar o ya hay un item en el lugar  (exception?)
 	}
 	
 	@Override
 	public void attack() {
 		try {
-			Tile posNext = super.getPos().getNext(super.getHeading());
+			Tile posNext = this.getPos().getNext(this.getHeading());
 			
-			if(!posNext.legalPos()){
+			if(posNext.getAlive() != null){
 				int damage = Alive.randInt(getMinHit(),getMaxHit());
 				posNext.getAlive().receiveAttack(damage);
 			}

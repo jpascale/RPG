@@ -1,4 +1,5 @@
-package ar.edu.itba.poo.observer;
+package ar.edu.itba.poo.handlers;
+
 
 public interface Observable {
 	

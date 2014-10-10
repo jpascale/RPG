@@ -36,14 +36,15 @@ public class Alive {
 		try {
 			
 			next = actual.getNext(dir);
-			this.setPos(next);
-			actual.freeAlive();
-			
+				
+			if (next.legalPos()){
+				this.setPos(next);
+				actual.freeAlive();
+			}
 		} catch (Exception e){
 			throw new EndOfMapException();
 		}
 		
-		;
 	}
 		
 	void receiveAttack(int damage){

@@ -1,8 +1,6 @@
 package ar.edu.itba.poo.worldlogic;
-
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.Alive;
-
 import ar.edu.itba.poo.worldlogic.Dir;
 
 public class Tile {
@@ -17,6 +15,7 @@ public class Tile {
 	
 	
 	public Tile(int x, int y){
+		
 		this.x = x;
 		this.y = y;
 		
@@ -62,8 +61,16 @@ public class Tile {
 		
 	}
 	
+	/*
+	 *	This method makes sense because a tile could be
+	 *	Illegal for other reason than having an Alive.
+	 */
+	public boolean hasAlive(){
+		return alive != null;
+	}
+	
 	public boolean legalPos(){
-		return alive == null;
+		return !hasAlive();
 	}
 	
 	public boolean hasItem(){

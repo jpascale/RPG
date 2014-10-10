@@ -3,7 +3,7 @@ package ar.edu.itba.poo.gamelogic;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.Dir;
 
-public abstract class Strategy{
+public abstract class Type{
 	
 	String name;
 	private int minHit;
@@ -12,7 +12,8 @@ public abstract class Strategy{
 	private final double hpmodif;
 	private final double manmodif;
 	
-	public Strategy(String name, double hpmodif, double manmodif, int minHit, int maxHit){
+	
+	public Type (String name, double hpmodif, double manmodif, int minHit, int maxHit){
 		this.name = name;
 		this.hpmodif = hpmodif;
 		this.manmodif = manmodif;
@@ -36,7 +37,6 @@ public abstract class Strategy{
 	public void setMaxHit(int maxHit) {
 		this.maxHit = maxHit;
 	}
-	
 	public int getHpmodif() {
 		return minHit;
 	}

@@ -65,6 +65,14 @@ public class Tile {
 		return alive == null;
 	}
 	
+	/*
+	 *	This method makes sense because a tile could be
+	 *	Illegal for other reason than having an Alive.
+	 */
+	public boolean hasAlive(){
+		return alive != null;
+	}
+	
 	public boolean hasItem(){
 		return !(item == null);
 	}

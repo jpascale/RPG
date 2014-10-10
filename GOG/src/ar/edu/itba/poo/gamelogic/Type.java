@@ -5,7 +5,7 @@ import ar.edu.itba.poo.worldlogic.Dir;
 
 public abstract class Type{
 	
-	String name;
+	private String name;
 	private int minHit;
 	private int maxHit;
 	

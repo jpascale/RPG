@@ -1,14 +1,11 @@
 package ar.edu.itba.poo.main;
-<<<<<<< HEAD
 import ar.edu.itba.poo.gamelogic.*;
 import ar.edu.itba.poo.gamelogic.Character;
-import ar.edu.itba.poo.observer.ObserverLevelProfile;
+import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
-=======
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.handlers.StatsLevelUpUpdater;
->>>>>>> d990d6abd53ee732303b62031b35698d65ed3cc4
 import ar.edu.itba.poo.worldlogic.TileMap;
 
 public class Main {
@@ -106,10 +103,7 @@ public class Main {
 		//game.setCharacter(...);
 		
 		
-		//TODO Aca creo q es un merging problem...
-		game.setObserverLevelProfile(new ObserverLevelProfile(game));
-		
-		game.setObserverLevelProfile(new StatsLevelUpUpdater(game));
+		//game.setObserverLevelProfile(new StatsLevelUpUpdater(game));
 		
 		
 		//*********************************************************************************
@@ -135,7 +129,10 @@ public class Main {
 			e.printStackTrace();
 		}*/
 		
-	
+		System.out.println(Dir.SOUTH.getOpposite());
+		System.out.println(Dir.NORTH.getOpposite());
+		System.out.println(Dir.WEST.getOpposite());
+		System.out.println(Dir.EAST.getOpposite());
 	}
 
 

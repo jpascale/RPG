@@ -1,4 +1,4 @@
-package ar.edu.itba.poo.observer;
+package ar.edu.itba.poo.handlers;
 
 
 import ar.edu.itba.poo.gamelogic.Game;

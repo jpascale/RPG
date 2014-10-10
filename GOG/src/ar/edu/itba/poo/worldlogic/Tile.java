@@ -61,16 +61,16 @@ public class Tile {
 		
 	}
 	
-	public boolean legalPos(){
-		return alive == null;
-	}
-	
 	/*
 	 *	This method makes sense because a tile could be
 	 *	Illegal for other reason than having an Alive.
 	 */
 	public boolean hasAlive(){
 		return alive != null;
+	}
+	
+	public boolean legalPos(){
+		return !hasAlive();
 	}
 	
 	public boolean hasItem(){

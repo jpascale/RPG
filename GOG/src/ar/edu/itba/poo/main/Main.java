@@ -1,6 +1,6 @@
 package ar.edu.itba.poo.main;
 import ar.edu.itba.poo.gamelogic.Game;
-import ar.edu.itba.poo.observer.StatsLevelUpUpdater;
+import ar.edu.itba.poo.handlers.StatsLevelUpUpdater;
 import ar.edu.itba.poo.worldlogic.TileMap;
 
 public class Main {

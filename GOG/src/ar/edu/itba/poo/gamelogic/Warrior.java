@@ -17,14 +17,14 @@ public class Warrior extends Type {
 	@Override
 	public void attack(Tile pos, Dir heading, Equipment equipment) {
 		try {
-			if(!pos.getNext(heading).legalPos()){
+			if(pos.getNext(heading).hasAlive()){
+				
 				double weaponModifier = equipment.getWeapon().getModifier();
-				int damage = (int) Math.round(Alive.randInt(super.getMinHit(),super.getMaxHit())*weaponModifier);
+				int damage = (int) Math.round(Alive.randInt(getMinHit(), getMaxHit()) * weaponModifier);
+				
 				pos.getNext(heading).getAlive().receiveAttack(damage);
 			}
-			else{
-				;//TODO if there is no creature.
-			}
+			
 		} catch (EndOfMapException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

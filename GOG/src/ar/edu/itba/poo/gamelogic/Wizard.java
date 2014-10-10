@@ -9,8 +9,8 @@ public class Wizard extends Strategy {
 	private static int WIZARD_HP_MODIF = 5;
 	private static int WIZARD_MAN_MODIF = 10;
 	
-	public Wizard() {
-		super(WIZARD_NAME, WIZARD_HP_MODIF, WIZARD_MAN_MODIF);
+	public Wizard(int minHit, int maxHit) {
+		super(WIZARD_NAME, WIZARD_HP_MODIF, WIZARD_MAN_MODIF, minHit, maxHit);
 		// TODO Auto-generated constructor stub
 	}
 

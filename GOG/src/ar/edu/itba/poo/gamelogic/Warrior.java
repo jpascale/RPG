@@ -10,8 +10,8 @@ public class Warrior extends Strategy {
 	private static int WARRIOR_HP_MODIF = 10;
 	private static int WARRIOR_MAN_MODIF = 0;
 	
-	public Warrior(String name) {
-		super(WARRIOR_NAME, WARRIOR_HP_MODIF, WARRIOR_MAN_MODIF);
+	public Warrior(String name, int minHit, int maxHit) {
+		super(WARRIOR_NAME, WARRIOR_HP_MODIF, WARRIOR_MAN_MODIF, minHit, maxHit);
 	}
 
 	@Override

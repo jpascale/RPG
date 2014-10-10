@@ -12,10 +12,12 @@ public abstract class Strategy{
 	private final double hpmodif;
 	private final double manmodif;
 	
-	public Strategy(String name, double hpmodif, double manmodif){
+	public Strategy(String name, double hpmodif, double manmodif, int minHit, int maxHit){
 		this.name = name;
 		this.hpmodif = hpmodif;
 		this.manmodif = manmodif;
+		this.minHit = minHit;
+		this.maxHit = maxHit;
 	}
 	
 	/*

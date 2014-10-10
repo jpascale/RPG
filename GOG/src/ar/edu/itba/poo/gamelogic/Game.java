@@ -2,8 +2,7 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.util.ArrayList;
 
-import ar.edu.itba.poo.gamelogic.Character;
-import ar.edu.itba.poo.observer.ObserverLevelProfile;
+import ar.edu.itba.poo.observer.StatsLevelUpUpdater;
 import ar.edu.itba.poo.worldlogic.TileMap;
 
 //TODO: MAKE SINGLETON
@@ -35,8 +34,16 @@ public class Game {
 		return this.character;
 	}
 	
-	public void setObserverLevelProfile(ObserverLevelProfile observer){
+	public void setObserverLevelProfile(StatsLevelUpUpdater observer){
 		getCharacter().getLvl().addObserver(observer);
+	}
+	
+	public void setName(String name){
+		this.name = name;
+	}
+	
+	public void startTileMap(){
+		this.map = TileMap.getInstance();
 	}
 	//startTileMap
 	//startPlayer

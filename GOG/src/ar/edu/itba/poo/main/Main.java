@@ -1,10 +1,7 @@
 package ar.edu.itba.poo.main;
-import ar.edu.itba.poo.gamelogic.*;
-import ar.edu.itba.poo.observer.ObserverLevelProfile;
-import ar.edu.itba.poo.worldlogic.EndOfMapException;
-import ar.edu.itba.poo.worldlogic.Tile;
+import ar.edu.itba.poo.gamelogic.Game;
+import ar.edu.itba.poo.observer.StatsLevelUpUpdater;
 import ar.edu.itba.poo.worldlogic.TileMap;
-import ar.edu.itba.poo.worldlogic.Dir;
 
 public class Main {
 
@@ -100,7 +97,7 @@ public class Main {
 		//game.set (...)
 		//game.setCharacter(...);
 		
-		game.setObserverLevelProfile(new ObserverLevelProfile(game));
+		game.setObserverLevelProfile(new StatsLevelUpUpdater(game));
 	
 	}
 

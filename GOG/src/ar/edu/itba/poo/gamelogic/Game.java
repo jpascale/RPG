@@ -2,7 +2,7 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.util.ArrayList;
 
-import ar.edu.itba.poo.handlers.StatsLevelUpUpdater;
+import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
 import ar.edu.itba.poo.worldlogic.NoSuchTileException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.TileMap;

@@ -1,6 +1,6 @@
 package ar.edu.itba.poo.gamelogic;
 
-import ar.edu.itba.poo.worldlogic.TileMap;
+import ar.edu.itba.poo.worldlogic.Tile;
 
 
 public class Character extends Alive implements Combat{
@@ -13,9 +13,9 @@ public class Character extends Alive implements Combat{
 	private Type type;
 	private Equipment equip;
 	
-	public Character(int x, int y) {
+	public Character(Tile pos) {
 		
-		super(CHAR_INITIAL_HP, CHAR_INITIAL_MAN, x, y);
+		super(CHAR_INITIAL_HP, CHAR_INITIAL_MAN, pos);
 		this.lvl = new LevelProfile();
 		this.inventory = new Inventory();
 		this.equip = new Equipment();

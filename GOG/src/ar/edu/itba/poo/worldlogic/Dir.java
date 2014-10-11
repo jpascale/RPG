@@ -25,8 +25,11 @@ public enum Dir {
 				ret = WEST;
 				break;
 			
-			default: //WEST
+			case WEST:
 				ret = EAST;
+				
+			default:
+				ret = NORTH;
 				break;
 		}
 		

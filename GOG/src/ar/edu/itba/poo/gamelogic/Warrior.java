@@ -22,10 +22,16 @@ public class Warrior extends Type {
 			
 			if(pos.getNext(heading).hasAlive()){
 				
+				Alive target = pos.getNext(heading).getAlive();
+						
 				double weaponModifier = attacker.getEquip().getWeapon().getModifier();
 				int damage = (int) Math.round(Alive.randInt(getMinHit(), getMaxHit()) * weaponModifier);
 				
-				pos.getNext(heading).getAlive().receiveAttack(damage);
+				target.receiveAttack(damage);
+				
+				if (target.getStatus().isDead()){
+					//TODO: Give me experience
+				}
 			}
 			
 		} catch (EndOfMapException e) {

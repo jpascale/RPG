@@ -13,11 +13,11 @@ public class Alive {
 	private Status status;
 	private Tile pos;
 
-	public Alive(int hp, int man, int x, int y) {
+	public Alive(int hp, int man, Tile pos) {
 		try{
 			this.heading = Dir.NORTH;
 			this.status = new Status(hp, man);
-			this.setPos(TileMap.getInstance().getTile(x, y));
+			this.setPos(pos);
 		} catch(Exception e){
 			;
 		}
@@ -30,7 +30,7 @@ public class Alive {
 		
 		actual = this.getPos();
 		
-		this.heading = dir;
+		setHeading(dir);
 		
 		//TODO: Exception?
 		try {
@@ -57,6 +57,10 @@ public class Alive {
 	    return randomNum;
 	}
 	
+	public void setPos(Tile pos) {
+		this.pos = pos;
+		pos.setAlive(this);
+	}
 	
 	/*
 	 *		Getters & Setters
@@ -72,11 +76,6 @@ public class Alive {
 
 	public Tile getPos() {
 		return pos;
-	}
-
-	public void setPos(Tile pos) {
-		this.pos = pos;
-		pos.setAlive(this);
 	}
 	
 	public Dir getHeading() {

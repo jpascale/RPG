@@ -1,11 +1,11 @@
 package ar.edu.itba.poo.main;
 import ar.edu.itba.poo.gamelogic.*;
 import ar.edu.itba.poo.gamelogic.Character;
+import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.gamelogic.Game;
-import ar.edu.itba.poo.handlers.StatsLevelUpUpdater;
 import ar.edu.itba.poo.worldlogic.TileMap;
 
 public class Main {

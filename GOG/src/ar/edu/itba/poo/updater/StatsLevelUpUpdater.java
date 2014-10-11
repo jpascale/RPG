@@ -1,4 +1,4 @@
-package ar.edu.itba.poo.handlers;
+package ar.edu.itba.poo.updater;
 
 
 import ar.edu.itba.poo.gamelogic.Game;

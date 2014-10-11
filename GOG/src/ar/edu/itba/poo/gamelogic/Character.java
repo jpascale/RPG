@@ -1,5 +1,7 @@
 package ar.edu.itba.poo.gamelogic;
 
+import ar.edu.itba.poo.worldlogic.TileMap;
+
 
 public class Character extends Alive implements Combat{
 
@@ -54,6 +56,7 @@ public class Character extends Alive implements Combat{
 	}
 	
 	
+	
 	/*
 	 *		Getters & Setters
 	 */
@@ -90,6 +93,14 @@ public class Character extends Alive implements Combat{
 	public void attack() {
 		type.attack(this);
 		
+	}
+
+	@Override
+	public void receiveAttack(int damage) {
+		super.receiveAttack(damage);
+		if(this.getStatus().isDead()){
+			//TODO notify observer to call reviveCharacter.
+		}
 	}
 
 

@@ -47,8 +47,9 @@ public class Alive {
 		
 	}
 		
-	void receiveAttack(int damage){
+	public void receiveAttack(int damage){
 		status.receiveDamage(damage);
+			
 	}
 	
 	public static int randInt(int min, int max) {

@@ -1,4 +1,5 @@
 package ar.edu.itba.poo.main;
+import ar.edu.itba.poo.frontend.MainFrame;
 import ar.edu.itba.poo.gamelogic.*;
 import ar.edu.itba.poo.gamelogic.Character;
 import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
@@ -129,12 +130,15 @@ public class Main {
 			e.printStackTrace();
 		}*/
 		
-		System.out.println(Dir.SOUTH.getOpposite());
-		System.out.println(Dir.NORTH.getOpposite());
-		System.out.println(Dir.WEST.getOpposite());
-		System.out.println(Dir.EAST.getOpposite());
+		//System.out.println(Dir.SOUTH.getOpposite());
+		//System.out.println(Dir.NORTH.getOpposite());
+		//System.out.println(Dir.WEST.getOpposite());
+		//System.out.println(Dir.EAST.getOpposite());
+	
+		MainFrame.startMainFrame();
+	
+	
 	}
-
 
 	
 }

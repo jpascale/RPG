@@ -22,7 +22,7 @@ public class Warrior extends Type {
 			
 			if(pos.getNext(heading).hasAlive()){
 				
-				Alive target = pos.getNext(heading).getAlive()
+				Alive target = pos.getNext(heading).getAlive();
 						
 				double weaponModifier = attacker.getEquip().getWeapon().getModifier();
 				int damage = (int) Math.round(Alive.randInt(getMinHit(), getMaxHit()) * weaponModifier);

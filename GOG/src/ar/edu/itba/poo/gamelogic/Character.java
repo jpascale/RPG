@@ -88,7 +88,7 @@ public class Character extends Alive implements Combat{
 
 	@Override
 	public void attack() {
-		type.attack(super.getPos(),super.getHeading(),equip);
+		type.attack(this);
 		
 	}
 

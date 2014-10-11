@@ -1,8 +1,5 @@
 package ar.edu.itba.poo.gamelogic;
 
-import ar.edu.itba.poo.worldlogic.Tile;
-import ar.edu.itba.poo.worldlogic.Dir;
-
 public class Wizard extends Type {
 	
 	private static String WIZARD_NAME = "Wizard";
@@ -16,7 +13,7 @@ public class Wizard extends Type {
 
 	//TODO Implement attack.
 	@Override
-	public void attack(Tile pos, Dir heading, Equipment equipment) {
+	public void attack(Character attacker) {
 		// TODO Auto-generated method stub
 		
 	}

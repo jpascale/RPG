@@ -15,11 +15,14 @@ public class Warrior extends Type {
 	}
 
 	@Override
-	public void attack(Tile pos, Dir heading, Equipment equipment) {
+	public void attack(Character attacker) {
 		try {
+			Dir heading = attacker.getHeading();
+			Tile pos = attacker.getPos();
+			
 			if(pos.getNext(heading).hasAlive()){
 				
-				double weaponModifier = equipment.getWeapon().getModifier();
+				double weaponModifier = attacker.getEquip().getWeapon().getModifier();
 				int damage = (int) Math.round(Alive.randInt(getMinHit(), getMaxHit()) * weaponModifier);
 				
 				pos.getNext(heading).getAlive().receiveAttack(damage);

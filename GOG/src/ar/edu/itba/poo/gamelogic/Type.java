@@ -44,5 +44,5 @@ public abstract class Type{
 		return minHit;
 	}
 	
-	public abstract void attack(Tile pos, Dir heading, Equipment equipment);
+	public abstract void attack(Character attacker); 
 }

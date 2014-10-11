@@ -87,4 +87,14 @@ public class Creature extends Alive implements Combat {
 		this.maxHit = maxHit;
 	}
 	
+	@Override
+	public void receiveAttack(int damage) {
+		super.receiveAttack(damage);
+		if(this.getStatus().isDead()){
+			//TODO notify observer to remove from frontend.
+			this.getPos().freeAlive();
+			this.setPos(null);
+		}
+	}
+	
 }

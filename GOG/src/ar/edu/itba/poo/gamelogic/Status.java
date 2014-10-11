@@ -31,6 +31,12 @@ public class Status {
 			minhp -= damage;
 	}
 	
+	public void heal(){
+		minhp = maxhp;
+		minman = maxman;
+		isdead = false;
+	}
+	
 	public void updateNextLvlStatus(int hpmodif, int manmodif) {
 		
 		int hpdelta = Alive.randInt(hpmodif, hpmodif + HP_DELTA_UP);

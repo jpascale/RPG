@@ -56,6 +56,7 @@ public class Character extends Alive implements Combat{
 	}
 	
 	
+	
 	/*
 	 *		Getters & Setters
 	 */
@@ -92,6 +93,14 @@ public class Character extends Alive implements Combat{
 	public void attack() {
 		type.attack(this);
 		
+	}
+
+	@Override
+	public void receiveAttack(int damage) {
+		super.receiveAttack(damage);
+		if(this.getStatus().isDead()){
+			//TODO notify observer to call reviveCharacter.
+		}
 	}
 
 

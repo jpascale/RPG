@@ -3,6 +3,8 @@ package ar.edu.itba.poo.gamelogic;
 import java.util.ArrayList;
 
 import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
+import ar.edu.itba.poo.worldlogic.NoSuchTileException;
+import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.TileMap;
 
 //TODO: MAKE SINGLETON
@@ -18,6 +20,9 @@ public class Game {
 	
 	private TileMap map;
 	
+	public static int START_X = 2;
+	public static int START_Y = 2;
+	
 	private Game(){
 		this.name = "Player";
 	}
@@ -28,6 +33,15 @@ public class Game {
 			instance = new Game();
 		}
 		return instance;
+	}
+	
+	private void reviveCharacter() throws NoSuchTileException{
+		Tile start = map.getTile(START_X, START_Y);
+		
+		character.getPos().freeAlive();
+		character.setPos(start);
+		start.setAlive(character);
+		character.getStatus().heal();
 	}
 	
 	public Character getCharacter(){

@@ -13,6 +13,8 @@ public class Tile {
 	private Item item;
 	private Alive alive;
 	
+	private TileType type;
+	
 	
 	public Tile(int x, int y){
 		
@@ -96,6 +98,14 @@ public class Tile {
 	public void setItem(Item item) {
 		this.item = item;
 		//TODO: Notify.
+	}
+
+	public TileType getType() {
+		return type;
+	}
+
+	public void setType(TileType type) {
+		this.type = type;
 	}
 
 	public Alive getAlive() {

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="johto" tilewidth="16" tileheight="16">
+  <image source="tileset_johto.png" trans="000000" width="128" height="7504"/>
+ </tileset>
+ <tileset firstgid="3753" name="Game Boy Advance - Pokemon Fire Red Leaf Green - Tileset2" tilewidth="16" tileheight="16" spacing="1" margin="1">
+  <image source="./Game Boy Advance - Pokemon Fire Red Leaf Green - Tileset2.png" trans="ffffff" width="477" height="800"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="40" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACzMWZGCQGKRYEoj9gXg93+DE/qPuI4g9BTHxqPtG3TfqPsJ4uLlPfADqjuEUfqPuG3XfqPsGDx51H3XcR896Abl+INZ9BfwMDCFAXMg/8GGGzX1BQHdNFWZgCB6k7ssDuisUiPMHqfs2A9lbkPDWQeA2ZPe9BrLfQPEFIL44CNyG7D7k/HF+ELoPlD8C+SH5YzC6Dzl/gOL67SBwG8x9A1E2k1KGAwBC6UqTwBIAAA==
+  </data>
+ </layer>
+</map>

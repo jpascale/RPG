@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Game Boy Advance - Pokemon Fire Red Leaf Green - Tileset2" tilewidth="16" tileheight="16" spacing="1" margin="1">
+  <image source="./Game Boy Advance - Pokemon Fire Red Leaf Green - Tileset2.png" trans="ffffff" width="477" height="800"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="30">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="32">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="35">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="38">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="39">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="40">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="57">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="58">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="59">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="60">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="62">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="63">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="66">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="67">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="68">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="343">
+   <properties>
+    <property name="type" value="blocked"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="40" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3SuwmAQBCE4T0fkV4LPkBQizA67eH6r8RNhEVEzJzTCX6Y8GPZ6EQieINgRh999KXvq3TXYHnjG3VPYM3GF3SvYG2Szv+97aCPPsTou6/TClMP5ss0Z8pBfMfdFlDf+W70fcvXaOVFLYjvafT9w4fcDhHbabPAEgAA
+  </data>
+ </layer>
+</map>

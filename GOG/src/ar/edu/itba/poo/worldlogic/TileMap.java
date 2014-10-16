@@ -1,13 +1,15 @@
 package ar.edu.itba.poo.worldlogic;
 
+import org.newdawn.slick.tiled.TiledMap;
+
 // TileMap - Singleton
 
 public class TileMap {
 	
 	private static TileMap instance = null;
 	
-	private static int X_TILES = 16;
-	private static int Y_TILES = 16;
+	private static int X_TILES = 40;
+	private static int Y_TILES = 30;
 	
 	private Tile[][] map;
 	
@@ -18,9 +20,7 @@ public class TileMap {
 		
 		for (int x = 0; x < X_TILES; x++){
 			for (int y = 0; y < Y_TILES; y++){
-				
 				map[x][y] = new Tile(x + 1, y + 1);
-
 			}
 		}
 	}
@@ -32,6 +32,32 @@ public class TileMap {
 		}
 		
 		return instance;
+	}
+	
+	//TODO Check how to mix it up with the constructor without
+	//     compromising the singleton
+	public void fillmaptype(TiledMap tmap){
+		if (instance != null){
+			for (int x = 0; x < X_TILES; x++){
+				for (int y = 0; y < Y_TILES; y++){
+				
+					int tileID = tmap.getTileId(x, y, 0);
+					String value = tmap.getTileProperty(tileID, "type", "false");
+               
+					switch (value){
+                		case "walkable":
+                			map[x][y].setType(TileType.WALKABLE);
+                			break;
+                		case "blocked":
+                			map[x][y].setType(TileType.BLOCKED);
+                			break;
+                		case "water":
+                			map[x][y].setType(TileType.WATER);
+                			break;
+					}
+				}
+			}
+		}	
 	}
 	
 	

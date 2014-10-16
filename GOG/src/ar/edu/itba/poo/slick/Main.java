@@ -1,7 +1,6 @@
 package ar.edu.itba.poo.slick;
 
 import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 
 public class Main {

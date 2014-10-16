@@ -2,10 +2,9 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.util.Random;
 
+import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
-import ar.edu.itba.poo.worldlogic.TileMap;
-import ar.edu.itba.poo.worldlogic.Dir;
 
 public class Alive {
 	

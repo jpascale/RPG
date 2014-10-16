@@ -1,7 +1,6 @@
 package ar.edu.itba.poo.worldlogic;
-import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.Alive;
-import ar.edu.itba.poo.worldlogic.Dir;
+import ar.edu.itba.poo.gamelogic.Item;
 
 public class Tile {
 	

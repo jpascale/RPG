@@ -11,11 +11,14 @@ import org.newdawn.slick.tiled.TiledMap;
 
 public class RPG extends BasicGame {
 
+	private static final int SIZE = 16;
+	private static int MOVE_INTERVAL = 150; // 0.15 seconds
+	
 	private TiledMap map;
 	private SpriteSheet sheet;
 	private Image character;
-	
-	private static final int SIZE = 16;
+	private int interval = 0;	
+
 	private int x;
 	private int y;
 	
@@ -24,35 +27,48 @@ public class RPG extends BasicGame {
 	}
 
 	public void init(GameContainer container) throws SlickException {
-		map = new TiledMap("data/map3.tmx");
+		map = new TiledMap("data/map2.tmx");
 		sheet = new SpriteSheet("data/red2.png", 16, 24);
 		character = sheet.getSprite(0, 0);
 		x = 2;
 		y = 2;
 	}
 
-	public void update(GameContainer container, int delta)
-			throws SlickException {
+	public void update(GameContainer container, int delta) throws SlickException {
+		
 		Input input = container.getInput();
+	
 		if(input.isKeyPressed(Input.KEY_ESCAPE)){
 			container.exit();	
 		}
-		else if (input.isKeyPressed(Input.KEY_UP)){
-			character = sheet.getSprite(0, 3);
-            y--;
-         }
-         else if (input.isKeyPressed(Input.KEY_DOWN)){
-        	 character = sheet.getSprite(0, 0);
-        	 y++;
-         }
-         else if (input.isKeyPressed(Input.KEY_LEFT)){
-        	 character = sheet.getSprite(0, 1);
-        	 x--;
-         }
-         else if (input.isKeyPressed(Input.KEY_RIGHT)){
-        	 character = sheet.getSprite(0, 2);
-        	 x++;
-         }
+		
+		interval += delta;
+		
+		if (interval >= MOVE_INTERVAL){
+			if (input.isKeyDown(Input.KEY_UP)){
+				character = sheet.getSprite(0, 3);
+				y--;
+				interval = 0;
+			}
+			else if (input.isKeyDown(Input.KEY_DOWN)){
+				character = sheet.getSprite(0, 0);
+				y++;
+				interval = 0;
+			}
+			else if (input.isKeyDown(Input.KEY_LEFT)){
+				character = sheet.getSprite(0, 1);
+				x--;
+				interval = 0;
+			}
+			else if (input.isKeyDown(Input.KEY_RIGHT)){
+				character = sheet.getSprite(0, 2);
+				x++;
+				interval = 0;
+			}
+			
+			if (interval >= MOVE_INTERVAL)
+				interval = MOVE_INTERVAL;
+		}
 		
 	}
 	

@@ -111,9 +111,9 @@ public class Alive implements Drawable {
 
 	public void draw(){
 		if(moving)
-			appear.getWalk().draw((pos.getX()-1)*RPG.SIZE, (pos.getY()-1)*RPG.SIZE);
+			appear.getWalk().draw((pos.getX()-1)*RPG.SIZE, (pos.getY()-1)*RPG.SIZE+90);
 		else
-			appear.getStay().draw((pos.getX()-1)*RPG.SIZE, (pos.getY()-1)*RPG.SIZE);
+			appear.getStay().draw((pos.getX()-1)*RPG.SIZE, (pos.getY()-1)*RPG.SIZE+90);
 	}
 	
 }

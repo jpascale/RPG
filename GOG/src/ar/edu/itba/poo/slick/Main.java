@@ -9,8 +9,9 @@ public class Main {
 		RPG rpg = new RPG("GOG");
 		AppGameContainer gc = new AppGameContainer(rpg);
 		
-		gc.setDisplayMode(640, 480, false);
+		gc.setDisplayMode(640, 570, false);
 		gc.setTargetFrameRate(60);
+		gc.setShowFPS(false);
 		gc.start();
 		
 	}

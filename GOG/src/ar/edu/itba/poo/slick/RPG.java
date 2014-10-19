@@ -29,6 +29,7 @@ public class RPG extends BasicGame {
 	private ar.edu.itba.poo.gamelogic.Character player;
 	private int interval = 0;
 	private CreatureList creatures;
+	private Console console;
 	
 	public RPG(String title) {
 		super(title);
@@ -36,6 +37,10 @@ public class RPG extends BasicGame {
 
 	public void init(GameContainer container) throws SlickException {
 		try {
+			console = new Console();
+			console.add("String 1");
+			console.add("String 2");
+			
 			map = TileMap.getInstance();
 			
 			player = new Character(map.getTile(3, 23));
@@ -88,13 +93,13 @@ public class RPG extends BasicGame {
 					interval = 0;
 				}
 				//Para probar mapa
-				/*
+				
 				else if (input.isKeyPressed(Input.KEY_M)){
-					System.out.println("Mi posicion es " + player.getPos().getX() + " " + player.getPos().getY());
+					console.add("Mi posicion es " + player.getPos().getX() + " " + player.getPos().getY());
 					player.attack();
 					interval = 0;
 				}
-				*/
+				
 				else
 					player.setMoving(false);
 				
@@ -113,9 +118,11 @@ public class RPG extends BasicGame {
 	}
 	
 	public void render(GameContainer container, Graphics gr) throws SlickException {
-		map.render(0, 0);
+		
+		map.render(0, 90);
 		player.draw();
 		creatures.draw();
+		console.draw();
 		
 	}
 

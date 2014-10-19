@@ -111,9 +111,9 @@ public class Alive {
 
 	public void draw(){
 		if(moving)
-			appear.getWalk().draw(pos.getX()*RPG.SIZE, pos.getY()*RPG.SIZE);
+			appear.getWalk().draw((pos.getX()-1)*RPG.SIZE, (pos.getY()-1)*RPG.SIZE);
 		else
-			appear.getStay().draw(pos.getX()*RPG.SIZE, pos.getY()*RPG.SIZE);
+			appear.getStay().draw((pos.getX()-1)*RPG.SIZE, (pos.getY()-1)*RPG.SIZE);
 	}
 	
 }

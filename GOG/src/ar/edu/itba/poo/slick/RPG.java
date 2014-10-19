@@ -1,5 +1,7 @@
 package ar.edu.itba.poo.slick;
 
+import java.util.LinkedList;
+
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -8,6 +10,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 import ar.edu.itba.poo.gamelogic.Character;
+import ar.edu.itba.poo.gamelogic.Creature;
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.Warrior;
 import ar.edu.itba.poo.worldlogic.Dir;
@@ -20,10 +23,10 @@ public class RPG extends BasicGame {
 	public static final int SIZE = 16;
 	public static int MOVE_INTERVAL = 150; // 0.15 seconds
 	
-	private TiledMap visualmap;
-	private TileMap logicmap;
+	private TileMap map;
 	private ar.edu.itba.poo.gamelogic.Character player;
-	private int interval = 0;	
+	private int interval = 0;
+	private LinkedList<Creature> creatures;
 	
 	public RPG(String title) {
 		super(title);
@@ -31,12 +34,18 @@ public class RPG extends BasicGame {
 
 	public void init(GameContainer container) throws SlickException {
 		try {
-			visualmap = new TiledMap("data/map2.tmx");
-			logicmap = TileMap.getInstance();
-			logicmap.fillmaptype(visualmap);
-			player = new Character(logicmap.getTile(2, 2));
+			map = TileMap.getInstance();
+			player = new Character(map.getTile(3, 23));
 			player.setStrategy(new Warrior("Patas Locas", 2, 5));
-			player.getEquip().setWeapon(new Item("Nudillos",1.0));
+			player.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
+			
+			creatures = new LinkedList<>();
+			creatures.add(new Creature(50, 0, map.getTile(10, 15), 2, 3));
+			creatures.add(new Creature(50, 0, map.getTile(20, 15), 2, 3));
+			creatures.add(new Creature(50, 0, map.getTile(35, 6), 2, 3));
+			creatures.add(new Creature(50, 0, map.getTile(35, 23), 2, 3));
+			creatures.add(new Creature(50, 0, map.getTile(8, 23), 2, 3));
+			
 		} catch (NoSuchTileException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,6 +84,11 @@ public class RPG extends BasicGame {
 					player.attack();
 					interval = 0;
 				}
+				else if (input.isKeyPressed(Input.KEY_M)){
+					System.out.println("Mi posicion es " + player.getPos().getX() + " " + player.getPos().getY());
+					player.attack();
+					interval = 0;
+				}
 				else
 					player.setMoving(false);
 				
@@ -86,13 +100,24 @@ public class RPG extends BasicGame {
 			
 			if (interval >= MOVE_INTERVAL)
 				interval = MOVE_INTERVAL;
+			
+			for(Creature creature : creatures){
+				  if(creature.getStatus().isDead()){
+					  creatures.remove(creature);
+				  }
+					  
+			}
+			
 		}
 		
 	}
 	
 	public void render(GameContainer container, Graphics gr) throws SlickException {
-		visualmap.render(0, 0);
+		map.render(0, 0);
 		player.draw();
+		for(Creature creature : creatures){
+			  creature.draw();
+		}
 		
 	}
 

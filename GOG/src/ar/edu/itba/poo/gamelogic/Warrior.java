@@ -1,5 +1,7 @@
 package ar.edu.itba.poo.gamelogic;
 
+import org.newdawn.slick.SlickException;
+
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
@@ -15,7 +17,7 @@ public class Warrior extends Type {
 	}
 
 	@Override
-	public void attack(Character attacker) {
+	public void attack(Character attacker) throws SlickException {
 		try {
 			Dir heading = attacker.getHeading();
 			Tile pos = attacker.getPos();
@@ -27,6 +29,7 @@ public class Warrior extends Type {
 				double weaponModifier = attacker.getEquip().getWeapon().getModifier();
 				int damage = (int) Math.round(Alive.randInt(getMinHit(), getMaxHit()) * weaponModifier);
 				
+				System.out.println("Has atacado a la criatura");
 				target.receiveAttack(damage);
 				
 				if (target.getStatus().isDead()){

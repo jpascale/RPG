@@ -8,7 +8,7 @@ import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.TileType;
 
-public class Alive {
+public class Alive implements Drawable {
 	
 	private Dir heading;
 	private Status status;

@@ -19,6 +19,7 @@ public class Character extends Alive implements Combat{
 		this.lvl = new LevelProfile();
 		this.inventory = new Inventory();
 		this.equip = new Equipment();
+		this.setAppear(new Appearance("data/red2.png", 16, 24));
 	}
 	
 	//TODO: Manage errors
@@ -82,7 +83,7 @@ public class Character extends Alive implements Combat{
 	}
 
 	public void setStrategy(Type strategy) {
-		this.type = type;
+		this.type = strategy;
 	}
 
 	public Equipment getEquip() {

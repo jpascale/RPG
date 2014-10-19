@@ -2,9 +2,11 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.util.Random;
 
+import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
+import ar.edu.itba.poo.worldlogic.TileType;
 
 public class Alive {
 	
@@ -32,13 +34,14 @@ public class Alive {
 		actual = this.getPos();
 		
 		setHeading(dir);
+		setMoving(true);
 		
 		//TODO: Exception?
 		try {
 			
 			next = actual.getNext(dir);
 				
-			if (next.legalPos()){
+			if ((next.legalPos()) && (next.getType() != TileType.BLOCKED)){
 				this.setPos(next);
 				actual.freeAlive();
 			}
@@ -86,6 +89,7 @@ public class Alive {
 	
 	public void setHeading(Dir heading){
 		this.heading = heading;
+		appear.changeAnimation(heading);
 	}
 	
 	public boolean isMoving() {
@@ -95,12 +99,21 @@ public class Alive {
 	public void setMoving(boolean moving) {
 		this.moving = moving;
 	}
+	
+	public Appearance getAppear() {
+		return appear;
+	}
+
+	public void setAppear(Appearance appear) {
+		this.appear = appear;
+	}
+
 
 	public void draw(){
 		if(moving)
-			appear.getWalk().draw(pos.getX(), pos.getY());
+			appear.getWalk().draw(pos.getX()*RPG.SIZE, pos.getY()*RPG.SIZE);
 		else
-			appear.getStay().draw(pos.getX(), pos.getY());
+			appear.getStay().draw(pos.getX()*RPG.SIZE, pos.getY()*RPG.SIZE);
 	}
 	
 }

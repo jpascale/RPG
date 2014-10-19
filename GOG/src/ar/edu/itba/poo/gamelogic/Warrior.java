@@ -33,6 +33,7 @@ public class Warrior extends Type {
 					//TODO: Give me experience
 				}
 			}
+			else System.out.println("No se encuentra el objetivo para atacar");
 			
 		} catch (EndOfMapException e) {
 			// TODO Auto-generated catch block

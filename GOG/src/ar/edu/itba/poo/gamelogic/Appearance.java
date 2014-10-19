@@ -22,14 +22,20 @@ public class Appearance {
 
 	
 	//TODO: Check throws SlickException
-	public Appearance(String ref, int tw, int th) throws SlickException {
+	public Appearance(String ref, int tw, int th){
 		
-		sheet = new SpriteSheet( ref, tw, th);
-		animDown = new Animation(sheet, 0, 0, 3, 0, true, RPG.MOVE_INTERVAL/4, false);
-		animLeft = new Animation(sheet, 0, 1, 3, 1, true, RPG.MOVE_INTERVAL/4, false);
-		animRight = new Animation(sheet, 0, 2, 3, 2, true, RPG.MOVE_INTERVAL/4, false);
-		animUp = new Animation(sheet, 0, 3, 3, 3, true, RPG.MOVE_INTERVAL/4, false);
-		stay = sheet.getSprite(0, 0);
+		try {
+			sheet = new SpriteSheet( ref, tw, th);
+			animDown = new Animation(sheet, 0, 0, 3, 0, true, RPG.MOVE_INTERVAL/4, false);
+			animLeft = new Animation(sheet, 0, 1, 3, 1, true, RPG.MOVE_INTERVAL/4, false);
+			animRight = new Animation(sheet, 0, 2, 3, 2, true, RPG.MOVE_INTERVAL/4, false);
+			animUp = new Animation(sheet, 0, 3, 3, 3, true, RPG.MOVE_INTERVAL/4, false);
+			stay = sheet.getSprite(0, 0);
+			walk = animDown;
+		} catch (SlickException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -43,12 +49,12 @@ public class Appearance {
 			
 		case EAST:
 			walk = animRight;
-			stay =	sheet.getSprite(0, 1);
+			stay =	sheet.getSprite(0, 2);
 			break;
 			
 		case WEST:
 			walk = animLeft;
-			stay = sheet.getSprite(0, 2);
+			stay = sheet.getSprite(0, 1);
 			break;
 			
 		case NORTH:

@@ -12,7 +12,7 @@ import org.newdawn.slick.tiled.TiledMap;
 public class RPG extends BasicGame {
 
 	private static final int SIZE = 16;
-	private static int MOVE_INTERVAL = 150; // 0.15 seconds
+	public static int MOVE_INTERVAL = 150; // 0.15 seconds
 	
 	private TiledMap map;
 	private SpriteSheet sheet;

@@ -11,6 +11,8 @@ public class Alive {
 	private Dir heading;
 	private Status status;
 	private Tile pos;
+	private Appearance appear;
+	private boolean moving;
 
 	public Alive(int hp, int man, Tile pos) {
 		try{
@@ -84,6 +86,21 @@ public class Alive {
 	
 	public void setHeading(Dir heading){
 		this.heading = heading;
+	}
+	
+	public boolean isMoving() {
+		return moving;
+	}
+
+	public void setMoving(boolean moving) {
+		this.moving = moving;
+	}
+
+	public void draw(){
+		if(moving)
+			appear.getWalk().draw(pos.getX(), pos.getY());
+		else
+			appear.getStay().draw(pos.getX(), pos.getY());
 	}
 	
 }

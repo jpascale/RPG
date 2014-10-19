@@ -6,11 +6,13 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 import ar.edu.itba.poo.gamelogic.Character;
 import ar.edu.itba.poo.gamelogic.Creature;
+import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.Warrior;
 import ar.edu.itba.poo.worldlogic.Dir;
@@ -26,7 +28,7 @@ public class RPG extends BasicGame {
 	private TileMap map;
 	private ar.edu.itba.poo.gamelogic.Character player;
 	private int interval = 0;
-	private LinkedList<Creature> creatures;
+	private CreatureList creatures;
 	
 	public RPG(String title) {
 		super(title);
@@ -35,11 +37,12 @@ public class RPG extends BasicGame {
 	public void init(GameContainer container) throws SlickException {
 		try {
 			map = TileMap.getInstance();
+			
 			player = new Character(map.getTile(3, 23));
 			player.setStrategy(new Warrior("Patas Locas", 2, 5));
 			player.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
 			
-			creatures = new LinkedList<>();
+			creatures = new CreatureList();
 			creatures.add(new Creature(50, 0, map.getTile(10, 15), 2, 3));
 			creatures.add(new Creature(50, 0, map.getTile(20, 15), 2, 3));
 			creatures.add(new Creature(50, 0, map.getTile(35, 6), 2, 3));
@@ -84,11 +87,14 @@ public class RPG extends BasicGame {
 					player.attack();
 					interval = 0;
 				}
+				//Para probar mapa
+				/*
 				else if (input.isKeyPressed(Input.KEY_M)){
 					System.out.println("Mi posicion es " + player.getPos().getX() + " " + player.getPos().getY());
 					player.attack();
 					interval = 0;
 				}
+				*/
 				else
 					player.setMoving(false);
 				
@@ -101,23 +107,15 @@ public class RPG extends BasicGame {
 			if (interval >= MOVE_INTERVAL)
 				interval = MOVE_INTERVAL;
 			
-			for(Creature creature : creatures){
-				  if(creature.getStatus().isDead()){
-					  creatures.remove(creature);
-				  }
-					  
-			}
+			creatures.removeBodies();
 			
 		}
-		
 	}
 	
 	public void render(GameContainer container, Graphics gr) throws SlickException {
 		map.render(0, 0);
 		player.draw();
-		for(Creature creature : creatures){
-			  creature.draw();
-		}
+		creatures.draw();
 		
 	}
 

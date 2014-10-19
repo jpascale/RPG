@@ -40,6 +40,14 @@ public class Item implements Drawable{
 		return name;
 	}
 
+	public Tile getPos() {
+		return pos;
+	}
+
+	public void setPos(Tile pos) {
+		this.pos = pos;
+	}
+
 	@Override
 	public void draw() {
 		image.draw((pos.getX()-1)*RPG.SIZE, (pos.getY()-1)*RPG.SIZE);

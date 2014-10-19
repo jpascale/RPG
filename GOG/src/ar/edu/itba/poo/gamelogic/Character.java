@@ -1,5 +1,7 @@
 package ar.edu.itba.poo.gamelogic;
 
+import org.newdawn.slick.SlickException;
+
 import ar.edu.itba.poo.worldlogic.Tile;
 
 
@@ -92,7 +94,12 @@ public class Character extends Alive implements Combat{
 
 	@Override
 	public void attack() {
-		type.attack(this);
+		try {
+			type.attack(this);
+		} catch (SlickException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

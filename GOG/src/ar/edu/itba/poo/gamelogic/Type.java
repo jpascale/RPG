@@ -1,5 +1,7 @@
 package ar.edu.itba.poo.gamelogic;
 
+import org.newdawn.slick.SlickException;
+
 
 public abstract class Type{
 	
@@ -42,5 +44,5 @@ public abstract class Type{
 		return minHit;
 	}
 	
-	public abstract void attack(Character attacker); 
+	public abstract void attack(Character attacker) throws SlickException; 
 }

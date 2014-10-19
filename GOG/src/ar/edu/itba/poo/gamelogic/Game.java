@@ -2,6 +2,8 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.util.ArrayList;
 
+import org.newdawn.slick.SlickException;
+
 import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
 import ar.edu.itba.poo.worldlogic.NoSuchTileException;
 import ar.edu.itba.poo.worldlogic.Tile;
@@ -56,7 +58,7 @@ public class Game {
 		this.name = name;
 	}
 	
-	public void startTileMap(){
+	public void startTileMap() throws SlickException{
 		this.map = TileMap.getInstance();
 	}
 	//startTileMap

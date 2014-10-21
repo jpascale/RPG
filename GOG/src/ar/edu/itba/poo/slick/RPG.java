@@ -18,14 +18,16 @@ import ar.edu.itba.poo.gamelogic.Warrior;
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.NoSuchTileException;
-import ar.edu.itba.poo.worldlogic.TileMap;
+import ar.edu.itba.poo.worldlogic.World;
 
 public class RPG extends BasicGame {
 
 	public static final int SIZE = 16;
 	public static int MOVE_INTERVAL = 150; // 0.15 seconds
 	
-	private TileMap map;
+	private World logicMap;
+	private TiledMap graphicMap;
+	
 	private ar.edu.itba.poo.gamelogic.Character player;
 	private int interval = 0;
 	private CreatureList creatures;
@@ -38,21 +40,21 @@ public class RPG extends BasicGame {
 	public void init(GameContainer container) throws SlickException {
 		try {
 			console = new Console();
-			console.add("String 1");
-			console.add("String 2");
+			console.add("Juego comenzado");
 			
-			map = TileMap.getInstance();
+			graphicMap = new TiledMap("data/map2.tmx");
+			logicMap = World.getInstance();
 			
-			player = new Character(map.getTile(3, 23));
+			player = new Character(logicMap.getTile(3, 23));
 			player.setStrategy(new Warrior("Patas Locas", 2, 5));
-			player.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
+			player.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, logicMap.getTile(1, 1)));
 			
 			creatures = new CreatureList();
-			creatures.add(new Creature(50, 0, map.getTile(10, 15), 2, 3));
-			creatures.add(new Creature(50, 0, map.getTile(20, 15), 2, 3));
-			creatures.add(new Creature(50, 0, map.getTile(35, 6), 2, 3));
-			creatures.add(new Creature(50, 0, map.getTile(35, 23), 2, 3));
-			creatures.add(new Creature(50, 0, map.getTile(8, 23), 2, 3));
+			creatures.add(new Creature(50, 0, logicMap.getTile(10, 15), 2, 3));
+			creatures.add(new Creature(50, 0, logicMap.getTile(20, 15), 2, 3));
+			creatures.add(new Creature(50, 0, logicMap.getTile(35, 6), 2, 3));
+			creatures.add(new Creature(50, 0, logicMap.getTile(35, 23), 2, 3));
+			creatures.add(new Creature(50, 0, logicMap.getTile(8, 23), 2, 3));
 			
 		} catch (NoSuchTileException e) {
 			// TODO Auto-generated catch block
@@ -88,7 +90,7 @@ public class RPG extends BasicGame {
 					player.move(Dir.EAST);
 					interval = 0;
 				}
-				else if (input.isKeyPressed(Input.KEY_LSHIFT)){
+				else if (input.isKeyPressed(Input.KEY_LCONTROL)){
 					player.attack();
 					interval = 0;
 				}
@@ -119,7 +121,7 @@ public class RPG extends BasicGame {
 	
 	public void render(GameContainer container, Graphics gr) throws SlickException {
 		
-		map.render(0, 90);
+		graphicMap.render(0, 90);
 		player.draw();
 		creatures.draw();
 		console.draw();

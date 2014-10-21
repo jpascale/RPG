@@ -7,7 +7,7 @@ import org.newdawn.slick.SlickException;
 import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
 import ar.edu.itba.poo.worldlogic.NoSuchTileException;
 import ar.edu.itba.poo.worldlogic.Tile;
-import ar.edu.itba.poo.worldlogic.TileMap;
+import ar.edu.itba.poo.worldlogic.World;
 
 //TODO: MAKE SINGLETON
 
@@ -20,7 +20,7 @@ public class Game {
 	private Character character;
 	private ArrayList<Creature> creatures;
 	
-	private TileMap map;
+	private World map;
 	
 	public static int START_X = 2;
 	public static int START_Y = 2;
@@ -59,7 +59,7 @@ public class Game {
 	}
 	
 	public void startTileMap() throws SlickException{
-		this.map = TileMap.getInstance();
+		this.map = World.getInstance();
 	}
 	//startTileMap
 	//startPlayer

@@ -5,9 +5,9 @@ import org.newdawn.slick.tiled.TiledMap;
 
 // TileMap - Singleton
 
-public class TileMap extends TiledMap {
+public class World {
 	
-	private static TileMap instance = null;
+	private static World instance = null;
 	
 	private static int X_TILES = 40;
 	private static int Y_TILES = 30;
@@ -15,8 +15,16 @@ public class TileMap extends TiledMap {
 	private Tile[][] map;
 	
 	
-	private TileMap() throws SlickException{
-		super("data/map2.tmx");
+	private World(){
+		
+		TiledMap mapCreator = null;
+		
+		try {
+			mapCreator = new TiledMap("data/map2.tmx");
+		} catch (SlickException e) {
+			// THIS WILL NEVER HAPPEN
+			e.printStackTrace();
+		}
 		
 		map = new Tile[X_TILES][Y_TILES];
 		
@@ -24,8 +32,8 @@ public class TileMap extends TiledMap {
 			for (int y = 0; y < Y_TILES; y++){
 				map[x][y] = new Tile(x + 1, y + 1);
 				
-				int tileID = getTileId(x, y, 0);
-				String value = getTileProperty(tileID, "type", "false");
+				int tileID = mapCreator.getTileId(x, y, 0);
+				String value = mapCreator.getTileProperty(tileID, "type", "false");
            
 				switch (value){
             		case "walkable":
@@ -42,10 +50,11 @@ public class TileMap extends TiledMap {
 		}
 	}
 	
-	public static TileMap getInstance() throws SlickException{
+	
+	public static World getInstance() throws SlickException{
 		
 		if (instance == null){
-			instance = new TileMap();
+			instance = new World();
 		}
 		
 		return instance;

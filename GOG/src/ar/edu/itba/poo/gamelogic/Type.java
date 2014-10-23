@@ -44,5 +44,5 @@ public abstract class Type{
 		return minHit;
 	}
 	
-	public abstract void attack(Character attacker) throws SlickException; 
+	public abstract void attack(Character attacker); 
 }

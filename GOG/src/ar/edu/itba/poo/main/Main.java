@@ -1,6 +1,6 @@
 package ar.edu.itba.poo.main;
 import ar.edu.itba.poo.gamelogic.Game;
-import ar.edu.itba.poo.worldlogic.TileMap;
+import ar.edu.itba.poo.worldlogic.World;
 
 public class Main {
 
@@ -11,7 +11,7 @@ public class Main {
 		// Tile Test - OK
 		//*********************************************************************************
 		
-		TileMap map = TileMap.getInstance();
+		//World map = World.getInstance();
 //		
 //		try{
 //			Tile tile = map.getTile(8,8);
@@ -92,7 +92,7 @@ public class Main {
 //		lvl.gainExp(100000);
 //		System.out.println(lvl.getLevel() + ": " + lvl.getExp() + "/" + lvl.getMaxexp());
 	
-		Game game = Game.getInstance();
+		//Game game = Game.getInstance();
 		//game.set (...)
 		//game.setCharacter(...);
 		

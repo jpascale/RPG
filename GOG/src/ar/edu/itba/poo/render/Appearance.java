@@ -1,4 +1,4 @@
-package ar.edu.itba.poo.gamelogic;
+package ar.edu.itba.poo.render;
 
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;

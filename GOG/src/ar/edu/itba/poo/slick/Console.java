@@ -6,11 +6,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 
-import ar.edu.itba.poo.gamelogic.Drawable;
+public class Console {
 
-public class Console implements Drawable {
-
-	private LinkedList<String> console;
+	private static LinkedList<String> console;
 	private String fontPath;
 	private static int LINES = 6;
 	private UnicodeFont consoleFont;
@@ -31,20 +29,22 @@ public class Console implements Drawable {
 		}
 	}
 	
-	public void add(String str){
+	public static void add(String message){
+		
 		if(console.size() < LINES)
-			console.addLast(str);
+			console.addLast(message);
 		else{
 			console.removeFirst();
-			console.addLast(str);	
+			console.addLast(message);	
 		}
 			
 	}
 
-	@Override
 	public void draw() {
+		int i = 0;
 		for (String string : console) {
-			consoleFont.drawString(0, console.indexOf(string)*15, string);
+			consoleFont.drawString(0, i*15, string);
+			i++;
 		}
 	}
 

@@ -2,6 +2,8 @@ package ar.edu.itba.poo.gamelogic;
 
 import org.newdawn.slick.SlickException;
 
+import ar.edu.itba.poo.render.Appearance;
+import ar.edu.itba.poo.slick.Console;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 
@@ -12,12 +14,13 @@ public class Creature extends Alive implements Combat {
 	private int gold;
 	private int minHit;
 	private int maxHit;
+	private CreatureType type;
 	
-	public Creature(int hp, int man, Tile pos, int minHit, int maxHit){
+	public Creature(int hp, int man, Tile pos, int minHit, int maxHit, CreatureType ctype){
 		super(hp, man, pos);
 		this.minHit = minHit;
 		this.maxHit = maxHit;
-		this.setAppear(new Appearance("data/red2.png", 16, 24));
+		this.type = ctype;
 	}
 	
 	public void throwItem(){
@@ -42,10 +45,7 @@ public class Creature extends Alive implements Combat {
 		} catch (EndOfMapException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SlickException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 			
 	}
 	
@@ -93,14 +93,22 @@ public class Creature extends Alive implements Combat {
 		this.maxHit = maxHit;
 	}
 	
+	public CreatureType getType() {
+		return type;
+	}
+
+	public void setType(CreatureType type) {
+		this.type = type;
+	}
+
 	@Override
 	public void receiveAttack(int damage) {
 		super.receiveAttack(damage);
-		System.out.println("Has sacado " + damage + " puntos de vida.");
+		Console.add("Has sacado " + damage + " puntos de vida.");
 		if(this.getStatus().isDead()){
 			//TODO notify observer to remove from frontend.
 			this.getPos().freeAlive();
-			System.out.println("La criatura ha muerto.");
+			Console.add("La criatura ha muerto.");
 		}
 	}
 	

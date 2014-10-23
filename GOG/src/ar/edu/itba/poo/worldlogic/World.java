@@ -51,7 +51,7 @@ public class World {
 	}
 	
 	
-	public static World getInstance() throws SlickException{
+	public static World getInstance(){
 		
 		if (instance == null){
 			instance = new World();

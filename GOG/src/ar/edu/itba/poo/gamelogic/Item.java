@@ -1,30 +1,18 @@
 package ar.edu.itba.poo.gamelogic;
 
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-
-import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Tile;
 
 //TODO: Make Abstract
-public class Item implements Drawable{
+public class Item {
 	
 	private String name;
-	private Image image;
 	private double modifier;
 	private Tile pos;
 	
 	public Item(String name, String ref, double modifier, Tile tile) {
-		super();
-		try {
 			this.name = name;
-			this.image = new Image(ref);
 			this.modifier = modifier;
-			this.pos = tile;
-		} catch (SlickException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			this.pos = tile; 
 		
 	}
 
@@ -46,11 +34,6 @@ public class Item implements Drawable{
 
 	public void setPos(Tile pos) {
 		this.pos = pos;
-	}
-
-	@Override
-	public void draw() {
-		image.draw((pos.getX()-1)*RPG.SIZE, (pos.getY()-1)*RPG.SIZE);
 	}
 	
 	

@@ -1,6 +1,4 @@
 package ar.edu.itba.poo.worldlogic;
-import org.newdawn.slick.SlickException;
-
 import ar.edu.itba.poo.gamelogic.Alive;
 import ar.edu.itba.poo.gamelogic.Item;
 
@@ -26,7 +24,7 @@ public class Tile {
 		this.alive = null;
 	}
 	
-	public Tile getNext(Dir dir) throws EndOfMapException, SlickException {
+	public Tile getNext(Dir dir) throws EndOfMapException{
 		
 		int x_delta = 0;
 		int y_delta = 0;

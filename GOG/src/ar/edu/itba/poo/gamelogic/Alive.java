@@ -2,23 +2,23 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.util.Random;
 
+import ar.edu.itba.poo.render.Appearance;
 import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.TileType;
 
-public class Alive implements Drawable {
+public class Alive{
 	
 	private Dir heading;
 	private Status status;
 	private Tile pos;
-	private Appearance appear;
 	private boolean moving;
 
 	public Alive(int hp, int man, Tile pos) {
 		try{
-			this.heading = Dir.NORTH;
+			this.heading = Dir.SOUTH;
 			this.status = new Status(hp, man);
 			this.setPos(pos);
 		} catch(Exception e){
@@ -89,7 +89,7 @@ public class Alive implements Drawable {
 	
 	public void setHeading(Dir heading){
 		this.heading = heading;
-		appear.changeAnimation(heading);
+		//Notify observer
 	}
 	
 	public boolean isMoving() {
@@ -98,22 +98,6 @@ public class Alive implements Drawable {
 
 	public void setMoving(boolean moving) {
 		this.moving = moving;
-	}
-	
-	public Appearance getAppear() {
-		return appear;
-	}
-
-	public void setAppear(Appearance appear) {
-		this.appear = appear;
-	}
-
-
-	public void draw(){
-		if(moving)
-			appear.getWalk().draw((pos.getX()-1)*RPG.SIZE, (pos.getY()-1)*RPG.SIZE+90);
-		else
-			appear.getStay().draw((pos.getX()-1)*RPG.SIZE, (pos.getY()-1)*RPG.SIZE+90);
 	}
 	
 }

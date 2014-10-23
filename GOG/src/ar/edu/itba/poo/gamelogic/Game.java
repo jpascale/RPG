@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.newdawn.slick.SlickException;
 
 import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
-import ar.edu.itba.poo.worldlogic.NoSuchTileException;
+import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.World;
 
@@ -18,7 +18,7 @@ public class Game {
 	private String name;
 	
 	private Character character;
-	private ArrayList<Creature> creatures;
+	private CreatureList creatures;
 	
 	private World map;
 	
@@ -37,7 +37,7 @@ public class Game {
 		return instance;
 	}
 	
-	private void reviveCharacter() throws NoSuchTileException{
+	private void reviveCharacter() throws EndOfMapException{
 		Tile start = map.getTile(START_X, START_Y);
 		
 		character.getPos().freeAlive();

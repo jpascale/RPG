@@ -56,7 +56,7 @@ public class Tile {
 		try{
 			next = World.getInstance().getTile(this.x + x_delta, this.y + y_delta);
 			return next;
-		} catch (NoSuchTileException e) {
+		} catch (EndOfMapException e) {
 			throw new EndOfMapException();
 		}
 		

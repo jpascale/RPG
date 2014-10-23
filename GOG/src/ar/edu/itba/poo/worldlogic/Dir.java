@@ -1,6 +1,5 @@
 package ar.edu.itba.poo.worldlogic;
 
-//TODO: Ask if is not ugly
 public enum Dir {
 	
 		NORTH,

@@ -17,7 +17,7 @@ public class Character extends Alive implements Combat{
 	public Character(Tile pos) {
 		
 		super(CHAR_INITIAL_HP, CHAR_INITIAL_MAN, pos);
-		this.lvl = new LevelProfile();
+		this.lvl = new LevelProfile(this);
 		this.inventory = new Inventory();
 		this.equip = new Equipment();
 		this.addObserver(new CharacterMovementObserver());

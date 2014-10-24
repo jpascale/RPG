@@ -34,7 +34,7 @@ public class Warrior extends Type {
 				target.receiveAttack(damage);
 				
 				if (target.getStatus().isDead()){
-					//TODO: Give me experience
+					attacker.gainExp(Alive.calculateExp(target)); //TODO: Give me experience
 				}
 			}
 			else Console.add("No se encuentra el objetivo para atacar");

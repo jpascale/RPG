@@ -5,20 +5,22 @@ import java.util.ArrayList;
 import ar.edu.itba.poo.updater.Observable;
 import ar.edu.itba.poo.updater.Observer;
 
-public class LevelProfile implements Observable {
+public class LevelProfile {
 	
 	public static int MAX_LVL = 47;
 	public static int EXP_CONST = 50;
 	
-	ArrayList<Observer> observers;
+	
+	private Alive alive;
 	
 	private int level;
 	
 	private int exp;
 	private int maxexp;
 	
-	public LevelProfile(){
-		observers = new ArrayList<Observer>();
+	public LevelProfile(Alive alive){
+		
+		this.alive = alive;
 		
 		this.level = 1;
 		this.exp = 0;
@@ -31,8 +33,6 @@ public class LevelProfile implements Observable {
 			this.exp = 0;
 			this.maxexp = EXP_CONST * this.level;
 			
-			//Level up, time to update stats!
-			notifyObservers();
 		}
 	}
 	
@@ -54,27 +54,27 @@ public class LevelProfile implements Observable {
 	
 	/*
 	 *		Observer methods
-	 */
-	
-	@Override
-	public void addObserver(Observer observer) {
-		observers.add(observer);
-	}
-
-	@Override
-	public void removeObserver(Observer observer) {
-		observers.remove(observer);
-	}
-
-	@Override
-	public void notifyObservers() {
-		
-		for (Observer ob : this.observers){
-			ob.handleUpdate(this);
-		}
-	}
-	
-	
+//	 */
+//	
+//	@Override
+//	public void addObserver(Observer observer) {
+//		observers.add(observer);
+//	}
+//
+//	@Override
+//	public void removeObserver(Observer observer) {
+//		observers.remove(observer);
+//	}
+//
+//	@Override
+//	public void notifyObservers() {
+//		
+//		for (Observer ob : this.observers){
+//			ob.handleUpdate(this);
+//		}
+//	}
+//	
+//	
 	/*
 	 *		Getters & Setters
 	 */

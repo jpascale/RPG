@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.newdawn.slick.SlickException;
 
-import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
+//import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.World;
@@ -50,9 +50,9 @@ public class Game {
 		return this.character;
 	}
 	
-	public void setObserverLevelProfile(StatsLevelUpUpdater observer){
-		getCharacter().getLvl().addObserver(observer);
-	}
+	//public void setObserverLevelProfile(StatsLevelUpUpdater observer){
+	//	getCharacter().getLvl().addObserver(observer);
+	//}
 	
 	public void setName(String name){
 		this.name = name;

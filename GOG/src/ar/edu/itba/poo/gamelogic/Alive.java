@@ -72,6 +72,15 @@ public class Alive implements Observable{
 		pos.setAlive(this);
 	}
 	
+	public static int calculateExp(Alive alive){
+		
+		int maxhp = alive.getStatus().getMaxhp();
+		int maxman = alive.getStatus().getMaxman();
+		
+		return (maxhp + (int)((maxhp * maxman) / (maxhp + maxman)));
+	}
+	
+	
 	/*
 	 *		Getters & Setters
 	 */

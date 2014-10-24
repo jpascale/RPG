@@ -7,8 +7,8 @@ import ar.edu.itba.poo.worldlogic.Tile;
 public class Creature extends Alive implements Combat {
 	
 	private Item item;
-	private int exp;
-	private int gold;
+	//private int exp;
+	//private int gold;
 	private int minHit;
 	private int maxHit;
 	private CreatureType type;
@@ -58,21 +58,21 @@ public class Creature extends Alive implements Combat {
 		this.item = item;
 	}
 
-	public int getExp() {
-		return exp;
-	}
-
-	public void setExp(int exp) {
-		this.exp = exp;
-	}
-
-	public int getGold() {
-		return gold;
-	}
-
-	public void setGold(int gold) {
-		this.gold = gold;
-	}
+//	public int getExp() {
+//		return exp;
+//	}
+//
+//	public void setExp(int exp) {
+//		this.exp = exp;
+//	}
+//
+//	public int getGold() {
+//		return gold;
+//	}
+//
+//	public void setGold(int gold) {
+//		this.gold = gold;
+//	}
 
 	public int getMinHit() {
 		return minHit;

@@ -119,6 +119,10 @@ public class RPG extends BasicGame {
 					interval = 0;
 				}
 				
+				else if(input.isKeyPressed(Input.KEY_S)){
+					Console.add("HP: " + player.getStatus().getMinhp() + "/" + player.getStatus().getMaxhp() + "; Lvl: " + player.getLvl().getLevel() + "; Exp: " + player.getLvl().getExp() + "/ "+ player.getLvl().getMaxexp()); 
+				}
+				
 				else
 					CharacterRenderer.setMoving(false);
 				

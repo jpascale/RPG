@@ -1,8 +1,5 @@
 package ar.edu.itba.poo.gamelogic;
 
-import org.newdawn.slick.SlickException;
-
-import ar.edu.itba.poo.render.Appearance;
 import ar.edu.itba.poo.slick.Console;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;

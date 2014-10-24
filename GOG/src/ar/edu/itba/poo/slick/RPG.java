@@ -30,7 +30,6 @@ public class RPG extends BasicGame {
 	private TiledMap graphicMap;
 	
 	private Character player;
-	private CharacterRenderer playerRenderer;
 	
 	private CreatureList creatures;
 	private CreatureRenderer creatureRenderer;
@@ -61,7 +60,6 @@ public class RPG extends BasicGame {
 			creatures.add(new Creature(50, 0, logicMap.getTile(35, 23), 2, 3, CreatureType.CREATURE_1));
 			creatures.add(new Creature(50, 0, logicMap.getTile(8, 23), 2, 3, CreatureType.CREATURE_1));
 			
-			playerRenderer = new CharacterRenderer(player);
 			creatureRenderer = new CreatureRenderer(creatures);
 			
 		} catch (NoSuchTileException e) {
@@ -83,18 +81,22 @@ public class RPG extends BasicGame {
 		if (interval >= MOVE_INTERVAL){
 			try {
 				if (input.isKeyDown(Input.KEY_UP)){
+					CharacterRenderer.setMoving(true);
 					player.move(Dir.NORTH);
 					interval = 0;
 				}
 				else if (input.isKeyDown(Input.KEY_DOWN)){
+					CharacterRenderer.setMoving(true);
 					player.move(Dir.SOUTH);
 					interval = 0;
 				}
 				else if (input.isKeyDown(Input.KEY_LEFT)){
+					CharacterRenderer.setMoving(true);
 					player.move(Dir.WEST);
 					interval = 0;
 				}
 				else if (input.isKeyDown(Input.KEY_RIGHT)){
+					CharacterRenderer.setMoving(true);
 					player.move(Dir.EAST);
 					interval = 0;
 				}
@@ -111,13 +113,12 @@ public class RPG extends BasicGame {
 				}
 				
 				else
-					player.setMoving(false);
+					CharacterRenderer.setMoving(false);
 				
 			} catch (EndOfMapException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			playerRenderer.getAppear().getWalk().update(MOVE_INTERVAL/4);
 			
 			if (interval >= MOVE_INTERVAL)
 				interval = MOVE_INTERVAL;
@@ -131,7 +132,7 @@ public class RPG extends BasicGame {
 		
 		graphicMap.render(0, 90);
 		creatureRenderer.render();
-		playerRenderer.render();
+		CharacterRenderer.render();
 		console.draw();
 		
 	}

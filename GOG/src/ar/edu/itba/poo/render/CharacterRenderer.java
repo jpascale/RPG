@@ -1,29 +1,33 @@
 package ar.edu.itba.poo.render;
 
-import ar.edu.itba.poo.gamelogic.Character;
+import org.newdawn.slick.GameContainer;
+
+import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
 
 public class CharacterRenderer{
 	
-	private Character player;
-	private Appearance appear;
+	private static Appearance appear;
+	
+	private static int X, Y;
+	private static Dir dir;
+	private static boolean moving;
 	
 
-	public CharacterRenderer(Character character) {
-		player = character;
+	public CharacterRenderer() {
 		appear = new Appearance("data/red2.png", 16, 24);
+		X = Game.START_X;
+		Y = Game.START_Y;
+		dir = Dir.SOUTH;
 		
 	}
 
-	public void render(){
-		int X = player.getPos().getX();
-		int Y = player.getPos().getY();
-		
-		Dir dir = player.getHeading();
+	public static void render(){
 		appear.changeAnimation(dir);
+		appear.getWalk().update(RPG.MOVE_INTERVAL);;
 		
-		if(player.isMoving())
+		if(moving)
 			appear.getWalk().draw((X-1)*RPG.SIZE, (Y-1)*RPG.SIZE+82);
 		else
 			appear.getStay().draw((X-1)*RPG.SIZE, (Y-1)*RPG.SIZE+82);
@@ -32,5 +36,21 @@ public class CharacterRenderer{
 	
 	public Appearance getAppear() {
 		return appear;
+	}
+
+	public void setX(int x) {
+		X = x;
+	}
+
+	public void setY(int y) {
+		Y = y;
+	}
+
+	public void setDir(Dir dir) {
+		this.dir = dir;
+	}
+
+	public static void setMoving(boolean moving) {
+		CharacterRenderer.moving = moving;
 	}
 }

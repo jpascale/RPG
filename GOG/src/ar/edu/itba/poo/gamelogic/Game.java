@@ -22,8 +22,8 @@ public class Game {
 	
 	private World map;
 	
-	public static int START_X = 2;
-	public static int START_Y = 2;
+	public static int START_X = 3;
+	public static int START_Y = 23;
 	
 	private Game(){
 		this.name = "Player";

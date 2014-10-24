@@ -1,26 +1,30 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import ar.edu.itba.poo.render.Appearance;
 import ar.edu.itba.poo.slick.RPG;
+import ar.edu.itba.poo.updater.Observable;
+import ar.edu.itba.poo.updater.Observer;
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.TileType;
 
-public class Alive{
+public class Alive implements Observable{
 	
 	private Dir heading;
 	private Status status;
 	private Tile pos;
-	private boolean moving;
+	private ArrayList<Observer> observers;
 
 	public Alive(int hp, int man, Tile pos) {
 		try{
 			this.heading = Dir.SOUTH;
 			this.status = new Status(hp, man);
 			this.setPos(pos);
+			this.observers = new ArrayList<Observer>();
 		} catch(Exception e){
 			;
 		}
@@ -34,7 +38,6 @@ public class Alive{
 		actual = this.getPos();
 		
 		setHeading(dir);
-		setMoving(true);
 		
 		//TODO: Exception?
 		try {
@@ -48,6 +51,8 @@ public class Alive{
 		} catch (Exception e){
 			throw new EndOfMapException();
 		}
+		
+		this.notifyObservers();
 		
 	}
 		
@@ -91,13 +96,23 @@ public class Alive{
 		this.heading = heading;
 		//Notify observer
 	}
-	
-	public boolean isMoving() {
-		return moving;
+
+	@Override
+	public void addObserver(Observer observer) {
+		observers.add(observer);
 	}
 
-	public void setMoving(boolean moving) {
-		this.moving = moving;
+	@Override
+	public void removeObserver(Observer observer) {
+		observers.remove(observer);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for (Observer observer : observers) {
+			observer.handleUpdate(this);
+			
+		}
 	}
 	
 }

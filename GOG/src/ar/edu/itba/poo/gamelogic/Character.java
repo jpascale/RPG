@@ -1,5 +1,6 @@
 package ar.edu.itba.poo.gamelogic;
 
+import ar.edu.itba.poo.updater.CharacterMovementObserver;
 import ar.edu.itba.poo.worldlogic.Tile;
 
 
@@ -19,6 +20,7 @@ public class Character extends Alive implements Combat{
 		this.lvl = new LevelProfile();
 		this.inventory = new Inventory();
 		this.equip = new Equipment();
+		this.addObserver(new CharacterMovementObserver());
 	}
 	
 	//TODO: Manage errors
@@ -54,8 +56,6 @@ public class Character extends Alive implements Combat{
 		this.getStatus().updateNextLvlStatus(hpmodif, manmodif);
 				
 	}
-	
-	
 	
 	/*
 	 *		Getters & Setters
@@ -101,6 +101,4 @@ public class Character extends Alive implements Combat{
 			//TODO notify observer to call reviveCharacter.
 		}
 	}
-
-
 }

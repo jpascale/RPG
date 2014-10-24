@@ -1,9 +1,6 @@
 package ar.edu.itba.poo.worldlogic;
 
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.tiled.TiledMap;
 
-// TileMap - Singleton
 
 public class World {
 	
@@ -30,6 +27,7 @@ public class World {
 		
 		for (int x = 0; x < X_TILES; x++){
 			for (int y = 0; y < Y_TILES; y++){
+				
 				map[x][y] = new Tile(x + 1, y + 1);
 				
 				int tileID = mapCreator.getTileId(x, y, 0);
@@ -71,10 +69,10 @@ public class World {
 	 * @see         ar.itba.edu.poo.gamelogic.Tile
 	 */
 	
-	public Tile getTile(int x, int y) throws NoSuchTileException{
+	public Tile getTile(int x, int y) throws EndOfMapException{
 		
 		if (x > X_TILES || y > X_TILES)
-			throw new NoSuchTileException();
+			throw new EndOfMapException();
 		
 		return this.map[x - 1][y - 1];
 	}

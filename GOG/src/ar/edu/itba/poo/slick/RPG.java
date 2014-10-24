@@ -17,7 +17,6 @@ import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.render.CreatureRenderer;
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
-import ar.edu.itba.poo.worldlogic.NoSuchTileException;
 import ar.edu.itba.poo.worldlogic.World;
 
 public class RPG extends BasicGame {
@@ -62,7 +61,7 @@ public class RPG extends BasicGame {
 			
 			creatureRenderer = new CreatureRenderer(creatures);
 			
-		} catch (NoSuchTileException e) {
+		} catch (EndOfMapException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

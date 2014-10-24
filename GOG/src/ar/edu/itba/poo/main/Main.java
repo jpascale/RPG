@@ -11,7 +11,9 @@ public class Main {
 		// Tile Test - OK
 		//*********************************************************************************
 		
+
 		//World map = World.getInstance();
+
 //		
 //		try{
 //			Tile tile = map.getTile(8,8);

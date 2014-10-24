@@ -12,7 +12,7 @@ public class Tile {
 	private Item item;
 	private Alive alive;
 	
-	private TileType type;
+	private Trigger trigger;
 	
 	
 	public Tile(int x, int y){
@@ -22,6 +22,8 @@ public class Tile {
 		
 		this.item = null;
 		this.alive = null;
+		
+		this.trigger= Trigger.WALKABLE;
 	}
 	
 	public Tile getNext(Dir dir) throws EndOfMapException{
@@ -99,12 +101,12 @@ public class Tile {
 		//TODO: Notify.
 	}
 
-	public TileType getType() {
-		return type;
+	public Trigger getType() {
+		return trigger;
 	}
 
-	public void setType(TileType type) {
-		this.type = type;
+	public void setType(Trigger trigger) {
+		this.trigger = trigger;
 	}
 
 	public Alive getAlive() {

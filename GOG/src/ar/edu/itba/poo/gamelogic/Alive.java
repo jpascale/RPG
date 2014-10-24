@@ -7,7 +7,7 @@ import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
-import ar.edu.itba.poo.worldlogic.TileType;
+import ar.edu.itba.poo.worldlogic.Trigger;
 
 public class Alive{
 	
@@ -41,7 +41,7 @@ public class Alive{
 			
 			next = actual.getNext(dir);
 				
-			if ((next.legalPos()) && (next.getType() != TileType.BLOCKED)){
+			if ((next.legalPos()) && (next.getType() != Trigger.BLOCKED)){ //TODO:Change this
 				this.setPos(next);
 				actual.freeAlive();
 			}
@@ -89,7 +89,7 @@ public class Alive{
 	
 	public void setHeading(Dir heading){
 		this.heading = heading;
-		//Notify observer
+		//Notify observers
 	}
 	
 	public boolean isMoving() {

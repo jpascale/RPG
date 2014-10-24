@@ -14,15 +14,6 @@ public class World {
 	
 	private World(){
 		
-		TiledMap mapCreator = null;
-		
-		try {
-			mapCreator = new TiledMap("data/map2.tmx");
-		} catch (SlickException e) {
-			// THIS WILL NEVER HAPPEN
-			e.printStackTrace();
-		}
-		
 		map = new Tile[X_TILES][Y_TILES];
 		
 		for (int x = 0; x < X_TILES; x++){
@@ -30,20 +21,6 @@ public class World {
 				
 				map[x][y] = new Tile(x + 1, y + 1);
 				
-				int tileID = mapCreator.getTileId(x, y, 0);
-				String value = mapCreator.getTileProperty(tileID, "type", "false");
-           
-				switch (value){
-            		case "walkable":
-            			map[x][y].setType(TileType.WALKABLE);
-            			break;
-            		case "blocked":
-            			map[x][y].setType(TileType.BLOCKED);
-            			break;
-            		case "water":
-            			map[x][y].setType(TileType.WATER);
-            			break;
-				}
 			}
 		}
 	}
@@ -75,5 +52,12 @@ public class World {
 			throw new EndOfMapException();
 		
 		return this.map[x - 1][y - 1];
+	}
+	
+	public int getDimX(){
+		return X_TILES;
+	}
+	public int getDimY(){
+		return Y_TILES;
 	}
 }

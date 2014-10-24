@@ -1,6 +1,6 @@
 package ar.edu.itba.poo.worldlogic;
 
-public enum TileType {
+public enum Trigger {
 	BLOCKED,
 	WALKABLE,
 	WATER;

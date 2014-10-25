@@ -44,11 +44,20 @@ public class Character extends Alive implements Combat{
 		this.lvl.gainExp(exp);
 	}
 	
+	@Override
+	public void receiveAttack(int damage) {
+		super.receiveAttack(damage);
+		if(this.getStatus().isDead()){
+			//TODO notify observer to call reviveCharacter.
+		}
+	}
+
+	
 	/* 
 	 *		Observer methods
 	 */
 	
-	public void handleUpdateStats(LevelProfile data){
+	public void handleUpdateStats(){
 		
 		int hpmodif = this.getType().getHpmodif();
 		int manmodif = this.getType().getManmodif();
@@ -94,11 +103,4 @@ public class Character extends Alive implements Combat{
 			type.attack(this);
 	}
 
-	@Override
-	public void receiveAttack(int damage) {
-		super.receiveAttack(damage);
-		if(this.getStatus().isDead()){
-			//TODO notify observer to call reviveCharacter.
-		}
-	}
 }

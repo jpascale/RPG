@@ -10,17 +10,16 @@ public class LevelProfile {
 	public static int MAX_LVL = 47;
 	public static int EXP_CONST = 50;
 	
-	
-	private Alive alive;
+	private Character character;
 	
 	private int level;
 	
 	private int exp;
 	private int maxexp;
 	
-	public LevelProfile(Alive alive){
+	public LevelProfile(Character character){
 		
-		this.alive = alive;
+		this.character = character;
 		
 		this.level = 1;
 		this.exp = 0;
@@ -33,6 +32,7 @@ public class LevelProfile {
 			this.exp = 0;
 			this.maxexp = EXP_CONST * this.level;
 			
+			this.character.handleUpdateStats(); //TODO Improve this
 		}
 	}
 	

@@ -19,6 +19,12 @@ public class CreatureList {
 		remove(dead);
 	}
 	
+	public void creaturesAI(int delta){
+		for (Creature creature : creatureList) {
+			creature.AI(delta);
+		}
+	}
+	
 	public void add(Creature creature){
 		creatureList.add(creature);
 	}

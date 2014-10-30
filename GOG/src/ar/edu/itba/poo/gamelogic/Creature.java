@@ -14,12 +14,14 @@ public class Creature extends Alive implements Combat {
 	private int minHit;
 	private int maxHit;
 	private CreatureType type;
+	private int actiontimer;
 	
 	public Creature(int hp, int man, Tile pos, int minHit, int maxHit, CreatureType ctype){
 		super(hp, man, pos);
 		this.minHit = minHit;
 		this.maxHit = maxHit;
 		this.type = ctype;
+		this.actiontimer = 0;
 		this.addObserver(new CreatureMovementObserver(getPos().getX(), getPos().getY(), type));
 	}
 	
@@ -114,28 +116,34 @@ public class Creature extends Alive implements Combat {
 		else
 			attack();
 	}
-	public void AI(){
-		
-		try {
-			Character player = Game.getInstance().getCharacter();
-			int Xdiff = this.getPos().getX()-player.getPos().getX();
-			int Ydiff = this.getPos().getY()-player.getPos().getY();
-			
-			if(Xdiff > 0 && Xdiff < 6)
-				move(Dir.WEST);
-			else if(Xdiff < 0 && Xdiff > -6)
-				move(Dir.EAST);
-			else if(Ydiff > 0 && Ydiff < 6)
-				move(Dir.SOUTH);
-			else if(Ydiff < 0 && Ydiff > -6)
-				move(Dir.NORTH);
-			
-			if(getPos().getNext(getHeading()).equals(player.getPos())){
-				attack();
+	public void AI(int delta){
+		actiontimer += delta;
+		if(actiontimer >= 500){
+			try {
+				int distance = 6;
+				Character player = Game.getInstance().getCharacter();
+				int Xdiff = this.getPos().getX()-player.getPos().getX();
+				int Ydiff = this.getPos().getY()-player.getPos().getY();
+				
+				if(Math.abs(Xdiff)<distance && Math.abs(Ydiff)<distance){
+					if(Xdiff > 0)
+						move(Dir.WEST);
+					else if(Xdiff < 0)
+						move(Dir.EAST);
+					else if(Ydiff > 0)
+						move(Dir.NORTH);
+					else 
+						move(Dir.SOUTH);
+				}
+				
+				if(getPos().getNext(getHeading()).equals(player.getPos())){
+					attack();
+				}
+			} catch (EndOfMapException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (EndOfMapException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			actiontimer = 0;
 		}
 	}
 	

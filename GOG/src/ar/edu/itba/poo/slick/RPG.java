@@ -44,7 +44,7 @@ public class RPG extends BasicGameState {
 	}
 	
 
-	public void init(GameContainer container, StateBasedGame arg1) throws SlickException {
+	public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
 		try {
 			//TODO: Modularize this
 			
@@ -82,17 +82,18 @@ public class RPG extends BasicGameState {
 		}
 	}
 
-	public void update(GameContainer container, StateBasedGame arg1, int delta) throws SlickException {
+	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
 	
 		InputHandler.handleInput(container, delta, player);
 		
 			//TODO: Change this
 			creatures.removeBodies();
+			creatures.creaturesAI(delta);
 			
 		
 	}
 	
-	public void render(GameContainer container, StateBasedGame arg1, Graphics gr) throws SlickException {
+	public void render(GameContainer container, StateBasedGame sbg, Graphics gr) throws SlickException {
 		
 		console.draw();
 		tiledmap.render(0, 90);

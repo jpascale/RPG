@@ -4,6 +4,7 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
@@ -11,14 +12,15 @@ import ar.edu.itba.poo.gamelogic.Character;
 import ar.edu.itba.poo.gamelogic.Creature;
 import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.CreatureType;
+import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.Warrior;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.render.CreatureRenderer;
+import ar.edu.itba.poo.render.StatusRenderer;
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.World;
-import ar.edu.itba.poo.slick.GraphicMap;
 
 public class RPG extends BasicGame {
 
@@ -30,10 +32,11 @@ public class RPG extends BasicGame {
 	private GraphicMap graphicmap;
 	private TiledMap tiledmap;
 	
+	private Music music;
+	
 	private Character player;
 	
 	private CreatureList creatures;
-	private CreatureRenderer creatureRenderer;
 	
 	private Console console;
 	
@@ -68,7 +71,10 @@ public class RPG extends BasicGame {
 			creatures.add(new Creature(50, 0, map.getTile(35, 23), 2, 3, CreatureType.CREATURE_1));
 			creatures.add(new Creature(50, 0, map.getTile(8, 23), 2, 3, CreatureType.CREATURE_1));
 			
-			creatureRenderer = new CreatureRenderer(creatures);
+			
+			music = new Music("data/b_jean.ogg");
+			music.loop();
+			
 			
 		} catch (EndOfMapException e) {
 			// TODO Auto-generated catch block
@@ -142,10 +148,11 @@ public class RPG extends BasicGame {
 	
 	public void render(GameContainer container, Graphics gr) throws SlickException {
 		
-		tiledmap.render(0, 90);
-		creatureRenderer.render();
-		CharacterRenderer.render();
 		console.draw();
+		tiledmap.render(0, 90);
+		//CreatureRenderer.render();
+		CharacterRenderer.render();
+		//StatusRenderer.render(gr);
 		
 	}
 

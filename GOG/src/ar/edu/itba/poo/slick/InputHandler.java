@@ -65,6 +65,11 @@ public abstract class InputHandler {
 					Console.add("HP: " + player.getStatus().getMinhp() + "/" + player.getStatus().getMaxhp() + "; Lvl: " + player.getLvl().getLevel() + "; Exp: " + player.getLvl().getExp() + "/ "+ player.getLvl().getMaxexp()); 
 				}
 				
+				else if(input.isKeyPressed(Input.KEY_Z)){
+					player.getStatus().heal();
+					player.notifyObservers();
+				}
+				
 				else
 					CharacterRenderer.setMoving(false);
 				

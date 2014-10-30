@@ -5,6 +5,8 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
 import ar.edu.itba.poo.gamelogic.Character;
@@ -13,11 +15,14 @@ import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.CreatureType;
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.Warrior;
+import ar.edu.itba.poo.gamelogic.Wizard;
 import ar.edu.itba.poo.render.CharacterRenderer;
+import ar.edu.itba.poo.render.CreatureRenderer;
+import ar.edu.itba.poo.render.StatusRenderer;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.World;
 
-public class RPG extends BasicGame {
+public class RPG extends BasicGameState {
 
 	public static final int SIZE = 16;
 	
@@ -35,11 +40,11 @@ public class RPG extends BasicGame {
 	
 	
 	public RPG(String title) {
-		super(title);
+		super();
 	}
 	
 
-	public void init(GameContainer container) throws SlickException {
+	public void init(GameContainer container, StateBasedGame arg1) throws SlickException {
 		try {
 			//TODO: Modularize this
 			
@@ -54,7 +59,7 @@ public class RPG extends BasicGame {
 			tiledmap = graphicmap.getTiledMap();
 			
 			player = new Character(map.getTile(3, 23));
-			player.setStrategy(new Warrior("Patas Locas", 2, 5));
+			player.setStrategy(new Warrior( 2, 5));
 			player.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
 			
 			creatures = new CreatureList();
@@ -77,7 +82,7 @@ public class RPG extends BasicGame {
 		}
 	}
 
-	public void update(GameContainer container, int delta) throws SlickException {
+	public void update(GameContainer container, StateBasedGame arg1, int delta) throws SlickException {
 	
 		InputHandler.handleInput(container, delta, player);
 		
@@ -87,14 +92,20 @@ public class RPG extends BasicGame {
 		
 	}
 	
-	public void render(GameContainer container, Graphics gr) throws SlickException {
+	public void render(GameContainer container, StateBasedGame arg1, Graphics gr) throws SlickException {
 		
 		console.draw();
 		tiledmap.render(0, 90);
-		//CreatureRenderer.render();
+		CreatureRenderer.render();
 		CharacterRenderer.render();
-		//StatusRenderer.render(gr);
+		StatusRenderer.render(gr);
 		
+	}
+
+	@Override
+	public int getID() {
+		// TODO Auto-generated method stub
+		return 1;
 	}
 
 }

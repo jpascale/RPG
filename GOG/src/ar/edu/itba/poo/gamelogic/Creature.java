@@ -1,6 +1,8 @@
 package ar.edu.itba.poo.gamelogic;
 
 import ar.edu.itba.poo.slick.Console;
+import ar.edu.itba.poo.updater.CreatureMovementObserver;
+import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 
@@ -18,6 +20,7 @@ public class Creature extends Alive implements Combat {
 		this.minHit = minHit;
 		this.maxHit = maxHit;
 		this.type = ctype;
+		this.addObserver(new CreatureMovementObserver(getPos().getX(), getPos().getY(), type));
 	}
 	
 	public void throwItem(){
@@ -104,8 +107,35 @@ public class Creature extends Alive implements Combat {
 		Console.add("Has sacado " + damage + " puntos de vida.");
 		if(this.getStatus().isDead()){
 			//TODO notify observer to remove from frontend.
+			this.notifyObservers();
 			this.getPos().freeAlive();
 			Console.add("La criatura ha muerto.");
+		}
+		else
+			attack();
+	}
+	public void AI(){
+		
+		try {
+			Character player = Game.getInstance().getCharacter();
+			int Xdiff = this.getPos().getX()-player.getPos().getX();
+			int Ydiff = this.getPos().getY()-player.getPos().getY();
+			
+			if(Xdiff > 0 && Xdiff < 6)
+				move(Dir.WEST);
+			else if(Xdiff < 0 && Xdiff > -6)
+				move(Dir.EAST);
+			else if(Ydiff > 0 && Ydiff < 6)
+				move(Dir.SOUTH);
+			else if(Ydiff < 0 && Ydiff > -6)
+				move(Dir.NORTH);
+			
+			if(getPos().getNext(getHeading()).equals(player.getPos())){
+				attack();
+			}
+		} catch (EndOfMapException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

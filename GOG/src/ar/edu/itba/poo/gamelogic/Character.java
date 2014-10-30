@@ -9,7 +9,7 @@ import ar.edu.itba.poo.worldlogic.Tile;
 public class Character extends Alive implements Combat{
 
 	private static int CHAR_INITIAL_HP = 50;
-	private static int CHAR_INITIAL_MAN = 1;
+	private static int CHAR_INITIAL_MAN = 0;
 	
 	private LevelProfile lvl;
 	private Inventory inventory;
@@ -71,8 +71,10 @@ public class Character extends Alive implements Combat{
 		
 		int hpmodif = this.getType().getHpmodif();
 		int manmodif = this.getType().getManmodif();
+		int classmanmodif = this.getType().getClassManModif();
 		
-		this.getStatus().updateNextLvlStatus(hpmodif, manmodif);
+		this.getStatus().updateNextLvlStatus(hpmodif, manmodif, classmanmodif);
+		notifyObservers();
 				
 	}
 	

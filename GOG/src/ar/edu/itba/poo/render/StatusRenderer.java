@@ -38,9 +38,11 @@ public class StatusRenderer {
 		gr.drawRect(posX, posYmp, LENGTH, HEIGHT);
 		gr.fillRect(posX, posYmp, LENGTH, HEIGHT);
 		
-		gr.setColor(Color.cyan);
-		gr.drawRect(posX, posYmp,((minmp*LENGTH) / maxmp), HEIGHT);
-		gr.fillRect(posX, posYmp,((minmp*LENGTH) / maxmp), HEIGHT);
+		if (minmp != 0){
+			gr.setColor(Color.cyan);
+			gr.drawRect(posX, posYmp,((minmp*LENGTH) / maxmp), HEIGHT);
+			gr.fillRect(posX, posYmp,((minmp*LENGTH) / maxmp), HEIGHT);
+		}
 		
 		gr.drawString(minmp + "/" + maxmp, posX+LENGTH, posYmp);
 		

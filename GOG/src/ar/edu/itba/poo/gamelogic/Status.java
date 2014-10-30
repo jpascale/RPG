@@ -41,10 +41,10 @@ public class Status {
 			minman-=mp;
 	}
 	
-	public void updateNextLvlStatus(int hpmodif, int manmodif) {
+	public void updateNextLvlStatus(int hpmodif, int manmodif, int classmanmodif) {
 		
 		int hpdelta = Alive.randInt(hpmodif, hpmodif + HP_DELTA_UP);
-		int mandelta = Alive.randInt(manmodif, manmodif + MAN_DELTA_UP) * 10;
+		int mandelta = Alive.randInt(manmodif, manmodif + MAN_DELTA_UP) * 10 * classmanmodif;
 		
 		this.maxhp += hpdelta;
 		this.minhp += hpdelta;

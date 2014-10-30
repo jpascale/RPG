@@ -11,10 +11,11 @@ public class Warrior extends Type {
 
 	private static String WARRIOR_NAME = "Warrior";
 	private static int WARRIOR_HP_MODIF = 10;
-	private static int WARRIOR_MAN_MODIF = 0;
+	private static int WARRIOR_MAN_MODIF = 0; 
+	private static int WARRIOR_CLASS_MAN_MODIF = 0;
 	
-	public Warrior(String name, int minHit, int maxHit) {
-		super(WARRIOR_NAME, WARRIOR_HP_MODIF, WARRIOR_MAN_MODIF, minHit, maxHit);
+	public Warrior(int minHit, int maxHit) {
+		super(WARRIOR_NAME, WARRIOR_HP_MODIF, WARRIOR_MAN_MODIF, minHit, maxHit, WARRIOR_CLASS_MAN_MODIF);
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
+import ar.edu.itba.poo.slick.InputHandler;
 import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
 
@@ -26,10 +27,10 @@ public class Appearance {
 		
 		try {
 			sheet = new SpriteSheet( ref, tw, th);
-			animDown = new Animation(sheet, 0, 0, 3, 0, true, RPG.MOVE_INTERVAL/4, false);
-			animLeft = new Animation(sheet, 0, 1, 3, 1, true, RPG.MOVE_INTERVAL/4, false);
-			animRight = new Animation(sheet, 0, 2, 3, 2, true, RPG.MOVE_INTERVAL/4, false);
-			animUp = new Animation(sheet, 0, 3, 3, 3, true, RPG.MOVE_INTERVAL/4, false);
+			animDown = new Animation(sheet, 0, 0, 3, 0, true, InputHandler.ACTION_INTERVAL/4, false);
+			animLeft = new Animation(sheet, 0, 1, 3, 1, true, InputHandler.ACTION_INTERVAL/4, false);
+			animRight = new Animation(sheet, 0, 2, 3, 2, true, InputHandler.ACTION_INTERVAL/4, false);
+			animUp = new Animation(sheet, 0, 3, 3, 3, true, InputHandler.ACTION_INTERVAL/4, false);
 			stay = sheet.getSprite(0, 0);
 			walk = animDown;
 		} catch (SlickException e) {

@@ -6,6 +6,11 @@ import org.newdawn.slick.SlickException;
 public class Main {
 
 	public static void main(String[] args) throws SlickException {
+		
+		//Backend Loads
+		
+		
+		//Frontend loads
 		RPG rpg = new RPG("GOG");
 		AppGameContainer gc = new AppGameContainer(rpg);
 		

@@ -3,7 +3,6 @@ package ar.edu.itba.poo.slick;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
@@ -12,21 +11,15 @@ import ar.edu.itba.poo.gamelogic.Character;
 import ar.edu.itba.poo.gamelogic.Creature;
 import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.CreatureType;
-import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.Warrior;
 import ar.edu.itba.poo.render.CharacterRenderer;
-import ar.edu.itba.poo.render.CreatureRenderer;
-import ar.edu.itba.poo.render.StatusRenderer;
-import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.World;
 
 public class RPG extends BasicGame {
 
 	public static final int SIZE = 16;
-	public static int MOVE_INTERVAL = 150; // 0.15 seconds
-	private int interval = 0;
 	
 	private World map;
 	private GraphicMap graphicmap;
@@ -68,6 +61,8 @@ public class RPG extends BasicGame {
 			creatures.add(new Creature(50, 0, map.getTile(10, 15), 2, 3, CreatureType.CREATURE_2));
 			creatures.add(new Creature(50, 0, map.getTile(20, 15), 2, 3, CreatureType.CREATURE_2));
 			creatures.add(new Creature(50, 0, map.getTile(35, 6), 2, 3, CreatureType.BOSS_1));
+			creatures.add(new Creature(50, 0, map.getTile(15, 26), 2, 3, CreatureType.BOSS_1));
+			creatures.add(new Creature(50, 0, map.getTile(16, 26), 2, 3, CreatureType.BOSS_1));
 			creatures.add(new Creature(50, 0, map.getTile(35, 23), 2, 3, CreatureType.CREATURE_1));
 			creatures.add(new Creature(50, 0, map.getTile(8, 23), 2, 3, CreatureType.CREATURE_1));
 			
@@ -83,67 +78,13 @@ public class RPG extends BasicGame {
 	}
 
 	public void update(GameContainer container, int delta) throws SlickException {
-		
-		Input input = container.getInput();
 	
-		if(input.isKeyPressed(Input.KEY_ESCAPE)){
-			container.exit();	
-		}
+		InputHandler.handleInput(container, delta, player);
 		
-		interval += delta;
-		
-		if (interval >= MOVE_INTERVAL){
-			try {
-				if (input.isKeyDown(Input.KEY_UP)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.NORTH);
-					interval = 0;
-				}
-				else if (input.isKeyDown(Input.KEY_DOWN)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.SOUTH);
-					interval = 0;
-				}
-				else if (input.isKeyDown(Input.KEY_LEFT)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.WEST);
-					interval = 0;
-				}
-				else if (input.isKeyDown(Input.KEY_RIGHT)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.EAST);
-					interval = 0;
-				}
-				else if (input.isKeyPressed(Input.KEY_LCONTROL)){
-					player.attack();
-					interval = 0;
-				}
-				//Para probar mapa
-				
-				else if (input.isKeyPressed(Input.KEY_M)){
-					Console.add("Mi posicion es " + player.getPos().getX() + " " + player.getPos().getY());
-					interval = 0;
-				}
-				
-				else if(input.isKeyPressed(Input.KEY_S)){
-					Console.add("HP: " + player.getStatus().getMinhp() + "/" + player.getStatus().getMaxhp() + "; Lvl: " + player.getLvl().getLevel() + "; Exp: " + player.getLvl().getExp() + "/ "+ player.getLvl().getMaxexp()); 
-				}
-				
-				else
-					CharacterRenderer.setMoving(false);
-				
-			} catch (EndOfMapException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			if (interval >= MOVE_INTERVAL)
-				interval = MOVE_INTERVAL;
-			
 			//TODO: Change this
 			creatures.removeBodies();
 			
-		}
+		
 	}
 	
 	public void render(GameContainer container, Graphics gr) throws SlickException {

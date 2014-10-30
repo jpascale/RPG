@@ -3,6 +3,7 @@ package ar.edu.itba.poo.render;
 import org.newdawn.slick.GameContainer;
 
 import ar.edu.itba.poo.gamelogic.Game;
+import ar.edu.itba.poo.slick.InputHandler;
 import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
 
@@ -25,7 +26,7 @@ public class CharacterRenderer{
 
 	public static void render(){
 		appear.changeAnimation(dir);
-		appear.getWalk().update(RPG.MOVE_INTERVAL);;
+		appear.getWalk().update(InputHandler.ACTION_INTERVAL);;
 		
 		if(moving)
 			appear.getWalk().draw((X-1)*RPG.SIZE, (Y-1)*RPG.SIZE+82);

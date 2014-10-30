@@ -1,13 +1,15 @@
 package ar.edu.itba.poo.gamelogic;
 
 import ar.edu.itba.poo.updater.CharacterMovementObserver;
+import ar.edu.itba.poo.updater.StatusObserver;
+import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 
 
 public class Character extends Alive implements Combat{
 
 	private static int CHAR_INITIAL_HP = 50;
-	private static int CHAR_INITIAL_MAN = 0;
+	private static int CHAR_INITIAL_MAN = 1;
 	
 	private LevelProfile lvl;
 	private Inventory inventory;
@@ -21,6 +23,8 @@ public class Character extends Alive implements Combat{
 		this.inventory = new Inventory();
 		this.equip = new Equipment();
 		this.addObserver(new CharacterMovementObserver());
+		this.addObserver(new StatusObserver(this));
+		Game.getInstance().setCharacter(this);
 	}
 	
 	//TODO: Manage errors
@@ -48,8 +52,14 @@ public class Character extends Alive implements Combat{
 	public void receiveAttack(int damage) {
 		super.receiveAttack(damage);
 		if(this.getStatus().isDead()){
-			//TODO notify observer to call reviveCharacter.
+			try {
+				Game.getInstance().reviveCharacter();
+			} catch (EndOfMapException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		notifyObservers();
 	}
 
 	

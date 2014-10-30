@@ -36,6 +36,10 @@ public class Status {
 		minman = maxman;
 		isdead = false;
 	}
+	public void loseMana(int mp){
+		if(minman >= mp)
+			minman-=mp;
+	}
 	
 	public void updateNextLvlStatus(int hpmodif, int manmodif) {
 		

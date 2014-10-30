@@ -44,9 +44,11 @@ public class Alive implements Observable{
 			
 			next = actual.getNext(dir);
 				
-			if ((next.legalPos()) && (next.getType() != Trigger.BLOCKED)){ //TODO:Change this
+			if (next.legalPos()){
+				if((next.getType() != Trigger.BLOCKED) && (next.getType() != Trigger.WATER)){ //TODO:Change this
 				this.setPos(next);
 				actual.freeAlive();
+				}
 			}
 		} catch (Exception e){
 			throw new EndOfMapException();

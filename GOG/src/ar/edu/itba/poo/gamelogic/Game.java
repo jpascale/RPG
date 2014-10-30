@@ -37,7 +37,11 @@ public class Game {
 		return instance;
 	}
 	
-	private void reviveCharacter() throws EndOfMapException{
+	public void setMap(World map) {
+		this.map = map;
+	}
+
+	public void reviveCharacter() throws EndOfMapException{
 		Tile start = map.getTile(START_X, START_Y);
 		
 		character.getPos().freeAlive();
@@ -56,6 +60,10 @@ public class Game {
 	
 	public void setName(String name){
 		this.name = name;
+	}
+	
+	public void setCharacter(Character character) {
+		this.character = character;
 	}
 	
 	public void startTileMap() throws SlickException{

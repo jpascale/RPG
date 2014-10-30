@@ -1,5 +1,7 @@
 package ar.edu.itba.poo.worldlogic;
 
+import ar.edu.itba.poo.gamelogic.Game;
+
 
 
 public class World {
@@ -13,6 +15,8 @@ public class World {
 	
 	
 	private World(){
+		
+		Game.getInstance().setMap(this);
 		
 		map = new Tile[X_TILES][Y_TILES];
 		

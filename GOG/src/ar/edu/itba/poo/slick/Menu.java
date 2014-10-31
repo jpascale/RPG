@@ -17,14 +17,13 @@ public class Menu extends BasicGameState {
 	}
 
 	@Override
-	public void init(GameContainer arg0, StateBasedGame arg1)
+	public void init(GameContainer container, StateBasedGame sbg)
 			throws SlickException {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void update(GameContainer container, StateBasedGame sbg, int arg2)
+	public void update(GameContainer container, StateBasedGame sbg, int delta)
 			throws SlickException {
 		Input input = container.getInput();
 		//Character player = game.getCharacter();
@@ -42,7 +41,7 @@ public class Menu extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame sbg, Graphics g)
 			throws SlickException {
 		g.setColor(Color.white);
-	    g.drawString("Game of GRONES", 50, 10);
+	    g.drawString("Main Menu", 50, 10);
 	 
 	    g.drawString("1. Play Game", 50, 100);
 	    g.drawString("2. Load Game", 50, 120);

@@ -2,7 +2,11 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.util.LinkedList;
 
+import ar.edu.itba.poo.worldlogic.World;
+
 public class CreatureList {
+	
+	private static int CREATURE_NUMBER = 5;
 	
 	private LinkedList<Creature> creatureList;
 	
@@ -17,6 +21,37 @@ public class CreatureList {
 				dead = creature;
 		}
 		remove(dead);
+	}
+	
+	public void creatureFactory(){
+		int creature1 = 0;
+		int creature2 = 0;
+		int creature3 = 0;
+		int X, Y;
+		
+		for (Creature creature : creatureList) {
+			if(creature.getType()==CreatureType.CREATURE_1)
+				creature1++;
+			else if(creature.getType()==CreatureType.CREATURE_2)
+				creature2++;
+			else if(creature.getType()==CreatureType.CREATURE_3)
+				creature3++;
+		}
+		for (; creature1 <= CREATURE_NUMBER; creature1++) {
+			X = Alive.randInt(7, 39);
+			Y = Alive.randInt(22, 29);
+			add(new Creature(30, 0, Game.getTile(X, Y), 2, 5, CreatureType.CREATURE_1));	
+		}
+		for (; creature2 <= CREATURE_NUMBER; creature2++) {
+			X = Alive.randInt(12, 39);
+			Y = Alive.randInt(12, 20);
+			add(new Creature(60, 0, Game.getTile(X, Y), 5, 10, CreatureType.CREATURE_2));	
+		}
+		for (; creature3 <= CREATURE_NUMBER; creature3++) {
+			X = Alive.randInt(2, 30);
+			Y = Alive.randInt(2, 10);
+			add(new Creature(90, 0, Game.getTile(X, Y), 10, 15, CreatureType.CREATURE_3));	
+		}
 	}
 	
 	public void creaturesAI(int delta){

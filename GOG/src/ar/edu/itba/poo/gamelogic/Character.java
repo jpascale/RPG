@@ -8,7 +8,7 @@ import ar.edu.itba.poo.worldlogic.Tile;
 
 public class Character extends Alive implements Combat{
 
-	private static int CHAR_INITIAL_HP = 50;
+	private static int CHAR_INITIAL_HP = 80;
 	private static int CHAR_INITIAL_MAN = 0;
 	
 	private LevelProfile lvl;

@@ -63,14 +63,6 @@ public class RPG extends BasicGameState {
 			player.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
 			
 			creatures = new CreatureList();
-			creatures.add(new Creature(50, 0, map.getTile(10, 15), 2, 3, CreatureType.CREATURE_2));
-			creatures.add(new Creature(50, 0, map.getTile(20, 15), 2, 3, CreatureType.CREATURE_2));
-			creatures.add(new Creature(50, 0, map.getTile(35, 6), 2, 3, CreatureType.BOSS_1));
-			creatures.add(new Creature(50, 0, map.getTile(15, 26), 2, 3, CreatureType.BOSS_1));
-			creatures.add(new Creature(50, 0, map.getTile(16, 26), 2, 3, CreatureType.BOSS_1));
-			creatures.add(new Creature(50, 0, map.getTile(35, 23), 2, 3, CreatureType.CREATURE_1));
-			creatures.add(new Creature(50, 0, map.getTile(8, 23), 2, 3, CreatureType.CREATURE_1));
-			
 			
 			music = new Music("data/b_jean.ogg");
 			music.loop();
@@ -88,6 +80,7 @@ public class RPG extends BasicGameState {
 		
 			//TODO: Change this
 			creatures.removeBodies();
+			creatures.creatureFactory();
 			creatures.creaturesAI(delta);
 			
 		

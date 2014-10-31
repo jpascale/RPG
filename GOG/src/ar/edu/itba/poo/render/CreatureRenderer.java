@@ -14,7 +14,7 @@ import ar.edu.itba.poo.worldlogic.Dir;
 public class CreatureRenderer {
 	
 	private static HashMap<CreatureType, SpriteImages> appearanceMap;
-	private static ArrayList<CreatureRenderer> renders;
+	private static ArrayList<CreatureRenderer> renders = new ArrayList<CreatureRenderer>();
 	
 	private int X, Y;
 	private Dir dir;
@@ -25,15 +25,13 @@ public class CreatureRenderer {
 		appearanceMap = new HashMap<CreatureType, SpriteImages>();
 		appearanceMap.put(CreatureType.CREATURE_1, new SpriteImages("data/nido/down.png", "data/nido/up.png", "data/nido/left.png", "data/nido/right.png"));
 		appearanceMap.put(CreatureType.CREATURE_2, new SpriteImages("data/whirl/down.png", "data/whirl/up.png", "data/whirl/left.png", "data/whirl/right.png"));
-		appearanceMap.put(CreatureType.BOSS_1, new SpriteImages("data/qbone/down.png", "data/qbone/up.png", "data/qbone/left.png", "data/qbone/right.png"));
+		appearanceMap.put(CreatureType.CREATURE_3, new SpriteImages("data/qbone/down.png", "data/qbone/up.png", "data/qbone/left.png", "data/qbone/right.png"));
 		
 		this.X = posX;
 		this.Y = posY;
 		this.dir = Dir.SOUTH;
 		this.type = ctype;
 		this.dead = false;
-		if(renders == null)
-			renders = new ArrayList<CreatureRenderer>();
 		CreatureRenderer.renders.add(this);
 		
 	}

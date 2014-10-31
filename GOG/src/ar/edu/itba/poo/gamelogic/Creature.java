@@ -113,8 +113,6 @@ public class Creature extends Alive implements Combat {
 			this.getPos().freeAlive();
 			Console.add("La criatura ha muerto.");
 		}
-		else
-			attack();
 	}
 	public void AI(int delta){
 		actiontimer += delta;

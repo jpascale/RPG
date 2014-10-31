@@ -20,7 +20,7 @@ public class Game {
 	private Character character;
 	private CreatureList creatures;
 	
-	private World map;
+	private static World map;
 	
 	public static int START_X = 3;
 	public static int START_Y = 23;
@@ -71,4 +71,14 @@ public class Game {
 	}
 	//startTileMap
 	//startPlayer
+	
+	public static Tile getTile(int x, int y){
+		try {
+			return map.getTile(x, y);
+		} catch (EndOfMapException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

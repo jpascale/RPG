@@ -46,7 +46,7 @@ public class Game {
 			
 			character = new Character(map.getTile(START_X, START_Y));
 			character.setStrategy(new Warrior(2, 5));
-			character.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
+			//character.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
 			
 		} catch (EndOfMapException e) {
 			// TODO Auto-generated catch block

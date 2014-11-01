@@ -30,7 +30,7 @@ public class RPG extends BasicGameState {
 	private GraphicMap graphicmap;
 	private TiledMap tiledmap;
 	
-	private Music music;
+	//private Music music;
 	
 	private Character player;
 	
@@ -66,14 +66,13 @@ public class RPG extends BasicGameState {
 			
 			tiledmap = graphicmap.getTiledMap();
 			
+
 			player = game.getCharacter();
-		
 			creatures = new CreatureList();
 			
 			
 			//music = new Music("data/b_jean.ogg");
 			//music.loop();
-			
 			
 			
 		} catch (Exception e) {

@@ -2,6 +2,7 @@ package ar.edu.itba.poo.gamelogic;
 
 import ar.edu.itba.poo.handlers.CharacterMovementObserver;
 import ar.edu.itba.poo.handlers.StatusObserver;
+import ar.edu.itba.poo.slick.Console;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 
@@ -12,7 +13,6 @@ public class Character extends Alive implements Combat{
 	private static int CHAR_INITIAL_MAN = 0;
 	
 	private LevelProfile lvl;
-	private Inventory inventory;
 	private Type type;
 	private Equipment equip;
 	
@@ -20,25 +20,26 @@ public class Character extends Alive implements Combat{
 		
 		super(CHAR_INITIAL_HP, CHAR_INITIAL_MAN, pos);
 		this.lvl = new LevelProfile(this);
-		this.inventory = new Inventory();
 		this.equip = new Equipment();
 	}
 	
 	//TODO: Manage errors
-	public void pickUp(){
+	public void itemAction(){
 		if (this.getPos().hasItem()){
-			this.inventory.addItem(this.getPos().getItem());
+			Item item = this.getPos().getItem();
+			this.equip.addItem(item);
 			this.getPos().setItem(null);
+			Console.add("Has levantado el arma " + item.getName());
 		}
-	}
-	//TODO: Manage errors
-	public void throwItem(Item item){
-		
-		if (!this.getPos().hasItem()){
-			this.getPos().setItem(item);
-			inventory.removeItem(item);
+		else if(!equip.throwableWeapon())
+			Console.add("No tiene un arma seleccionada para tirar");
+		else{
+			Item weapon = equip.getWeapon();
+			this.getPos().setItem(weapon);
+			equip.changeWeapon();
+			equip.removeItem(weapon);
+			Console.add("Has tirado el arma " + weapon.getName());
 		}
-		
 	}
 	
 	public void gainExp(int exp){
@@ -85,14 +86,6 @@ public class Character extends Alive implements Combat{
 
 	public void setLvl(LevelProfile lvl) {
 		this.lvl = lvl;
-	}
-
-	public Inventory getInventory() {
-		return inventory;
-	}
-
-	public void setInventory(Inventory inventory) {
-		this.inventory = inventory;
 	}
 
 	public Type getType() {

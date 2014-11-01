@@ -6,7 +6,6 @@ public class Inventory {
 
 	public static int MAX_INVENTORY_SLOTS = 10;
 	
-	private int gold;
 	private ArrayList<Item> slots;
 	
 	public Inventory(){

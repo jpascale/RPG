@@ -19,6 +19,7 @@ import ar.edu.itba.poo.gamelogic.Wizard;
 import ar.edu.itba.poo.handlers.LevelProfileHandler;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.render.CreatureRenderer;
+import ar.edu.itba.poo.render.ItemRenderer;
 import ar.edu.itba.poo.render.LevelRenderer;
 import ar.edu.itba.poo.render.StatusRenderer;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
@@ -54,6 +55,8 @@ public class RPG extends BasicGameState {
 			Console.add("Juego comenzado");
 			
 			map = World.getInstance();
+			map.getTile(35, 6).setItem(new Item("Espada Magica", 5.0, map.getTile(35,6)));
+			map.getTile(10, 23).setItem(new Item("Palo Loco", 5.0, map.getTile(10,23)));
 			
 			graphicmap = GraphicMap.getInstance();
 			graphicmap.setWorldTriggers();
@@ -93,6 +96,7 @@ public class RPG extends BasicGameState {
 		
 		console.draw();
 		tiledmap.render(0, 90);
+		ItemRenderer.render();
 		CreatureRenderer.render();
 		CharacterRenderer.render();
 		StatusRenderer.render(gr);

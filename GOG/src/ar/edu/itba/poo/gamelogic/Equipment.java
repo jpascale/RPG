@@ -24,6 +24,9 @@ public class Equipment {
 		if (! (slots.size() - 1 >= MAX_INVENTORY_SLOTS)){
 			slots.add(item);
 			weapon = item;
+			item.setPos(null);
+			item.notifyObservers();
+			
 			//TODO: Notify;
 		}
 	}

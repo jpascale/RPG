@@ -39,6 +39,8 @@ public class Character extends Alive implements Combat{
 		else{
 			Item weapon = equip.getWeapon();
 			this.getPos().setItem(weapon);
+			weapon.setPos(this.getPos());
+			weapon.notifyObservers();
 			equip.changeWeapon();
 			equip.removeItem(weapon);
 			Console.add("Has tirado el arma " + weapon.getName());

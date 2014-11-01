@@ -50,7 +50,7 @@ public abstract class InputHandler {
 					player.move(Dir.EAST);
 					interval = 0;
 				}
-				else if (input.isKeyPressed(Input.KEY_LCONTROL)){
+				else if (input.isKeyPressed(Input.KEY_SPACE)){
 					player.attack();
 					interval = 0;
 				}

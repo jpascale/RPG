@@ -4,14 +4,15 @@ COSAS POR HACER POO
 -Crear personaje
 -Cargar Guardar
 -Items en el piso
--Eliminar oro
--Implementar AI
+-Eliminar oro	DONE
+-Implementar AI		REVISAR
 -Terminar Wizard
 -Documentar metodos
 -Estilo de programación
--Funcion que cree bichos
+-Funcion que cree bichos	DONE
 -Organizar Packages
 -Revisar TODO's
 -Cuando levela notificar observer.
--Check Alive notifies
--Hacer que no te ataque cuando lo atacas LISTO
+-Check Alive notifies	
+-Hacer que no te ataque cuando lo atacas	DONE
+-Conectar Inventory y Equipment

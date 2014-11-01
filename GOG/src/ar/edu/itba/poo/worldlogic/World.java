@@ -16,8 +16,6 @@ public class World {
 	
 	private World(){
 		
-		Game.getInstance().setMap(this);
-		
 		map = new Tile[X_TILES][Y_TILES];
 		
 		for (int x = 0; x < X_TILES; x++){

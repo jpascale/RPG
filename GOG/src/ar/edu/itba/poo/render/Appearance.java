@@ -26,7 +26,7 @@ public class Appearance {
 	public Appearance(String ref, int tw, int th){
 		
 		try {
-			sheet = new SpriteSheet( ref, tw, th);
+			sheet = new SpriteSheet(ref, tw, th);
 			animDown = new Animation(sheet, 0, 0, 3, 0, true, InputHandler.ACTION_INTERVAL/4, false);
 			animLeft = new Animation(sheet, 0, 1, 3, 1, true, InputHandler.ACTION_INTERVAL/4, false);
 			animRight = new Animation(sheet, 0, 2, 3, 2, true, InputHandler.ACTION_INTERVAL/4, false);

@@ -2,24 +2,22 @@ package ar.edu.itba.poo.handlers;
 
 import ar.edu.itba.poo.render.StatusRenderer;
 import ar.edu.itba.poo.slick.Console;
-import ar.edu.itba.poo.gamelogic.Character;
 import ar.edu.itba.poo.gamelogic.Status;
 
-public class StatusObserver implements Observer<Character> {
+public class StatusObserver implements Observer<Status> {
 	
 	StatusRenderer renderer;
 
-	public StatusObserver(Character data) {
-		Status status = data.getStatus();
-		renderer = new StatusRenderer(status.getMinhp(), status.getMaxhp(), status.getMinman(), status.getMaxman());
+	public StatusObserver(Status data) {
+		renderer = new StatusRenderer(data.getMinhp(), data.getMaxhp(), data.getMinman(), data.getMaxman());
 	}
 
 	@Override
-	public void handleUpdate(Character data) {
-		renderer.setMaxhp(data.getStatus().getMaxhp());
-		renderer.setMinhp(data.getStatus().getMinhp());
-		renderer.setMaxmp(data.getStatus().getMaxman());
-		renderer.setMinmp(data.getStatus().getMinman());
+	public void handleUpdate(Status data) {
+		renderer.setMaxhp(data.getMaxhp());
+		renderer.setMinhp(data.getMinhp());
+		renderer.setMaxmp(data.getMaxman());
+		renderer.setMinmp(data.getMinman()); 
 	}
 
 }

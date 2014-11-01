@@ -14,9 +14,7 @@ public class Equipment {
 	
 	
 	public Equipment() {
-		weapon = new Item("Nudillos", 1.0, null);
 		slots = new ArrayList<Item>();
-		slots.add(0, weapon);
 	}
 
 	public void addItem(Item item){

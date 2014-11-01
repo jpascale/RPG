@@ -21,9 +21,6 @@ public class Character extends Alive implements Combat{
 		super(CHAR_INITIAL_HP, CHAR_INITIAL_MAN, pos);
 		this.lvl = new LevelProfile(this);
 		this.equip = new Equipment();
-		this.addObserver(new CharacterMovementObserver());
-		this.addObserver(new StatusObserver(this));
-		Game.getInstance().setCharacter(this);
 	}
 	
 	//TODO: Manage errors

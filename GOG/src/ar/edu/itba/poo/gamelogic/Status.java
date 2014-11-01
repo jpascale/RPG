@@ -1,6 +1,13 @@
 package ar.edu.itba.poo.gamelogic;
 
-public class Status {
+import java.util.ArrayList;
+
+import ar.edu.itba.poo.handlers.Observable;
+import ar.edu.itba.poo.handlers.Observer;
+
+public class Status implements Observable{
+	
+	ArrayList<Observer> observers;
 	
 	private static int HP_DELTA_UP = 5;
 	private static int MAN_DELTA_UP = 5;
@@ -12,6 +19,8 @@ public class Status {
 	private boolean isdead;
 	
 	public Status(int hp, int man) {
+		this.observers = new ArrayList<Observer>();
+		
 		this.minhp = this.maxhp = hp;
 		this.minman = this.maxman = man;
 		this.isdead = false;
@@ -29,16 +38,20 @@ public class Status {
 		}
 		else 
 			minhp -= damage;
+		
+		notifyObservers();
 	}
 	
 	public void heal(){
 		minhp = maxhp;
 		minman = maxman;
 		isdead = false;
+		notifyObservers();
 	}
 	public void loseMana(int mp){
 		if(minman >= mp)
-			minman-=mp;
+			minman -= mp;
+		notifyObservers();
 	}
 	
 	public void updateNextLvlStatus(int hpmodif, int manmodif, int classmanmodif) {
@@ -52,8 +65,28 @@ public class Status {
 		this.maxman += mandelta;
 		this.minman += mandelta;
 				
-		//TODO:Update visual
+		notifyObservers();
 	}
+	
+	@Override
+	public void addObserver(Observer observer) {
+		observers.add(observer);
+		notifyObservers();
+	}
+
+	@Override
+	public void removeObserver(Observer observer) {
+		observers.remove(observer);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for (Observer ob: observers){
+			ob.handleUpdate(this);
+		}
+	}
+	
+
 
 	/*
 	 *		Getters & Setters
@@ -90,5 +123,4 @@ public class Status {
 	public void setMaxman(int maxman) {
 		this.maxman = maxman;
 	}
-	
 }

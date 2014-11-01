@@ -1,4 +1,4 @@
-package ar.edu.itba.poo.updater;
+package ar.edu.itba.poo.handlers;
 
 
 public interface Observer<T extends Observable> {

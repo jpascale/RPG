@@ -16,8 +16,10 @@ import ar.edu.itba.poo.gamelogic.CreatureType;
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.Warrior;
 import ar.edu.itba.poo.gamelogic.Wizard;
+import ar.edu.itba.poo.handlers.LevelProfileHandler;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.render.CreatureRenderer;
+import ar.edu.itba.poo.render.LevelRenderer;
 import ar.edu.itba.poo.render.StatusRenderer;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.World;
@@ -59,9 +61,11 @@ public class RPG extends BasicGameState {
 			tiledmap = graphicmap.getTiledMap();
 			
 			player = new Character(map.getTile(3, 23));
-			player.setStrategy(new Warrior( 2, 5));
+			player.setStrategy(new Warrior(2, 5));
 			
 			creatures = new CreatureList();
+			
+			player.getLvl().addObserver(new LevelProfileHandler());
 			
 			//music = new Music("data/b_jean.ogg");
 			//music.loop();
@@ -92,6 +96,7 @@ public class RPG extends BasicGameState {
 		CreatureRenderer.render();
 		CharacterRenderer.render();
 		StatusRenderer.render(gr);
+		LevelRenderer.render(gr);
 		
 	}
 

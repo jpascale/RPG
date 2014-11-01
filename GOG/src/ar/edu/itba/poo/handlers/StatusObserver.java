@@ -1,4 +1,4 @@
-package ar.edu.itba.poo.updater;
+package ar.edu.itba.poo.handlers;
 
 import ar.edu.itba.poo.render.StatusRenderer;
 import ar.edu.itba.poo.slick.Console;

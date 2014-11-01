@@ -1,8 +1,8 @@
 package ar.edu.itba.poo.gamelogic;
 
+import ar.edu.itba.poo.handlers.CharacterMovementObserver;
+import ar.edu.itba.poo.handlers.StatusObserver;
 import ar.edu.itba.poo.slick.Console;
-import ar.edu.itba.poo.updater.CharacterMovementObserver;
-import ar.edu.itba.poo.updater.StatusObserver;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 

@@ -3,10 +3,10 @@ package ar.edu.itba.poo.gamelogic;
 import java.util.ArrayList;
 import java.util.Random;
 
+import ar.edu.itba.poo.handlers.Observable;
+import ar.edu.itba.poo.handlers.Observer;
 import ar.edu.itba.poo.render.Appearance;
 import ar.edu.itba.poo.slick.RPG;
-import ar.edu.itba.poo.updater.Observable;
-import ar.edu.itba.poo.updater.Observer;
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;

@@ -1,6 +1,5 @@
 package ar.edu.itba.poo.slick;
 
-import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Music;
@@ -10,23 +9,22 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
 import ar.edu.itba.poo.gamelogic.Character;
-import ar.edu.itba.poo.gamelogic.Creature;
 import ar.edu.itba.poo.gamelogic.CreatureList;
-import ar.edu.itba.poo.gamelogic.CreatureType;
-import ar.edu.itba.poo.gamelogic.Item;
-import ar.edu.itba.poo.gamelogic.Warrior;
-import ar.edu.itba.poo.gamelogic.Wizard;
+import ar.edu.itba.poo.gamelogic.Game;
+import ar.edu.itba.poo.handlers.CharacterMovementObserver;
 import ar.edu.itba.poo.handlers.LevelProfileHandler;
+import ar.edu.itba.poo.handlers.StatusObserver;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.render.CreatureRenderer;
 import ar.edu.itba.poo.render.LevelRenderer;
 import ar.edu.itba.poo.render.StatusRenderer;
-import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.World;
 
 public class RPG extends BasicGameState {
 
 	public static final int SIZE = 16;
+	
+	private Game game;
 	
 	private World map;
 	private GraphicMap graphicmap;
@@ -50,30 +48,35 @@ public class RPG extends BasicGameState {
 		try {
 			//TODO: Modularize this
 			
-			console = new Console();
-			Console.add("Juego comenzado");
+			game = Game.getInstance();
+			player = game.getCharacter();
 			
-			map = World.getInstance();
+			//Start observing character data
+			player.addObserver(new CharacterMovementObserver());
+			player.getStatus().addObserver(new StatusObserver(player.getStatus()));
+			player.getLvl().addObserver(new LevelProfileHandler());
+			
+			console = new Console();
+			Console.add("Bienvenido a Game of Games!");
+			
+			map = game.getWorld();
 			
 			graphicmap = GraphicMap.getInstance();
 			graphicmap.setWorldTriggers();
 			
 			tiledmap = graphicmap.getTiledMap();
 			
-			player = new Character(map.getTile(3, 23));
-			player.setStrategy(new Warrior(2, 5));
-			player.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
-			
+			player = game.getCharacter();
+		
 			creatures = new CreatureList();
 			
-			player.getLvl().addObserver(new LevelProfileHandler());
 			
 			//music = new Music("data/b_jean.ogg");
 			//music.loop();
 			
 			
 			
-		} catch (EndOfMapException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

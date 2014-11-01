@@ -22,9 +22,6 @@ public class Character extends Alive implements Combat{
 		this.lvl = new LevelProfile(this);
 		this.inventory = new Inventory();
 		this.equip = new Equipment();
-		this.addObserver(new CharacterMovementObserver());
-		this.addObserver(new StatusObserver(this));
-		Game.getInstance().setCharacter(this);
 	}
 	
 	//TODO: Manage errors

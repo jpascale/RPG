@@ -13,20 +13,46 @@ import ar.edu.itba.poo.worldlogic.World;
 
 public class Game {
 	
+	public static int START_X = 3;
+	public static int START_Y = 23;
+
+	private static World map;
+	
 	private static Game instance = null;
 	
 	private String name;
 	
 	private Character character;
 	private CreatureList creatures;
+		
 	
-	private static World map;
-	
-	public static int START_X = 3;
-	public static int START_Y = 23;
-	
-	private Game(){
+	private Game() {
+		
+		//Player name
 		this.name = "Player";
+
+		/*
+		 *		World
+		 */
+		//Map with no triggers
+		map = World.getInstance();
+		
+		
+		/*
+		 *		Create Character
+		 */
+		
+		try {
+			
+			character = new Character(map.getTile(START_X, START_Y));
+			character.setStrategy(new Warrior(2, 5));
+			character.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
+			
+		} catch (EndOfMapException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public static Game getInstance(){
@@ -54,10 +80,6 @@ public class Game {
 		return this.character;
 	}
 	
-	//public void setObserverLevelProfile(StatsLevelUpUpdater observer){
-	//	getCharacter().getLvl().addObserver(observer);
-	//}
-	
 	public void setName(String name){
 		this.name = name;
 	}
@@ -66,19 +88,8 @@ public class Game {
 		this.character = character;
 	}
 	
-	public void startTileMap() throws SlickException{
-		this.map = World.getInstance();
+	public World getWorld(){
+		return map;
 	}
-	//startTileMap
-	//startPlayer
 	
-	public static Tile getTile(int x, int y){
-		try {
-			return map.getTile(x, y);
-		} catch (EndOfMapException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
 }

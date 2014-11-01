@@ -17,8 +17,7 @@ public class Menu extends BasicGameState {
 	}
 
 	@Override
-	public void init(GameContainer container, StateBasedGame sbg)
-			throws SlickException {
+	public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
 
 	}
 
@@ -26,7 +25,6 @@ public class Menu extends BasicGameState {
 	public void update(GameContainer container, StateBasedGame sbg, int delta)
 			throws SlickException {
 		Input input = container.getInput();
-		//Character player = game.getCharacter();
 		
 		if(input.isKeyPressed(Input.KEY_ESCAPE)){
 			container.exit();

@@ -2,15 +2,18 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.util.LinkedList;
 
+import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.World;
 
 public class CreatureList {
 	
 	private static int CREATURE_NUMBER = 5;
 	
+	private Game game;
 	private LinkedList<Creature> creatureList;
 	
 	public CreatureList() {
+		game = Game.getInstance();
 		this.creatureList = new LinkedList<Creature>();
 	}
 
@@ -40,17 +43,32 @@ public class CreatureList {
 		for (; creature1 <= CREATURE_NUMBER; creature1++) {
 			X = Alive.randInt(7, 39);
 			Y = Alive.randInt(22, 29);
-			add(new Creature(30, 0, Game.getTile(X, Y), 2, 5, CreatureType.CREATURE_1));	
+			try {
+				add(new Creature(30, 0, game.getWorld().getTile(X, Y), 2, 5, CreatureType.CREATURE_1));
+			} catch (EndOfMapException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
 		}
 		for (; creature2 <= CREATURE_NUMBER; creature2++) {
 			X = Alive.randInt(12, 39);
 			Y = Alive.randInt(12, 20);
-			add(new Creature(60, 0, Game.getTile(X, Y), 5, 10, CreatureType.CREATURE_2));	
+			try {
+				add(new Creature(60, 0, game.getWorld().getTile(X, Y), 5, 10, CreatureType.CREATURE_2));
+			} catch (EndOfMapException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
 		}
 		for (; creature3 <= CREATURE_NUMBER; creature3++) {
 			X = Alive.randInt(2, 30);
 			Y = Alive.randInt(2, 10);
-			add(new Creature(90, 0, Game.getTile(X, Y), 10, 15, CreatureType.CREATURE_3));	
+			try {
+				add(new Creature(90, 0, game.getWorld().getTile(X, Y), 10, 15, CreatureType.CREATURE_3));
+			} catch (EndOfMapException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
 		}
 	}
 	

@@ -2,13 +2,21 @@ package ar.edu.itba.poo.slick;
 
 import org.newdawn.slick.AppGameContainer;
 
+import ar.edu.itba.poo.gamelogic.Game;
+
 public class Main {
 
 	public static void main(String[] args) {
-		GameStateMachine game = new GameStateMachine("GOG");
+		
+		//Backend Loads
+		Game game = Game.getInstance();
+		
+		//Let's play!
+		GameStateMachine gamefront = new GameStateMachine("GOG");
+		
 		AppGameContainer gc;
 		try {
-			gc = new AppGameContainer(game);
+			gc = new AppGameContainer(gamefront);
 			gc.setDisplayMode(800, 570, false);
 			gc.setTargetFrameRate(60);
 			gc.setShowFPS(false);

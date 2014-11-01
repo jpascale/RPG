@@ -3,6 +3,7 @@ package ar.edu.itba.poo.slick;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
@@ -38,8 +39,10 @@ public class Menu extends BasicGameState {
 	}
 	
 	@Override
-	public void render(GameContainer container, StateBasedGame sbg, Graphics g)
-			throws SlickException {
+	public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
+	    Image land = new Image("data/bkg.jpg");
+		g.drawImage(land, 0, 0);
+		
 		g.setColor(Color.white);
 	    g.drawString("Main Menu", 50, 10);
 	 

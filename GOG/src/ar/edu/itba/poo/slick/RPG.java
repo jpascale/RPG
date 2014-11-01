@@ -30,7 +30,7 @@ public class RPG extends BasicGameState {
 	private GraphicMap graphicmap;
 	private TiledMap tiledmap;
 	
-	private Music music;
+	//private Music music;
 	
 	private Character player;
 	
@@ -60,12 +60,11 @@ public class RPG extends BasicGameState {
 			
 			player = new Character(map.getTile(3, 23));
 			player.setStrategy(new Warrior( 2, 5));
-			player.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
 			
 			creatures = new CreatureList();
 			
-			music = new Music("data/b_jean.ogg");
-			music.loop();
+			//music = new Music("data/b_jean.ogg");
+			//music.loop();
 			
 			
 		} catch (EndOfMapException e) {

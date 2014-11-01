@@ -11,8 +11,10 @@ import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
 public class Menu extends BasicGameState {
-
-	public Menu() {
+	
+	private String[][] menu;
+	
+	Menu() {
 		// TODO Auto-generated constructor stub
 	}
 

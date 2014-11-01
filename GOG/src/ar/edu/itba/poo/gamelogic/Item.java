@@ -9,7 +9,7 @@ public class Item {
 	private double modifier;
 	private Tile pos;
 	
-	public Item(String name, String ref, double modifier, Tile tile) {
+	public Item(String name, double modifier, Tile tile) {
 			this.name = name;
 			this.modifier = modifier;
 			this.pos = tile; 

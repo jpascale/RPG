@@ -1,0 +1,17 @@
+COSAS POR HACER POO
+-Loads con Factory
+-New Game (Con img de fondo)
+-Crear personaje
+-Cargar Guardar
+-Items en el piso
+-Eliminar oro
+-Implementar AI
+-Terminar Wizard
+-Documentar metodos
+-Estilo de programación
+-Funcion que cree bichos
+-Organizar Packages
+-Revisar TODO's
+-Cuando levela notificar observer.
+-Check Alive notifies
+-Hacer que no te ataque cuando lo atacas LISTO

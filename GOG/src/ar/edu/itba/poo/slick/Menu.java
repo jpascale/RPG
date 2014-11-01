@@ -11,12 +11,24 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
+import ar.edu.itba.poo.gamelogic.Game;
+import ar.edu.itba.poo.gamelogic.Warrior;
+import ar.edu.itba.poo.gamelogic.Wizard;
+
 public class Menu extends BasicGameState {
 	
-	private String[][] menu;
+	Image land;
+	int menutype = 0;
+	private String[][] menu = { {"1. New Game","2. Load Game","3. Exit"}, 
+								{"1. Warrior","2. Wizard", "3. Back"}, 
+								{"1. File 1", "2. File 2", "3. File 3", "4. Back"} };
 	
-	Menu() {
-		// TODO Auto-generated constructor stub
+	Menu(){
+		try {
+			land = new Image("data/bkg.jpg");
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -32,23 +44,62 @@ public class Menu extends BasicGameState {
 		if(input.isKeyPressed(Input.KEY_ESCAPE)){
 			container.exit();
 		}
-		if(input.isKeyPressed(Input.KEY_1)){
-			sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+		
+		if(menutype == 0){
+			if(input.isKeyPressed(Input.KEY_1)){
+				menutype = 1;
+			}
+			if(input.isKeyPressed(Input.KEY_2)){
+				menutype = 2;
+			}
+			if(input.isKeyPressed(Input.KEY_3)){
+				container.exit();
+			}
 		}
-
+		if(menutype == 1){
+			if(input.isKeyPressed(Input.KEY_1)){
+				Game.getInstance().getCharacter().setStrategy(new Warrior(5, 8));
+				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+			}
+			if(input.isKeyPressed(Input.KEY_2)){
+				Game.getInstance().getCharacter().setStrategy(new Wizard(3, 5));
+				Game.getInstance().getCharacter().getStatus().setMaxman(70);
+				Game.getInstance().getCharacter().getStatus().setMinman(70);
+				Game.getInstance().getCharacter().getStatus().notifyObservers();
+				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+			}
+			if(input.isKeyPressed(Input.KEY_3)){
+				menutype = 0;
+			}
+		}
+		if(menutype == 2){
+			if(input.isKeyPressed(Input.KEY_1)){
+				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+			}
+			if(input.isKeyPressed(Input.KEY_2)){
+				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+			}
+			if(input.isKeyPressed(Input.KEY_3)){
+				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+			}
+			if(input.isKeyPressed(Input.KEY_4)){
+				menutype = 0;
+			}
+		}
 	}
 	
 	@Override
 	public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
-	    Image land = new Image("data/bkg.jpg");
 		g.drawImage(land, 0, 0);
 		
-		g.setColor(Color.white);
+		g.setColor(Color.black);
 	    g.drawString("Main Menu", 50, 10);
-	 
-	    g.drawString("1. Play Game", 50, 100);
-	    g.drawString("2. Load Game", 50, 120);
-	    g.drawString("3. Quit", 50, 140);
+	    
+	    int i = 0;
+	    for (String strings : menu[menutype]) {
+	    	g.drawString(strings, 50, 100 + 20*i);
+	    	i++;
+		}
 	}
 
 	@Override

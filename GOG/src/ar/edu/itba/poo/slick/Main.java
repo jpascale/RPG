@@ -9,7 +9,7 @@ public class Main {
 		AppGameContainer gc;
 		try {
 			gc = new AppGameContainer(game);
-			gc.setDisplayMode(640, 570, false);
+			gc.setDisplayMode(800, 570, false);
 			gc.setTargetFrameRate(60);
 			gc.setShowFPS(false);
 			gc.start();

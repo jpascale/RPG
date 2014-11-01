@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
 
-public class LevelProfile {
+public class LevelProfile implements Observable{
+	
+	private ArrayList<Observer> observers;
 	
 	public static int MAX_LVL = 47;
 	public static int EXP_CONST = 50;
@@ -17,7 +19,9 @@ public class LevelProfile {
 	private int exp;
 	private int maxexp;
 	
-	public LevelProfile(Character character){
+	
+	public LevelProfile(Character character){	
+		this.observers = new ArrayList<Observer>();
 		
 		this.character = character;
 		
@@ -48,33 +52,34 @@ public class LevelProfile {
 			if (this.level != MAX_LVL)
 				this.exp += exp;
 			
-			//TODO: notify observer
+			notifyObservers();
 		
 	}
 	
 	/*
 	 *		Observer methods
-//	 */
-//	
-//	@Override
-//	public void addObserver(Observer observer) {
-//		observers.add(observer);
-//	}
-//
-//	@Override
-//	public void removeObserver(Observer observer) {
-//		observers.remove(observer);
-//	}
-//
-//	@Override
-//	public void notifyObservers() {
-//		
-//		for (Observer ob : this.observers){
-//			ob.handleUpdate(this);
-//		}
-//	}
-//	
-//	
+	 */
+
+	@Override
+	public void addObserver(Observer observer) {
+		this.observers.add(observer);
+		notifyObservers();
+	}
+
+	@Override
+	public void removeObserver(Observer observer) {
+		this.observers.remove(observer);		
+	}
+
+	@Override
+	public void notifyObservers() {
+		
+		for(Observer ob : this.observers){
+			ob.handleUpdate(this);
+		}
+	}
+
+	
 	/*
 	 *		Getters & Setters
 	 */
@@ -102,6 +107,5 @@ public class LevelProfile {
 	public void setMaxexp(int maxexp) {
 		this.maxexp = maxexp;
 	}
-
 	
 }

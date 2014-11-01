@@ -16,8 +16,10 @@ import ar.edu.itba.poo.gamelogic.CreatureType;
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.Warrior;
 import ar.edu.itba.poo.gamelogic.Wizard;
+import ar.edu.itba.poo.handlers.LevelProfileHandler;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.render.CreatureRenderer;
+import ar.edu.itba.poo.render.LevelRenderer;
 import ar.edu.itba.poo.render.StatusRenderer;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.World;
@@ -59,13 +61,16 @@ public class RPG extends BasicGameState {
 			tiledmap = graphicmap.getTiledMap();
 			
 			player = new Character(map.getTile(3, 23));
-			player.setStrategy(new Warrior( 2, 5));
+			player.setStrategy(new Warrior(2, 5));
 			player.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
 			
 			creatures = new CreatureList();
 			
-			music = new Music("data/b_jean.ogg");
-			music.loop();
+			player.getLvl().addObserver(new LevelProfileHandler());
+			
+			//music = new Music("data/b_jean.ogg");
+			//music.loop();
+			
 			
 			
 		} catch (EndOfMapException e) {
@@ -93,6 +98,7 @@ public class RPG extends BasicGameState {
 		CreatureRenderer.render();
 		CharacterRenderer.render();
 		StatusRenderer.render(gr);
+		LevelRenderer.render(gr);
 		
 	}
 

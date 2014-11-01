@@ -29,20 +29,20 @@ public class SpriteImages {
 	public Image getDirection(Dir dir){
 		
 		switch(dir) {
-			
-		case SOUTH:
+
+			case SOUTH:
+				return down;
+
+			case EAST:
+				return right;
+
+			case WEST:
+				return left;
+
+			case NORTH:
+				return up;
+			}
 			return down;
-			
-		case EAST:
-			return right;
-			
-		case WEST:
-			return left;
-			
-		case NORTH:
-			return up;
-		}
-		return down;
 	}
 	
 	

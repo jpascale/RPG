@@ -3,7 +3,7 @@ COSAS POR HACER POO
 -New Game (Con img de fondo)
 -Crear personaje
 -Cargar Guardar
--Items en el piso
+-Items en el piso DONE
 -Eliminar oro	DONE
 -Implementar AI		REVISAR
 -Terminar Wizard

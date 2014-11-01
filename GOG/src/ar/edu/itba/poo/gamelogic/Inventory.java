@@ -33,7 +33,9 @@ public class Inventory {
 		
 		if (! (slots.size() - 1 >= MAX_INVENTORY_SLOTS)){
 			slots.add(item);
-			//TODO: Notify;
+			item.setPos(null);
+			System.out.println("la pos del item es" + item.getPos());
+			item.notifyObservers();
 		}
 	}
 

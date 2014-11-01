@@ -12,8 +12,8 @@ public class CreatureList {
 	private Game game;
 	private LinkedList<Creature> creatureList;
 	
-	public CreatureList() {
-		game = Game.getInstance();
+	public CreatureList(Game game) {
+		this.game = game;
 		this.creatureList = new LinkedList<Creature>();
 	}
 

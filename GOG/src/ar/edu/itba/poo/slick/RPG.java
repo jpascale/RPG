@@ -66,10 +66,9 @@ public class RPG extends BasicGameState {
 			
 			tiledmap = graphicmap.getTiledMap();
 			
+			creatures = game.getCreatureList();
 
 			player = game.getCharacter();
-			creatures = new CreatureList();
-			
 			
 			//music = new Music("data/b_jean.ogg");
 			//music.loop();
@@ -86,8 +85,9 @@ public class RPG extends BasicGameState {
 		InputHandler.handleInput(container, delta, player);
 		
 			//TODO: Change this
-			creatures.removeBodies();
+
 			creatures.creatureFactory();
+			creatures.removeBodies();
 			creatures.creaturesAI(delta);
 			
 		

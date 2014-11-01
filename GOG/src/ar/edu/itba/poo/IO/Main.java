@@ -1,4 +1,4 @@
-package ar.edu.itba.poo.main;
+package ar.edu.itba.poo.IO;
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.worldlogic.World;
 

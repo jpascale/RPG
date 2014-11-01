@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.newdawn.slick.SlickException;
 
+
 //import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
@@ -53,6 +54,11 @@ public class Game {
 			e.printStackTrace();
 		}
 		
+		/*
+		 *		Create creatures
+		 */
+		creatures = new CreatureList(this);
+		
 	}
 	
 	public static Game getInstance(){
@@ -90,6 +96,10 @@ public class Game {
 	
 	public World getWorld(){
 		return map;
+	}
+	
+	public CreatureList getCreatureList(){
+		return creatures;
 	}
 	
 }

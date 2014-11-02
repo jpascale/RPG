@@ -1,6 +1,6 @@
 package ar.edu.itba.poo.gamelogic;
 
-import ar.edu.itba.poo.handlers.CreatureMovementObserver;
+import ar.edu.itba.poo.handlers.CreatureMovementHandler;
 import ar.edu.itba.poo.slick.Console;
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
@@ -9,8 +9,6 @@ import ar.edu.itba.poo.worldlogic.Tile;
 public class Creature extends Alive implements Combat {
 	
 	private Item item;
-	//private int exp;
-	//private int gold;
 	private int minHit;
 	private int maxHit;
 	private CreatureType type;
@@ -22,7 +20,7 @@ public class Creature extends Alive implements Combat {
 		this.maxHit = maxHit;
 		this.type = ctype;
 		this.actiontimer = 0;
-		this.addObserver(new CreatureMovementObserver(getPos().getX(), getPos().getY(), type));
+		this.addObserver(new CreatureMovementHandler(getPos().getX(), getPos().getY(), type));
 	}
 	
 	public void throwItem(){
@@ -63,22 +61,6 @@ public class Creature extends Alive implements Combat {
 	public void setItem(Item item) {
 		this.item = item;
 	}
-
-//	public int getExp() {
-//		return exp;
-//	}
-//
-//	public void setExp(int exp) {
-//		this.exp = exp;
-//	}
-//
-//	public int getGold() {
-//		return gold;
-//	}
-//
-//	public void setGold(int gold) {
-//		this.gold = gold;
-//	}
 
 	public int getMinHit() {
 		return minHit;

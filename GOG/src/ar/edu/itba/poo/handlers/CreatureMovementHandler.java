@@ -5,11 +5,11 @@ import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.CreatureType;
 import ar.edu.itba.poo.render.CreatureRenderer;
 
-public class CreatureMovementObserver implements Observer<Creature> {
+public class CreatureMovementHandler implements Observer<Creature> {
 	
 	CreatureRenderer renderer;
 
-	public CreatureMovementObserver(int posX, int posY, CreatureType ctype) {
+	public CreatureMovementHandler(int posX, int posY, CreatureType ctype) {
 		renderer = new CreatureRenderer(posX, posY, ctype);
 	}
 

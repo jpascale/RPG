@@ -2,6 +2,7 @@ package ar.edu.itba.poo.slick;
 
 import java.io.ObjectInputStream.GetField;
 
+import ar.edu.itba.poo.IO.GameIO;
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.worldlogic.Dir;
@@ -61,6 +62,9 @@ public abstract class InputHandler {
 				}
 				else if(input.isKeyPressed(Input.KEY_Q)){
 					player.getEquip().changeWeapon();
+				}
+				else if(input.isKeyPressed(Input.KEY_Y)){
+					GameIO.saveGame();
 				}
 				//Para probar mapa
 				

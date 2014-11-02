@@ -12,9 +12,9 @@ public class StatusRenderer {
 	
 	private static int LENGTH = 100;
 	private static int HEIGHT = 10;
-	private static int posX = 480;
-	private static int posYhp = 15;
-	private static int posYmp = 30;
+	private static int posX = 650;
+	private static int posYhp = 400;
+	private static int posYmp = posYhp + 30;
 	
 	public StatusRenderer(int minhp, int maxhp, int minmp, int maxmp) {
 		StatusRenderer.minhp = minhp;
@@ -29,10 +29,11 @@ public class StatusRenderer {
 		gr.fillRect(posX, posYhp, LENGTH, HEIGHT);
 		
 		gr.setColor(Color.orange);
-		gr.drawRect(posX, posYhp,((minhp*LENGTH) / maxhp), HEIGHT);
-		gr.fillRect(posX, posYhp,((minhp*LENGTH) / maxhp), HEIGHT);
+		gr.drawRect(posX, posYhp,((minhp * LENGTH) / maxhp), HEIGHT);
+		gr.fillRect(posX, posYhp,((minhp * LENGTH) / maxhp), HEIGHT);
 		
-		gr.drawString(minhp + "/" + maxhp, posX+LENGTH, posYhp);
+		gr.setColor(Color.white);
+		gr.drawString(minhp + "/" + maxhp, posX + 30, posYhp - 4);
 		
 		gr.setColor(Color.blue);
 		gr.drawRect(posX, posYmp, LENGTH, HEIGHT);
@@ -40,11 +41,11 @@ public class StatusRenderer {
 		
 		if (minmp != 0){
 			gr.setColor(Color.cyan);
-			gr.drawRect(posX, posYmp,((minmp*LENGTH) / maxmp), HEIGHT);
-			gr.fillRect(posX, posYmp,((minmp*LENGTH) / maxmp), HEIGHT);
+			gr.drawRect(posX, posYmp,((minmp * LENGTH) / maxmp), HEIGHT);
+			gr.fillRect(posX, posYmp,((minmp * LENGTH) / maxmp), HEIGHT);
 		}
-		
-		gr.drawString(minmp + "/" + maxmp, posX+LENGTH, posYmp);
+		gr.setColor(Color.white);
+		gr.drawString(minmp + "/" + maxmp, posX + 40, posYmp - 4);
 		
 	}
 	

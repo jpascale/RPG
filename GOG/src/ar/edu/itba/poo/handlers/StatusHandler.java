@@ -4,11 +4,11 @@ import ar.edu.itba.poo.render.StatusRenderer;
 import ar.edu.itba.poo.slick.Console;
 import ar.edu.itba.poo.gamelogic.Status;
 
-public class StatusObserver implements Observer<Status> {
+public class StatusHandler implements Observer<Status> {
 	
 	StatusRenderer renderer;
 
-	public StatusObserver(Status data) {
+	public StatusHandler(Status data) {
 		renderer = new StatusRenderer(data.getMinhp(), data.getMaxhp(), data.getMinman(), data.getMaxman());
 	}
 

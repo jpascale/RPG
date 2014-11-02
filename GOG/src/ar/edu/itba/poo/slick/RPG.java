@@ -8,13 +8,14 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
+import ar.edu.itba.poo.IO.GameIO;
 import ar.edu.itba.poo.gamelogic.Character;
 import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.gamelogic.Item;
-import ar.edu.itba.poo.handlers.CharacterMovementObserver;
+import ar.edu.itba.poo.handlers.CharacterMovementHandler;
 import ar.edu.itba.poo.handlers.LevelProfileHandler;
-import ar.edu.itba.poo.handlers.StatusObserver;
+import ar.edu.itba.poo.handlers.StatusHandler;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.render.CreatureRenderer;
 import ar.edu.itba.poo.render.ItemRenderer;
@@ -53,9 +54,11 @@ public class RPG extends BasicGameState {
 			game = Game.getInstance();
 			player = game.getCharacter();
 			
+			GameIO.setGame(game);
+			
 			//Start observing character data
-			player.addObserver(new CharacterMovementObserver());
-			player.getStatus().addObserver(new StatusObserver(player.getStatus()));
+			player.addObserver(new CharacterMovementHandler());
+			player.getStatus().addObserver(new StatusHandler(player.getStatus()));
 			player.getLvl().addObserver(new LevelProfileHandler());
 			player.getEquip().addItem(new Item("Nudillos", 1.0, null));
 			

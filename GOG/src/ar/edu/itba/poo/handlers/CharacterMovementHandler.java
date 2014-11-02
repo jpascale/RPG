@@ -3,11 +3,11 @@ package ar.edu.itba.poo.handlers;
 import ar.edu.itba.poo.gamelogic.Character;
 import ar.edu.itba.poo.render.CharacterRenderer;
 
-public class CharacterMovementObserver implements Observer<Character> {
+public class CharacterMovementHandler implements Observer<Character> {
 
 	CharacterRenderer renderer;
 	
-	public CharacterMovementObserver() {
+	public CharacterMovementHandler() {
 		renderer = new CharacterRenderer();
 	}
 	

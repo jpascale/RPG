@@ -12,6 +12,9 @@ import ar.edu.itba.poo.gamelogic.Character;
 import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.gamelogic.Item;
+import ar.edu.itba.poo.gamelogic.creatures.Boss1;
+import ar.edu.itba.poo.gamelogic.creatures.Boss2;
+import ar.edu.itba.poo.gamelogic.creatures.Boss3;
 import ar.edu.itba.poo.handlers.CharacterMovementObserver;
 import ar.edu.itba.poo.handlers.LevelProfileHandler;
 import ar.edu.itba.poo.handlers.StatusObserver;
@@ -73,6 +76,9 @@ public class RPG extends BasicGameState {
 			tiledmap = graphicmap.getTiledMap();
 			
 			creatures = game.getCreatureList();
+			creatures.add(new Boss1(map.getTile(35, 25)));
+			creatures.add(new Boss2(map.getTile(7, 16)));
+			creatures.add(new Boss3(map.getTile(35, 6)));
 
 			player = game.getCharacter();
 			
@@ -92,7 +98,7 @@ public class RPG extends BasicGameState {
 		
 			//TODO: Change this
 
-			creatures.creatureFactory();
+			//creatures.creatureFactory();
 			creatures.removeBodies();
 			creatures.creaturesAI(delta);
 			

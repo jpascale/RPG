@@ -26,8 +26,10 @@ public class Creature extends Alive implements Combat {
 	}
 	
 	public void throwItem(){
-		if (!this.getPos().hasItem()){
+		if (!this.getPos().hasItem() && (this.getItem() != null)){
+			item.setPos(this.getPos());
 			this.getPos().setItem(item);
+			item.notifyObservers(); 
 			item = null;
 		}
 	}
@@ -45,7 +47,6 @@ public class Creature extends Alive implements Combat {
 				;//TODO if there is no creature.
 			}
 		} catch (EndOfMapException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 			
@@ -108,8 +109,8 @@ public class Creature extends Alive implements Combat {
 		super.receiveAttack(damage);
 		Console.add("Has sacado " + damage + " puntos de vida.");
 		if(this.getStatus().isDead()){
-			//TODO notify observer to remove from frontend.
 			this.notifyObservers();
+			this.throwItem();
 			this.getPos().freeAlive();
 			Console.add("La criatura ha muerto.");
 		}
@@ -138,7 +139,6 @@ public class Creature extends Alive implements Combat {
 					attack();
 				}
 			} catch (EndOfMapException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			actiontimer = 0;

@@ -2,6 +2,9 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.util.LinkedList;
 
+import ar.edu.itba.poo.gamelogic.creatures.Creature1;
+import ar.edu.itba.poo.gamelogic.creatures.Creature2;
+import ar.edu.itba.poo.gamelogic.creatures.Creature3;
 import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.World;
 
@@ -44,7 +47,7 @@ public class CreatureList {
 			X = Alive.randInt(7, 39);
 			Y = Alive.randInt(22, 29);
 			try {
-				add(new Creature(30, 0, game.getWorld().getTile(X, Y), 2, 5, CreatureType.CREATURE_1));
+				add(new Creature1(game.getWorld().getTile(X, Y)));
 			} catch (EndOfMapException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -54,7 +57,7 @@ public class CreatureList {
 			X = Alive.randInt(12, 39);
 			Y = Alive.randInt(12, 20);
 			try {
-				add(new Creature(60, 0, game.getWorld().getTile(X, Y), 5, 10, CreatureType.CREATURE_2));
+				add(new Creature2(game.getWorld().getTile(X, Y)));
 			} catch (EndOfMapException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -64,7 +67,7 @@ public class CreatureList {
 			X = Alive.randInt(2, 30);
 			Y = Alive.randInt(2, 10);
 			try {
-				add(new Creature(90, 0, game.getWorld().getTile(X, Y), 10, 15, CreatureType.CREATURE_3));
+				add(new Creature3(game.getWorld().getTile(X, Y)));
 			} catch (EndOfMapException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

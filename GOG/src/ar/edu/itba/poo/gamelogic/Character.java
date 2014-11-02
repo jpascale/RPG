@@ -16,6 +16,7 @@ public class Character extends Alive implements Combat{
 	private Type type;
 	private Equipment equip;
 	
+
 	public Character(Tile pos) {
 		
 		super(CHAR_INITIAL_HP, CHAR_INITIAL_MAN, pos);
@@ -101,6 +102,7 @@ public class Character extends Alive implements Combat{
 	public Equipment getEquip() {
 		return equip;
 	}
+	
 
 	@Override
 	public void attack() {

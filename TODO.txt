@@ -1,18 +1,18 @@
-COSAS POR HACER POO
+	COSAS POR HACER POO
 -Loads con Factory
--New Game (Con img de fondo) REVISAR
+	-New Game (Con img de fondo) REVISAR
 -Crear personaje
 -Cargar Guardar
--Items en el piso DONE
--Eliminar oro	DONE
+	-Items en el piso DONE
+	-Eliminar oro	DONE
 -Implementar AI		REVISAR
--Terminar Wizard
+-Terminar Wizard		REVISAR
 -Documentar metodos
 -Estilo de programación
--Funcion que cree bichos	DONE
+	-Funcion que cree bichos	DONE
 -Organizar Packages
 -Revisar TODO's
 -Cuando levela notificar observer.
 -Check Alive notifies	
--Hacer que no te ataque cuando lo atacas	DONE
--Conectar Inventory y Equipment DONE
+	-Hacer que no te ataque cuando lo atacas	DONE
+	-Conectar Inventory y Equipment DONE

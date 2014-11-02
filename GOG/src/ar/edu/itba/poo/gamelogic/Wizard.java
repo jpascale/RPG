@@ -52,7 +52,7 @@ public class Wizard extends Type {
 						posnext = pos.getNext(heading);
 					}
 					else
-						attacked = true;
+						break;
 				}
 				if(attacked == false)
 					Console.add("No se encuentra el objetivo para atacar");

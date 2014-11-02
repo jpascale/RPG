@@ -17,6 +17,7 @@ public class Alive implements Observable{
 	private Dir heading;
 	private Status status;
 	private Tile pos;
+	private boolean swims;
 	private ArrayList<Observer> observers;
 
 	public Alive(int hp, int man, Tile pos) {
@@ -25,6 +26,7 @@ public class Alive implements Observable{
 			this.status = new Status(hp, man);
 			this.setPos(pos);
 			this.observers = new ArrayList<Observer>();
+			this.swims = false;
 		} catch(Exception e){
 			;
 		}
@@ -45,7 +47,8 @@ public class Alive implements Observable{
 			next = actual.getNext(dir);
 				
 			if (next.legalPos()){
-				if((next.getType() != Trigger.BLOCKED) && (next.getType() != Trigger.WATER)){ //TODO:Change this
+				if((next.getType() == Trigger.WALKABLE) ||
+						((next.getType() == Trigger.WATER) && this.checkSwims())){
 				this.setPos(next);
 				actual.freeAlive();
 				}
@@ -106,6 +109,14 @@ public class Alive implements Observable{
 	public void setHeading(Dir heading){
 		this.heading = heading;
 		//Notify observers
+	}
+	
+	public boolean checkSwims() {
+		return swims;
+	}
+	
+	public void setSwims(boolean swims) {
+		this.swims = swims;
 	}
 
 	@Override

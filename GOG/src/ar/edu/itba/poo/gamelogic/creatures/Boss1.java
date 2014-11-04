@@ -14,8 +14,8 @@ public class Boss1 extends Creature {
 	private static int MAXHIT = 12;
 	private static CreatureType CTYPE = CreatureType.BOSS_1;
 
-	public Boss1(Tile pos) {
-		super(HP, MAN, pos, MINHIT, MAXHIT, CTYPE);
+	public Boss1(Tile pos, long ID) {
+		super(HP, MAN, pos, MINHIT, MAXHIT, CTYPE, ID);
 		if(Game.getInstance().getCharacter().getType() instanceof Wizard)
 			this.setItem(new Item("Rod of Awesomeness", 2.0, null));
 		else

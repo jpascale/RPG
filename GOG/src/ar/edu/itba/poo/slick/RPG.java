@@ -2,6 +2,7 @@ package ar.edu.itba.poo.slick;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -9,6 +10,7 @@ import org.newdawn.slick.tiled.TiledMap;
 
 import ar.edu.itba.poo.IO.GameIO;
 import ar.edu.itba.poo.gamelogic.Character;
+import ar.edu.itba.poo.gamelogic.CreatureFactory;
 import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.gamelogic.Item;
@@ -68,9 +70,7 @@ public class RPG extends BasicGameState {
 			Console.add("Bienvenido a Game of Games!");
 	
 			map = game.getWorld();
-			map.getTile(35, 6).setItem(new Item("Espada Magica", 5.0, map.getTile(35,6)));
-			map.getTile(10, 23).setItem(new Item("Palo Loco", 5.0, map.getTile(10,23)));
-
+			map.getTile(3, 28 ).setItem(new Item("Big Bad Blade", 5.0, map.getTile(3,28)));
 			
 			graphicmap = GraphicMap.getInstance();
 			graphicmap.setWorldTriggers();
@@ -78,9 +78,9 @@ public class RPG extends BasicGameState {
 			tiledmap = graphicmap.getTiledMap();
 			
 			creatures = game.getCreatureList();
-			creatures.add(new Boss1(map.getTile(35, 25)));
-			creatures.add(new Boss2(map.getTile(7, 16)));
-			creatures.add(new Boss3(map.getTile(35, 6)));
+			creatures.add(CreatureFactory.createBoss1(map.getTile(35, 25)));
+			creatures.add(CreatureFactory.createBoss2(map.getTile(6, 16)));
+			creatures.add(CreatureFactory.createBoss3(map.getTile(35, 6)));
 
 			player = game.getCharacter();
 			

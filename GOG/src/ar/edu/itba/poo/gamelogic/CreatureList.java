@@ -47,7 +47,7 @@ public class CreatureList {
 			X = Alive.randInt(7, 39);
 			Y = Alive.randInt(22, 29);
 			try {
-				add(new Creature1(game.getWorld().getTile(X, Y)));
+				add(CreatureFactory.createCreature1(game.getWorld().getTile(X, Y)));
 			} catch (EndOfMapException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -57,7 +57,7 @@ public class CreatureList {
 			X = Alive.randInt(12, 39);
 			Y = Alive.randInt(12, 20);
 			try {
-				add(new Creature2(game.getWorld().getTile(X, Y)));
+				add(CreatureFactory.createCreature2(game.getWorld().getTile(X, Y)));
 			} catch (EndOfMapException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -65,9 +65,9 @@ public class CreatureList {
 		}
 		for (; creature3 <= CREATURE_NUMBER; creature3++) {
 			X = Alive.randInt(2, 30);
-			Y = Alive.randInt(2, 10);
+			Y = Alive.randInt(2, 9);
 			try {
-				add(new Creature3(game.getWorld().getTile(X, Y)));
+				add(CreatureFactory.createCreature3(game.getWorld().getTile(X, Y)));
 			} catch (EndOfMapException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

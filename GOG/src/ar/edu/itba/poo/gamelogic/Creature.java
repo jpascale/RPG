@@ -13,16 +13,21 @@ public class Creature extends Alive implements Combat {
 	private int maxHit;
 	private CreatureType type;
 	private int actiontimer;
+	private long ID;
 	
-	public Creature(int hp, int man, Tile pos, int minHit, int maxHit, CreatureType ctype){
+	public Creature(int hp, int man, Tile pos, int minHit, int maxHit, CreatureType ctype, long ID){
 		super(hp, man, pos);
 		this.minHit = minHit;
 		this.maxHit = maxHit;
 		this.type = ctype;
 		this.actiontimer = 0;
-		this.addObserver(new CreatureMovementHandler(getPos().getX(), getPos().getY(), type));
+		this.ID = ID;
 	}
 	
+	public long getID() {
+		return ID;
+	}
+
 	public void throwItem(){
 		if (!this.getPos().hasItem() && (this.getItem() != null)){
 			item.setPos(this.getPos());

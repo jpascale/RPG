@@ -15,8 +15,8 @@ public class Boss3 extends Creature {
 	private static int MAXHIT = 30;
 	private static CreatureType CTYPE = CreatureType.BOSS_3;
 
-	public Boss3(Tile pos) {
-		super(HP, MAN, pos, MINHIT, MAXHIT, CTYPE);
+	public Boss3(Tile pos, long ID) {
+		super(HP, MAN, pos, MINHIT, MAXHIT, CTYPE, ID);
 	}
 
 	@Override

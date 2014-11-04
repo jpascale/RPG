@@ -20,8 +20,9 @@ public class CreatureRenderer {
 	private Dir dir;
 	private CreatureType type;
 	private boolean dead;
+	private long ID;
 
-	public CreatureRenderer(int posX, int posY, CreatureType ctype) {
+	public CreatureRenderer(int posX, int posY, CreatureType ctype, long ID) {
 		appearanceMap = new HashMap<CreatureType, SpriteImages>();
 		appearanceMap.put(CreatureType.CREATURE_1, new SpriteImages("data/nido/down.png", "data/nido/up.png", "data/nido/left.png", "data/nido/right.png"));
 		appearanceMap.put(CreatureType.CREATURE_2, new SpriteImages("data/whirl/down.png", "data/whirl/up.png", "data/whirl/left.png", "data/whirl/right.png"));
@@ -35,6 +36,7 @@ public class CreatureRenderer {
 		this.dir = Dir.SOUTH;
 		this.type = ctype;
 		this.dead = false;
+		this.ID = ID;
 		
 		if(ctype == CreatureType.BOSS_1){
 			this.offsetX = this.offsetY = -8;
@@ -68,6 +70,18 @@ public class CreatureRenderer {
 
 	public void setDir(Dir dir) {
 		this.dir = dir;
+	}
+	
+	public static void addRenderer(CreatureRenderer renderer){
+		renders.add(renderer);
+	}
+	
+	public static CreatureRenderer getRenderer(long creatureID){
+		for (CreatureRenderer render : renders) {
+			if(render.ID == creatureID)
+				return render;
+		}
+		return null;
 	}
 	
 	public static void render(){

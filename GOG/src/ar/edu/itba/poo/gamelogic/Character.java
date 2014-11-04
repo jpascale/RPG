@@ -76,6 +76,7 @@ public class Character extends Alive implements Combat{
 		
 		this.getStatus().updateNextLvlStatus(hpmodif, manmodif, classmanmodif);
 		notifyObservers();
+		this.getStatus().heal();
 				
 	}
 	

@@ -625,6 +625,31 @@
     <property name="type" value="walkable"/>
    </properties>
   </tile>
+  <tile id="597">
+   <properties>
+    <property name="type" value="blocked"/>
+   </properties>
+  </tile>
+  <tile id="601">
+   <properties>
+    <property name="type" value="blocked"/>
+   </properties>
+  </tile>
+  <tile id="603">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="604">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="605">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
   <tile id="616">
    <properties>
     <property name="type" value="walkable"/>
@@ -663,6 +688,31 @@
   <tile id="624">
    <properties>
     <property name="type" value="blocked"/>
+   </properties>
+  </tile>
+  <tile id="625">
+   <properties>
+    <property name="type" value="blocked"/>
+   </properties>
+  </tile>
+  <tile id="629">
+   <properties>
+    <property name="type" value="blocked"/>
+   </properties>
+  </tile>
+  <tile id="631">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="632">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="633">
+   <properties>
+    <property name="type" value="walkable"/>
    </properties>
   </tile>
   <tile id="644">
@@ -705,6 +755,31 @@
     <property name="type" value="blocked"/>
    </properties>
   </tile>
+  <tile id="653">
+   <properties>
+    <property name="type" value="blocked"/>
+   </properties>
+  </tile>
+  <tile id="657">
+   <properties>
+    <property name="type" value="blocked"/>
+   </properties>
+  </tile>
+  <tile id="659">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="660">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="661">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
   <tile id="672">
    <properties>
     <property name="type" value="walkable"/>
@@ -741,6 +816,16 @@
    </properties>
   </tile>
   <tile id="680">
+   <properties>
+    <property name="type" value="blocked"/>
+   </properties>
+  </tile>
+  <tile id="681">
+   <properties>
+    <property name="type" value="blocked"/>
+   </properties>
+  </tile>
+  <tile id="685">
    <properties>
     <property name="type" value="blocked"/>
    </properties>
@@ -920,6 +1005,71 @@
     <property name="type" value="walkable"/>
    </properties>
   </tile>
+  <tile id="952">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="954">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="955">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="957">
+   <properties>
+    <property name="type" value="walkable"/>
+   </properties>
+  </tile>
+  <tile id="1065">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="1066">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="1067">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="1093">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="1094">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="1095">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="1121">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="1122">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="1123">
+   <properties>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
   <tile id="1204">
    <properties>
     <property name="type" value="walkable"/>
@@ -938,7 +1088,7 @@
  </tileset>
  <layer name="Tile Layer 1" width="40" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAzMWZGCQGKRYEoj9gXg93+DE/qPuI4g9BTHxqPtG3TfqPsJ4uLlPfADqjuEUfqPuG3XfqPsGDx51H3XcR896Abl+INZ9BfwMDCFAXMg/8GGGzX1BQHdNFWZgCB6k7ssDuisUiPMHqfs2A9lbkPDWQeA2ZPe9BrLfQPEFIL44CNyG7D7k/HF+ELoPlD8C+SH5YzC6Dzl/gOL67SBwG8x9A1E2k1KGAwBC6UqTwBIAAA==
+   H4sIAAAAAAAAA82WO47VQBBFHTATALLlRwBkwBYmBXJ+GgHDAp5s8Un4LIZ1dACsoi3x3YMDvkugnsYl7juu9oOEmeCq3XZ19e2qutU+aKvq0inFZcOhYb06Rm/opnEN+PtebHv5pnadvCut6WU/te9kr8OJH/fuMPbg0OOd+uS8X5U5RmdXOD9yi/ZZOj/fM6brhe9Pbf+7gmftnF+3mseD5+M8iqfmi/NS/m/b/rcEd9o/dlF+l/LRAaW40o41otwjfv5N88s8ROftMbIWmAPmkhxL/Bg/aneXVpm/SC96TnLX/R7b/vcETwJ+UW64T0kzkc2ShiLdR3lXfXyy58878CVYX6oB9pCop7DWqcG18Pthzz934Jfh4gncHRucvVBV53bgvGGoqypPSIZxGlPwfoCNv8vTOGC9+nA75zfKel/jz1nWjvI9wy6J7/QXdrTnHuSXxYfPc739TX1qrGjrZ1Wuke9BQH+j8NMznbH5nmG/3T5Truc5zAUeCfsyLhqLJHa6vhS/Kza/arjWxj7pR3PDGKt9FtuxjvM0wA/rb/Puus1vGG6289hF9cNaG+rtfGYgqgfqyNc7vyHYV7VFnZBHxjhiPbU+wFekSa0/1hLPMhb8an2RP2PIePMsPJPWH+NBHS31lRH2rLPIbzTnuTW///Ne0PuBfU+1rPF72VTVkeFVM48H+2epzqNewdiUejHvHx+d3wPj9drur4dN3Ecy9uZ9FdUQ/ZQ0wjtPNeX8nhuvR4YXzbYP8mCPo84jnZS4RH2AGnF+b+z5reAd/KR6XufUHmOpOqH22S90H+Xs/L7a87cJHwwfYcsc8D8mul+oRc07+1epV0f6eC/8oh4c9R+1owbY4zPWMg5R/W30cb851ofy41rlUIpZqufn4FiqQ97ZkT42uf4uaxL2VK6sf9Z3SVf8P4juUu9/J9Gb/6WH/waoo4gewBIAAA==
   </data>
  </layer>
 </map>

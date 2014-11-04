@@ -11,8 +11,8 @@ public class Creature1 extends Creature {
 	private static int MAXHIT = 6;
 	private static CreatureType CTYPE = CreatureType.CREATURE_1;
 
-	public Creature1(Tile pos) {
-		super(HP, MAN, pos, MINHIT, MAXHIT, CTYPE);
+	public Creature1(Tile pos, long ID) {
+		super(HP, MAN, pos, MINHIT, MAXHIT, CTYPE, ID);
 	}
 
 }

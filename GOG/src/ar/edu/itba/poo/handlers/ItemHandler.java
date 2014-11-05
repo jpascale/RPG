@@ -3,16 +3,25 @@ package ar.edu.itba.poo.handlers;
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.render.ItemRenderer;
 
-public class ItemObserver implements Observer<Item> {
+public class ItemHandler implements Observer<Item> {
 	
-	ItemRenderer renderer;
+	static ItemHandler instance;
+
+	public static ItemHandler getInstance() {
+		if(instance == null)
+			instance = new ItemHandler();
+		return instance;
+	}
 	
-	public ItemObserver(Item data) {
-		renderer = new ItemRenderer();
+	public void addrenderer(Item data){
+		ItemRenderer.addRenderer(new ItemRenderer(data.getID()));
 		handleUpdate(data);
 	}
+	
 	@Override
 	public void handleUpdate(Item data) {
+		ItemRenderer renderer = ItemRenderer.getRenderer(data.getID());
+		
 		if(data.getPos()==null){
 			renderer.setRenderable(false);
 			renderer.setX(-1);

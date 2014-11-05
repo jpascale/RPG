@@ -17,4 +17,5 @@
 	-Hacer que no te ataque cuando lo atacas	DONE
 	-Conectar Inventory y Equipment DONE
 	-Unificar CreatureObservers DONE
+	-Unificar ItemObservers DONE
 

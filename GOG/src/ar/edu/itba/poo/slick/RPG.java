@@ -14,6 +14,7 @@ import ar.edu.itba.poo.gamelogic.CreatureFactory;
 import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.gamelogic.Item;
+import ar.edu.itba.poo.gamelogic.ItemFactory;
 import ar.edu.itba.poo.gamelogic.creatures.Boss1;
 import ar.edu.itba.poo.gamelogic.creatures.Boss2;
 import ar.edu.itba.poo.gamelogic.creatures.Boss3;
@@ -64,13 +65,13 @@ public class RPG extends BasicGameState {
 			player.addObserver(new CharacterMovementHandler());
 			player.getStatus().addObserver(new StatusHandler(player.getStatus()));
 			player.getLvl().addObserver(new LevelProfileHandler());
-			player.getEquip().addItem(new Item("Nudillos", 1.0, null));
+			player.getEquip().addItem(ItemFactory.createItem("Nudillos", 1.0, null));
 			
 			console = new Console();
 			Console.add("Bienvenido a Game of Games!");
 	
 			map = game.getWorld();
-			map.getTile(3, 28 ).setItem(new Item("Big Bad Blade", 5.0, map.getTile(3,28)));
+			map.getTile(3, 28 ).setItem(ItemFactory.createItem("Big Bad Blade", 5.0, map.getTile(3,28)));
 			
 			graphicmap = GraphicMap.getInstance();
 			graphicmap.setWorldTriggers();

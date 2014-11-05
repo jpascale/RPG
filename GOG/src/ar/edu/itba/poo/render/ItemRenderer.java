@@ -15,15 +15,27 @@ public class ItemRenderer {
 	
 	private int X, Y;
 	private boolean renderable;
+	private long ID;
 
-	public ItemRenderer() {
+	public ItemRenderer(long ID) {
+		this.ID = ID;
 		try {
 			this.image = new Image("data/pokeball.png");
-			renders.add(this);
 		} catch (SlickException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static void addRenderer(ItemRenderer renderer){
+		renders.add(renderer);
+	}
+	
+	public static ItemRenderer getRenderer(long creatureID){
+		for (ItemRenderer render : renders) {
+			if(render.ID == creatureID)
+				return render;
+		}
+		return null;
 	}
 	
 	public static void render(){

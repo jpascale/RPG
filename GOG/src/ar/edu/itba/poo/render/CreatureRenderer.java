@@ -51,8 +51,6 @@ public class CreatureRenderer {
 		}
 		else
 			this.offsetX = this.offsetY = 0;
-			
-		CreatureRenderer.renders.add(this);
 		
 	}
 

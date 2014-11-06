@@ -19,10 +19,13 @@ import ar.edu.itba.poo.gamelogic.creatures.Boss1;
 import ar.edu.itba.poo.gamelogic.creatures.Boss2;
 import ar.edu.itba.poo.gamelogic.creatures.Boss3;
 import ar.edu.itba.poo.handlers.CharacterMovementHandler;
+import ar.edu.itba.poo.handlers.CreatureMovementHandler;
+import ar.edu.itba.poo.handlers.EquipmentHandler;
 import ar.edu.itba.poo.handlers.LevelProfileHandler;
 import ar.edu.itba.poo.handlers.StatusHandler;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.render.CreatureRenderer;
+import ar.edu.itba.poo.render.EquipmentRenderer;
 import ar.edu.itba.poo.render.ItemRenderer;
 import ar.edu.itba.poo.render.LevelRenderer;
 import ar.edu.itba.poo.render.StatusRenderer;
@@ -38,7 +41,7 @@ public class RPG extends BasicGameState {
 	private GraphicMap graphicmap;
 	private TiledMap tiledmap;
 	
-	//private Music music;
+	private Music music;
 	
 	private Character player;
 	
@@ -65,6 +68,7 @@ public class RPG extends BasicGameState {
 			player.addObserver(new CharacterMovementHandler());
 			player.getStatus().addObserver(new StatusHandler(player.getStatus()));
 			player.getLvl().addObserver(new LevelProfileHandler());
+			player.getEquip().addObserver(new EquipmentHandler());
 			player.getEquip().addItem(ItemFactory.createItem("Nudillos", 1.0, null));
 			
 			console = new Console();
@@ -117,6 +121,7 @@ public class RPG extends BasicGameState {
 		CharacterRenderer.render();
 		StatusRenderer.render(gr);
 		LevelRenderer.render(gr);
+		EquipmentRenderer.render(gr);
 		
 	}
 

@@ -23,10 +23,6 @@ public class Creature extends Alive implements Combat {
 		this.actiontimer = 0;
 		this.ID = ID;
 	}
-	
-	public long getID() {
-		return ID;
-	}
 
 	public void throwItem(){
 		if (!this.getPos().hasItem() && (this.getItem() != null)){
@@ -46,13 +42,46 @@ public class Creature extends Alive implements Combat {
 				int damage = Alive.randInt(getMinHit(),getMaxHit());
 				posNext.getAlive().receiveAttack(damage);
 			}
-			else{
-				;//TODO if there is no creature.
-			}
 		} catch (EndOfMapException e) {
 			e.printStackTrace();
 		} 
 			
+	}
+	
+	/* Simple AI for the creature. Receives the time passed since last update
+	 * and moves the creature if its near the character or attacks it if its next to it.
+	 * 
+	 * @param delta (time passed from last update)
+	 * @return 
+	 */
+	public void AI(int delta){
+		actiontimer += delta;
+		if(actiontimer >= 500){
+			try {
+				int distance = 6;
+				Character player = Game.getInstance().getCharacter();
+				int Xdiff = this.getPos().getX()-player.getPos().getX();
+				int Ydiff = this.getPos().getY()-player.getPos().getY();
+				
+				if(Math.abs(Xdiff)<distance && Math.abs(Ydiff)<distance){
+					if(Xdiff > 0)
+						move(Dir.WEST);
+					else if(Xdiff < 0)
+						move(Dir.EAST);
+					else if(Ydiff > 0)
+						move(Dir.NORTH);
+					else 
+						move(Dir.SOUTH);
+				}
+				
+				if(getPos().getNext(getHeading()).equals(player.getPos())){
+					attack();
+				}
+			} catch (EndOfMapException e) {
+				e.printStackTrace();
+			}
+			actiontimer = 0;
+		}
 	}
 	
 	/*
@@ -90,7 +119,17 @@ public class Creature extends Alive implements Combat {
 	public void setType(CreatureType type) {
 		this.type = type;
 	}
-
+	
+	public long getID() {
+		return ID;
+	}
+	
+	/* Receives damage and if the creature dies, it throws the item 
+	 * and removes the creature from the map.
+	 * 
+	 * @param damage integer
+	 * @return 
+	 */
 	@Override
 	public void receiveAttack(int damage) {
 		super.receiveAttack(damage);
@@ -100,35 +139,6 @@ public class Creature extends Alive implements Combat {
 			this.throwItem();
 			this.getPos().freeAlive();
 			Console.add("La criatura ha muerto.");
-		}
-	}
-	public void AI(int delta){
-		actiontimer += delta;
-		if(actiontimer >= 500){
-			try {
-				int distance = 6;
-				Character player = Game.getInstance().getCharacter();
-				int Xdiff = this.getPos().getX()-player.getPos().getX();
-				int Ydiff = this.getPos().getY()-player.getPos().getY();
-				
-				if(Math.abs(Xdiff)<distance && Math.abs(Ydiff)<distance){
-					if(Xdiff > 0)
-						move(Dir.WEST);
-					else if(Xdiff < 0)
-						move(Dir.EAST);
-					else if(Ydiff > 0)
-						move(Dir.NORTH);
-					else 
-						move(Dir.SOUTH);
-				}
-				
-				if(getPos().getNext(getHeading()).equals(player.getPos())){
-					attack();
-				}
-			} catch (EndOfMapException e) {
-				e.printStackTrace();
-			}
-			actiontimer = 0;
 		}
 	}
 	

@@ -19,7 +19,10 @@ public class CreatureList {
 		this.game = game;
 		this.creatureList = new LinkedList<Creature>();
 	}
-
+	
+	/* Checks the creatureList for dead creatures and removes them from the array.
+	 * @return 
+	 */
 	public void removeBodies(){
 		Creature dead = null;
 		for(Creature creature : creatureList){
@@ -29,6 +32,10 @@ public class CreatureList {
 		remove(dead);
 	}
 	
+	/* Checks the number of each type of creature in the list and
+	 * creates more creatures if needed.
+	 * @return 
+	 */
 	public void creatureFactory(){
 		int creature1 = 0;
 		int creature2 = 0;
@@ -74,7 +81,10 @@ public class CreatureList {
 			}	
 		}
 	}
-	
+	/* Calls the AI method for each of the creatures in the list.
+	 * @param delta (time since last update)
+	 * @return 
+	 */
 	public void creaturesAI(int delta){
 		for (Creature creature : creatureList) {
 			creature.AI(delta);

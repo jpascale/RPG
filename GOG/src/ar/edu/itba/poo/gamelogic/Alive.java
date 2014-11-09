@@ -32,6 +32,10 @@ public class Alive implements Observable{
 		}
 	}
 	
+	/* Moves the alive to the next tile in the direction given.
+	 * @param dir direction;
+	 * @return void
+	 */
 	public void move(Dir dir) throws EndOfMapException{
 		
 		Tile actual;
@@ -54,9 +58,8 @@ public class Alive implements Observable{
 				}
 			}
 		} catch (Exception e){
-			throw new EndOfMapException();
+  
 		}
-		
 		this.notifyObservers();
 		
 	}
@@ -65,7 +68,11 @@ public class Alive implements Observable{
 		status.receiveDamage(damage);
 			
 	}
-	
+	/*Returns an int that is a random interger between two numbers.
+	 * @param min lowest integer;
+	 * @param max highest integer;
+	 * @return 
+	 */
 	public static int randInt(int min, int max) {
 	    Random rand = new Random();
 	    int randomNum = rand.nextInt((max - min) + 1) + min;
@@ -77,6 +84,7 @@ public class Alive implements Observable{
 		pos.setAlive(this);
 	}
 	
+	//TODO coment this
 	public static int calculateExp(Alive alive){
 		
 		int maxhp = alive.getStatus().getMaxhp();
@@ -108,7 +116,7 @@ public class Alive implements Observable{
 	
 	public void setHeading(Dir heading){
 		this.heading = heading;
-		//Notify observers
+		notifyObservers();
 	}
 	
 	public boolean checkSwims() {
@@ -118,7 +126,11 @@ public class Alive implements Observable{
 	public void setSwims(boolean swims) {
 		this.swims = swims;
 	}
-
+	
+	/*
+	 *		Observable Methods
+	 */
+	
 	@Override
 	public void addObserver(Observer observer) {
 		observers.add(observer);

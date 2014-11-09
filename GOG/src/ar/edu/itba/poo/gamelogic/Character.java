@@ -25,6 +25,9 @@ public class Character extends Alive implements Combat{
 	}
 	
 	//TODO: Manage errors
+	/*Picks up an item if its on the tile, else it throws down the equipped item.
+	 * @return 
+	 */
 	public void itemAction(){
 		if (this.getPos().hasItem()){
 			Item item = this.getPos().getItem();
@@ -49,6 +52,10 @@ public class Character extends Alive implements Combat{
 		this.lvl.gainExp(exp);
 	}
 	
+	/*Receives damage and revives the character if it dies
+	 * @param damage integer
+	 * @return 
+	 */
 	@Override
 	public void receiveAttack(int damage) {
 		super.receiveAttack(damage);
@@ -107,7 +114,7 @@ public class Character extends Alive implements Combat{
 
 	@Override
 	public void attack() {
-			type.attack(this);
+		type.attack(this);
 	}
 
 }

@@ -1,5 +1,7 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.util.ArrayList;
+
 import ar.edu.itba.poo.handlers.ItemHandler;
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
@@ -10,7 +12,7 @@ public class Item implements Observable{
 	private String name;
 	private double modifier;
 	private Tile pos;
-	private ItemHandler observer;
+	private ArrayList<Observer> observers;
 	private long ID;
 	
 	public Item(String name, double modifier, Tile tile, long ID) {
@@ -46,20 +48,19 @@ public class Item implements Observable{
 
 	@Override
 	public void addObserver(Observer observer) {
-		this.observer = (ItemHandler) observer;
-		
+		observers.add(observer);
 	}
 
 	@Override
 	public void removeObserver(Observer observer) {
-		this.observer = null;
-		
+		observers.remove(observer);	
 	}
 
 	@Override
 	public void notifyObservers() {
-		observer.handleUpdate(this);
-		
+		for (Observer observer : observers) {
+			observer.handleUpdate(this);
+		}	
 	}
 	
 	

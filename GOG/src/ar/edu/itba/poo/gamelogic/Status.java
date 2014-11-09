@@ -25,10 +25,6 @@ public class Status implements Observable{
 		this.minman = this.maxman = man;
 		this.isdead = false;
 	}
-
-	public boolean isDead(){
-		return this.isdead;
-	}
 	
 	public void receiveDamage(int damage) {
 		
@@ -48,6 +44,7 @@ public class Status implements Observable{
 		isdead = false;
 		notifyObservers();
 	}
+	
 	public void loseMana(int mp){
 		if(minman >= mp)
 			minman -= mp;
@@ -122,5 +119,9 @@ public class Status implements Observable{
 
 	public void setMaxman(int maxman) {
 		this.maxman = maxman;
+	}
+	
+	public boolean isDead(){
+		return this.isdead;
 	}
 }

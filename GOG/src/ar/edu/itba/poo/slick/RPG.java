@@ -89,8 +89,7 @@ public class RPG extends BasicGameState {
 
 			player = game.getCharacter();
 			
-			//music = new Music("data/b_jean.ogg");
-			//music.loop();
+			music = new Music("data/b_jean.ogg");
 			
 			
 		} catch (Exception e) {
@@ -101,6 +100,8 @@ public class RPG extends BasicGameState {
 
 	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
 	
+		if(!music.playing())
+			music.loop() ;
 		InputHandler.handleInput(container, delta, player);
 		
 			//TODO: Change this

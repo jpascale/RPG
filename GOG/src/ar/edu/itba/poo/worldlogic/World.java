@@ -45,11 +45,12 @@ public class World {
 	 * <p>
 	 * This method always returns immediately, whether or not the 
 	 * tile exists.
+	 * 
 	 * @param  x position
 	 * @param  y position
 	 * @throws		
 	 * @return	
-	 * @see         ar.itba.edu.poo.gamelogic.Tile
+	 * @see ar.itba.edu.poo.gamelogic.Tile
 	 */
 	
 	public Tile getTile(int x, int y){

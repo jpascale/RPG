@@ -1,9 +1,11 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.io.Serializable;
+
 import org.newdawn.slick.SlickException;
 
 
-public abstract class Type{
+public abstract class Type implements Serializable{
 	
 	private String name;
 	private int minHit;

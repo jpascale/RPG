@@ -23,7 +23,7 @@ public class Menu extends BasicGameState {
 								{"1. Warrior","2. Wizard", "3. Back"}, 
 								{"1. File 1", "2. File 2", "3. File 3", "4. Back"} };
 	
-	Menu(){
+	public Menu(){
 		try {
 			land = new Image("data/bkg.jpg");
 		} catch (SlickException e) {

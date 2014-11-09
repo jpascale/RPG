@@ -1,18 +1,19 @@
 package ar.edu.itba.poo.gamelogic;
 
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-import ar.edu.itba.poo.handlers.ItemHandler;
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
 import ar.edu.itba.poo.worldlogic.Tile;
 
-public class Item implements Observable{
+public class Item implements Observable, Serializable{
 	
 	private String name;
 	private double modifier;
-	private Tile pos;
-	private ArrayList<Observer> observers;
+	private transient Tile pos;
+	private transient ArrayList<Observer> observers;
 	private long ID;
 	
 	public Item(String name, double modifier, Tile tile, long ID) {
@@ -20,6 +21,7 @@ public class Item implements Observable{
 		this.modifier = modifier;
 		this.pos = tile; 
 		this.ID = ID;
+		this.observers = new ArrayList<Observer>();
 	}
 
 	/*

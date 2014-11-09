@@ -1,76 +1,69 @@
 package ar.edu.itba.poo.IO;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import ar.edu.itba.poo.gamelogic.*;
-import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.gamelogic.Character;
+import ar.edu.itba.poo.worldlogic.World;
 
 
 public class GameIO {
 	
-	private static String SPLIT = "!¬";
-	private static String END = "%&/\n";
+
 	public static Game game;
 
 	public static void setGame(Game game){
 		GameIO.game = game;
 	}
 	
-	public static void saveGame(){
+	public static void saveGame(GameSlot slot){
 		
-	Character character = game.getCharacter();
+		Character character = game.getCharacter();
 	
 		
 		try {
-			 
-			StringBuffer bff = new StringBuffer();
+
+			FileOutputStream file = new FileOutputStream(slot.getStreamDir());
+			ObjectOutputStream save = new ObjectOutputStream(file);
 			
-			File file = new File("save.gog");
- 
-			// if file doesn't exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
- 
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);			
+			//Character
+			save.writeObject(character);
 			
-			/*
-			 * 		Save Character
-			 */
+			//World
+			save.writeObject(game.getWorld());
 			
-			//Heading
-			bff.append(character.getHeading() + END);
-			bw.write(bff.toString());
+			save.close();
 			
-			//status
-			bff = new StringBuffer();
-			Status st = character.getStatus();
-			bff.append(st.getMinhp() + SPLIT);
-			bff.append(st.getMaxhp() + SPLIT);
-			bff.append(st.getMinman() + SPLIT);
-			bff.append(st.getMaxman() + SPLIT);
-			bff.append(st.isDead() + SPLIT);
-			bff.append(END);
-			
-			bw.write(bff.toString());
-			
-			//POS
-			
-			
-			bw.close();
- 
-			System.out.println("Done");
- 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static void loadGame(GameSlot slot){
 		
-		
+		try{
+			FileInputStream file = new FileInputStream(slot.getStreamDir());
+			ObjectInputStream load = new ObjectInputStream(file);
+			
+			Character character = (Character) load.readObject();
+			game.setCharacter(character);
+			
+			World map = (World) load.readObject();
+			game.setMap(map);
+			load.close();
+			
+			//TODO: SET OBSERVERS
+			
+		}catch (IOException e){
+			e.printStackTrace();
+		}catch (ClassNotFoundException e){
+			e.printStackTrace();
+		}
 	}
 	
 }

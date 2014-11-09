@@ -1,5 +1,6 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import ar.edu.itba.poo.handlers.EquipmentHandler;
@@ -7,10 +8,11 @@ import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
 import ar.edu.itba.poo.slick.Console;
 
+
 //The characters inventory for weapon storing and selection.
 //Has a maximum of 10 slots. First weapon added will be unremovable
 //as will be the no weapon attack.
-public class Equipment implements Observable{
+public class Equipment implements Observable, Serializable{
 	
 	public static int MAX_INVENTORY_SLOTS = 10;
 	

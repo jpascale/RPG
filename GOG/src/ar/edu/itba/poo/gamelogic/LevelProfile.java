@@ -1,18 +1,19 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
 
-public class LevelProfile implements Observable{
+public class LevelProfile implements Observable, Serializable{
 	
-	private ArrayList<Observer> observers;
+	private transient ArrayList<Observer> observers;
 	
 	public static int MAX_LVL = 47;
 	public static int EXP_CONST = 50;
 	
-	private Character character;
+	private transient Character character;
 	
 	private int level;
 	
@@ -106,6 +107,9 @@ public class LevelProfile implements Observable{
 
 	public void setMaxexp(int maxexp) {
 		this.maxexp = maxexp;
+	}
+	public void serCharacter(Character character){
+		this.character = character;
 	}
 	
 }

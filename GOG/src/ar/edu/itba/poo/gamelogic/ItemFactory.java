@@ -1,7 +1,6 @@
 package ar.edu.itba.poo.gamelogic;
 
-import ar.edu.itba.poo.gamelogic.creatures.Creature1;
-import ar.edu.itba.poo.handlers.CreatureMovementHandler;
+
 import ar.edu.itba.poo.handlers.ItemHandler;
 import ar.edu.itba.poo.worldlogic.Tile;
 

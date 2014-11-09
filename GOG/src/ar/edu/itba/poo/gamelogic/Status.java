@@ -1,13 +1,14 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
 
-public class Status implements Observable{
+public class Status implements Observable, Serializable{
 	
-	ArrayList<Observer> observers;
+	private transient ArrayList<Observer> observers = null;
 	
 	private static int HP_DELTA_UP = 5;
 	private static int MAN_DELTA_UP = 5;
@@ -67,6 +68,10 @@ public class Status implements Observable{
 	
 	@Override
 	public void addObserver(Observer observer) {
+		
+		if (observers == null)
+			observers = new ArrayList<Observer>();
+			
 		observers.add(observer);
 		notifyObservers();
 	}

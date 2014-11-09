@@ -1,14 +1,8 @@
 package ar.edu.itba.poo.gamelogic;
 
-import java.util.ArrayList;
-
-import org.newdawn.slick.SlickException;
-
-
-//import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
-import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.World;
+//import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
 
 //TODO: MAKE SINGLETON
 
@@ -42,17 +36,7 @@ public class Game {
 		/*
 		 *		Create Character
 		 */
-		
-		try {
-			
 			character = new Character(map.getTile(START_X, START_Y));
-			//character.setStrategy(new Wizard(2, 5));
-			//character.getEquip().setWeapon(new Item("Nudillos","data/pokeball.png", 1.0, map.getTile(1, 1)));
-			
-		} catch (EndOfMapException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		/*
 		 *		Create creatures
@@ -73,7 +57,7 @@ public class Game {
 		this.map = map;
 	}
 
-	public void reviveCharacter() throws EndOfMapException{
+	public void reviveCharacter() {
 		Tile start = map.getTile(START_X, START_Y);
 		
 		character.getPos().freeAlive();

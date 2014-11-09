@@ -1,8 +1,9 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Inventory {
+public class Inventory implements Serializable {
 
 	public static int MAX_INVENTORY_SLOTS = 10;
 	

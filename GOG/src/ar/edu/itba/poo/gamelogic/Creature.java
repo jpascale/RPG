@@ -1,9 +1,7 @@
 package ar.edu.itba.poo.gamelogic;
 
-import ar.edu.itba.poo.handlers.CreatureMovementHandler;
 import ar.edu.itba.poo.slick.Console;
 import ar.edu.itba.poo.worldlogic.Dir;
-import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 
 public class Creature extends Alive implements Combat {
@@ -39,19 +37,13 @@ public class Creature extends Alive implements Combat {
 	
 	@Override
 	public void attack() {
-		try {
+
 			Tile posNext = this.getPos().getNext(this.getHeading());
 			
-			if(posNext.getAlive() != null){
+			if(posNext != null && posNext.getAlive() != null){
 				int damage = Alive.randInt(getMinHit(),getMaxHit());
 				posNext.getAlive().receiveAttack(damage);
 			}
-			else{
-				;//TODO if there is no creature.
-			}
-		} catch (EndOfMapException e) {
-			e.printStackTrace();
-		} 
 			
 	}
 	
@@ -104,29 +96,27 @@ public class Creature extends Alive implements Combat {
 	}
 	public void AI(int delta){
 		actiontimer += delta;
+		
 		if(actiontimer >= 500){
-			try {
-				int distance = 6;
-				Character player = Game.getInstance().getCharacter();
-				int Xdiff = this.getPos().getX()-player.getPos().getX();
-				int Ydiff = this.getPos().getY()-player.getPos().getY();
-				
-				if(Math.abs(Xdiff)<distance && Math.abs(Ydiff)<distance){
-					if(Xdiff > 0)
-						move(Dir.WEST);
-					else if(Xdiff < 0)
-						move(Dir.EAST);
-					else if(Ydiff > 0)
-						move(Dir.NORTH);
-					else 
-						move(Dir.SOUTH);
-				}
-				
-				if(getPos().getNext(getHeading()).equals(player.getPos())){
-					attack();
-				}
-			} catch (EndOfMapException e) {
-				e.printStackTrace();
+		
+			int distance = 6;
+			Character player = Game.getInstance().getCharacter();
+			int Xdiff = this.getPos().getX()-player.getPos().getX();
+			int Ydiff = this.getPos().getY()-player.getPos().getY();
+
+			if(Math.abs(Xdiff)<distance && Math.abs(Ydiff)<distance){
+				if(Xdiff > 0)
+					move(Dir.WEST);
+				else if(Xdiff < 0)
+					move(Dir.EAST);
+				else if(Ydiff > 0)
+					move(Dir.NORTH);
+				else 
+					move(Dir.SOUTH);
+			}
+
+			if(getPos().getNext(getHeading()).equals(player.getPos())){
+				attack();
 			}
 			actiontimer = 0;
 		}

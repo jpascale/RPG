@@ -1,38 +1,34 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
-import ar.edu.itba.poo.render.Appearance;
-import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
-import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.Trigger;
 
-public class Alive implements Observable{
+public class Alive implements Observable, Serializable{
+	
+	private transient ArrayList<Observer> observers = null;
 	
 	private Dir heading;
 	private Status status;
 	private Tile pos;
 	private boolean swims;
-	private ArrayList<Observer> observers;
 
 	public Alive(int hp, int man, Tile pos) {
-		try{
+	
 			this.heading = Dir.SOUTH;
 			this.status = new Status(hp, man);
 			this.setPos(pos);
 			this.observers = new ArrayList<Observer>();
 			this.swims = false;
-		} catch(Exception e){
-			;
-		}
 	}
 	
-	public void move(Dir dir) throws EndOfMapException{
+	public void move(Dir dir){
 		
 		Tile actual;
 		Tile next;
@@ -40,22 +36,16 @@ public class Alive implements Observable{
 		actual = this.getPos();
 		
 		setHeading(dir);
-		
-		//TODO: Exception?
-		try {
 			
 			next = actual.getNext(dir);
 				
-			if (next.legalPos()){
+			if (next != null && next.legalPos()){
 				if((next.getType() == Trigger.WALKABLE) ||
 						((next.getType() == Trigger.WATER) && this.checkSwims())){
-				this.setPos(next);
-				actual.freeAlive();
+					this.setPos(next);
+					actual.freeAlive();
 				}
 			}
-		} catch (Exception e){
-			throw new EndOfMapException();
-		}
 		
 		this.notifyObservers();
 		
@@ -85,6 +75,31 @@ public class Alive implements Observable{
 		return (maxhp + (int)((maxhp * maxman) / (maxhp + maxman)));
 	}
 	
+	/*
+	 * 		Observer methods
+	 */
+	
+	@Override
+	public void addObserver(Observer observer) {
+		
+		if (observers == null)
+			observers = new ArrayList<Observer>();
+		
+		observers.add(observer);
+	}
+
+	@Override
+	public void removeObserver(Observer observer) {
+		observers.remove(observer);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for (Observer observer : observers) {
+			observer.handleUpdate(this);
+			
+		}
+	}
 	
 	/*
 	 *		Getters & Setters
@@ -118,23 +133,4 @@ public class Alive implements Observable{
 	public void setSwims(boolean swims) {
 		this.swims = swims;
 	}
-
-	@Override
-	public void addObserver(Observer observer) {
-		observers.add(observer);
-	}
-
-	@Override
-	public void removeObserver(Observer observer) {
-		observers.remove(observer);
-	}
-
-	@Override
-	public void notifyObservers() {
-		for (Observer observer : observers) {
-			observer.handleUpdate(this);
-			
-		}
-	}
-	
 }

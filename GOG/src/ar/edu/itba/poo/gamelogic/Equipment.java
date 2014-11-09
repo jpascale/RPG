@@ -1,11 +1,12 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import ar.edu.itba.poo.slick.Console;
 
 //TODO
-public class Equipment {
+public class Equipment implements Serializable {
 	
 	public static int MAX_INVENTORY_SLOTS = 10;
 	

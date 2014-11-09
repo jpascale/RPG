@@ -1,8 +1,10 @@
 package ar.edu.itba.poo.worldlogic;
+import java.io.Serializable;
+
 import ar.edu.itba.poo.gamelogic.Alive;
 import ar.edu.itba.poo.gamelogic.Item;
 
-public class Tile {
+public class Tile implements Serializable{
 	
 	//Tile position in space
 	private int x;
@@ -10,7 +12,7 @@ public class Tile {
 	
 	//Items or Alives in this position
 	private Item item;
-	private Alive alive;
+	private transient Alive alive;
 	
 	private Trigger trigger;
 	
@@ -26,7 +28,7 @@ public class Tile {
 		this.trigger= Trigger.WALKABLE;
 	}
 	
-	public Tile getNext(Dir dir) throws EndOfMapException{
+	public Tile getNext(Dir dir) {
 		
 		int x_delta = 0;
 		int y_delta = 0;
@@ -55,23 +57,20 @@ public class Tile {
 				break;
 		}
 		
-		try{
 			next = World.getInstance().getTile(this.x + x_delta, this.y + y_delta);
 			return next;
-		} catch (EndOfMapException e) {
-			throw new EndOfMapException();
-		}
 		
+	}
+	
+
+	public boolean hasAlive(){
+		return alive != null;
 	}
 	
 	/*
 	 *	This method makes sense because a tile could be
 	 *	Illegal for other reason than having an Alive.
 	 */
-	public boolean hasAlive(){
-		return alive != null;
-	}
-	
 	public boolean legalPos(){
 		return !hasAlive();
 	}

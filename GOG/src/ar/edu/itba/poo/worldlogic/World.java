@@ -41,17 +41,21 @@ public class World {
 	//TODO: Complete doc
 	
 	/**
-	 * @param  x	
-	 * @param  y	
+	 * Returns a Tile object that represents one position in the world.
+	 * <p>
+	 * This method always returns immediately, whether or not the 
+	 * tile exists.
+	 * @param  x position
+	 * @param  y position
 	 * @throws		
-	 * @return      specified tile
+	 * @return	
 	 * @see         ar.itba.edu.poo.gamelogic.Tile
 	 */
 	
-	public Tile getTile(int x, int y) throws EndOfMapException{
+	public Tile getTile(int x, int y){
 		
 		if (x > X_TILES || y > X_TILES)
-			throw new EndOfMapException();
+			return null;
 		
 		return this.map[x - 1][y - 1];
 	}

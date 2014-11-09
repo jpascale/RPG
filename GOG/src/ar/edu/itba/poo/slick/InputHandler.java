@@ -1,12 +1,10 @@
 package ar.edu.itba.poo.slick;
 
-import java.io.ObjectInputStream.GetField;
-
 import ar.edu.itba.poo.IO.GameIO;
+import ar.edu.itba.poo.IO.GameSlot;
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.worldlogic.Dir;
-import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.gamelogic.Character;
 
 import org.newdawn.slick.GameContainer;
@@ -32,7 +30,7 @@ public abstract class InputHandler {
 		interval += delta;
 		
 		if (interval >= ACTION_INTERVAL){
-			try {
+
 				if (input.isKeyDown(Input.KEY_UP)){
 					CharacterRenderer.setMoving(true);
 					player.move(Dir.NORTH);
@@ -64,9 +62,11 @@ public abstract class InputHandler {
 					player.getEquip().changeWeapon();
 				}
 				else if(input.isKeyPressed(Input.KEY_Y)){
-					GameIO.saveGame();
+					GameIO.saveGame(GameSlot.SLOT_1);
 				}
-				//Para probar mapa
+				else if(input.isKeyPressed(Input.KEY_H)){
+					GameIO.loadGame(GameSlot.SLOT_1);
+				}
 				
 				else if (input.isKeyPressed(Input.KEY_M)){
 					Console.add("Mi posicion es " + player.getPos().getX() + " " + player.getPos().getY());
@@ -85,10 +85,6 @@ public abstract class InputHandler {
 				else
 					CharacterRenderer.setMoving(false);
 				
-			} catch (EndOfMapException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			
 			if (interval >= ACTION_INTERVAL)
 				interval = ACTION_INTERVAL;

@@ -2,6 +2,7 @@ package ar.edu.itba.poo.slick;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
@@ -32,6 +33,8 @@ public class RPG extends BasicGameState {
 
 	public static final int SIZE = 16;
 	
+	Image background = null;
+	
 	private Game game;
 	
 	private World map;
@@ -49,6 +52,13 @@ public class RPG extends BasicGameState {
 	
 	public RPG(String title) {
 		super();
+		try {
+			background = new Image("data/main.jpg");
+		//Use "Exception" because it ends execution otherwise
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Could not find data/main.jpg");
+		}
 	}
 	
 
@@ -109,6 +119,9 @@ public class RPG extends BasicGameState {
 	}
 	
 	public void render(GameContainer container, StateBasedGame sbg, Graphics gr) throws SlickException {
+		
+		if (background != null)
+			gr.drawImage(background, 0, 0);
 		
 		console.draw();
 		tiledmap.render(0, 90);

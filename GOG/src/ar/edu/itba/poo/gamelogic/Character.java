@@ -1,13 +1,13 @@
 package ar.edu.itba.poo.gamelogic;
 
-import ar.edu.itba.poo.handlers.CharacterMovementHandler;
-import ar.edu.itba.poo.handlers.StatusHandler;
+
+import java.io.Serializable;
+
 import ar.edu.itba.poo.slick.Console;
-import ar.edu.itba.poo.worldlogic.EndOfMapException;
 import ar.edu.itba.poo.worldlogic.Tile;
 
 
-public class Character extends Alive implements Combat{
+public class Character extends Alive implements Combat, Serializable {
 
 	private static int CHAR_INITIAL_HP = 80;
 	private static int CHAR_INITIAL_MAN = 0;
@@ -51,14 +51,11 @@ public class Character extends Alive implements Combat{
 	
 	@Override
 	public void receiveAttack(int damage) {
+		
 		super.receiveAttack(damage);
+		
 		if(this.getStatus().isDead()){
-			try {
-				Game.getInstance().reviveCharacter();
-			} catch (EndOfMapException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			Game.getInstance().reviveCharacter();
 		}
 		notifyObservers();
 	}
@@ -104,6 +101,9 @@ public class Character extends Alive implements Combat{
 		return equip;
 	}
 	
+	public void setLevelProfileCharacter(){
+		lvl.serCharacter(this);
+	}
 
 	@Override
 	public void attack() {

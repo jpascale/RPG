@@ -3,7 +3,7 @@ package ar.edu.itba.poo.slick;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
-import ar.edu.itba.poo.worldlogic.EndOfMapException;
+import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.Trigger;
 import ar.edu.itba.poo.worldlogic.World;
 
@@ -42,20 +42,20 @@ public class GraphicMap {
 				int tileid = tiledmap.getTileId(x - 1, y - 1, 0);
 				String value = tiledmap.getTileProperty(tileid, "type", "false");
 				
-				try{
+				Tile tile = map.getTile(x, y);
+				
+				if (tile != null){
 					switch (value){
 						case "walkable":
-							map.getTile(x, y).setType(Trigger.WALKABLE);
+							tile.setType(Trigger.WALKABLE);
 							break;
 						case "blocked":
-							map.getTile(x, y).setType(Trigger.BLOCKED);
+							tile.setType(Trigger.BLOCKED);
 							break;
 						case "water":
-							map.getTile(x, y).setType(Trigger.WATER);
+							tile.setType(Trigger.WATER);
 							break;
 					}
-				} catch(EndOfMapException e){
-					e.printStackTrace(); //TODO: Raise error
 				}
 			}
 		}

@@ -12,7 +12,7 @@ public class StatusRenderer {
 	
 	private static int LENGTH = 100;
 	private static int HEIGHT = 10;
-	private static int posX = 650;
+	private static int posX = 670;
 	private static int posYhp = 400;
 	private static int posYmp = posYhp + 30;
 	

@@ -1,16 +1,18 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.io.Serializable;
+
 import ar.edu.itba.poo.handlers.ItemHandler;
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
 import ar.edu.itba.poo.worldlogic.Tile;
 
-public class Item implements Observable{
+public class Item implements Observable, Serializable{
 	
 	private String name;
 	private double modifier;
-	private Tile pos;
-	private ItemHandler observer;
+	private transient Tile pos;
+	private transient ItemHandler observer = null;
 	private long ID;
 	
 	public Item(String name, double modifier, Tile tile, long ID) {
@@ -47,7 +49,6 @@ public class Item implements Observable{
 	@Override
 	public void addObserver(Observer observer) {
 		this.observer = (ItemHandler) observer;
-		
 	}
 
 	@Override

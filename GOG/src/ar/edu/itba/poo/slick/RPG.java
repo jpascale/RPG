@@ -130,7 +130,7 @@ public class RPG extends BasicGameState {
 		CharacterRenderer.render();
 		StatusRenderer.render(gr);
 		LevelRenderer.render(gr);
-		EquipmentRenderer.render(gr);
+		//EquipmentRenderer.render(gr);
 		
 	}
 

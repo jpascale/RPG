@@ -10,6 +10,12 @@ public class LevelProfileHandler implements Observer<LevelProfile>{
 		super();
 	}
 	
+	/**
+	 * Notifies the LevelRenderer the change 
+	 * level and exp. 
+	 * 
+	 * @param data LevelProfile;
+	 */
 	@Override
 	public void handleUpdate(LevelProfile data) {
 		LevelRenderer.set(data.getLevel(), data.getExp(), data.getMaxexp());

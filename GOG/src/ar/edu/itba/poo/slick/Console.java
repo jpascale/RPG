@@ -39,7 +39,9 @@ public class Console {
 		}
 			
 	}
-
+	/**
+	 * Draws the Console.
+	 */
 	public void draw() {
 		int i = 0;
 		for (String string : console) {

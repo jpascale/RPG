@@ -82,6 +82,10 @@ public class CreatureRenderer {
 		return null;
 	}
 	
+	/**
+	 * Draws the alive CreatureRenderers and 
+	 * removes the dead ones.
+	 */
 	public static void render(){
 		CreatureRenderer dead = null;
 		for (CreatureRenderer render : renders) {

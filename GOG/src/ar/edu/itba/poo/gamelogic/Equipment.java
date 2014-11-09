@@ -38,12 +38,15 @@ public class Equipment implements Observable, Serializable{
 	}
 
 	public void removeItem(Item item) {
-		if(throwableWeapon())
 			slots.remove(item);
 			this.notifyObservers();
 	}
 	
-	//Makes the character equip the next weapon in the inventory.
+	/**
+	 * Makes the character equip the next weapon in the inventory.
+	 * 
+	 * @return void
+	 */
 	public void changeWeapon(){
 		int index = slots.indexOf(weapon)+1;
 		

@@ -7,12 +7,16 @@ import ar.edu.itba.poo.render.EquipmentRenderer;
 
 public class EquipmentHandler implements Observer<Equipment> {
 	
-	private EquipmentRenderer renderer;
-	
 	public EquipmentHandler() {
-		renderer = new EquipmentRenderer();
+		
 	}
 
+	/**
+	 * Notifies the EquipmentRenderer the changes 
+	 * in the Equipment. 
+	 * 
+	 * @param data Equipment;
+	 */
 	@Override
 	public void handleUpdate(Equipment data) {
 		ArrayList<String> names;
@@ -21,8 +25,8 @@ public class EquipmentHandler implements Observer<Equipment> {
 		names = data.getItemNames();
 		equipped = data.getItemSlot(data.getWeapon());
 		
-		renderer.setItemName(names);
-		renderer.setEquipedItem(equipped);
+		EquipmentRenderer.setItemName(names);
+		EquipmentRenderer.setEquipedItem(equipped);
 	}
 
 }

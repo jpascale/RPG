@@ -23,7 +23,10 @@ public class CharacterRenderer{
 		dir = Dir.SOUTH;
 		
 	}
-
+	
+	/**
+	 * Draws the Character.
+	 */
 	public static void render(){
 		appear.changeAnimation(dir);
 		appear.getWalk().update(InputHandler.ACTION_INTERVAL);;

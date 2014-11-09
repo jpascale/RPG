@@ -16,7 +16,11 @@ public class Warrior extends Type implements Serializable{
 	public Warrior(int minHit, int maxHit) {
 		super(WARRIOR_NAME, WARRIOR_HP_MODIF, WARRIOR_MAN_MODIF, minHit, maxHit, WARRIOR_CLASS_MAN_MODIF);
 	}
-
+	
+	/**
+	 * Attacks the next tile, the direction the character is, if it contains an alive.
+	 * @param attacker Character
+	 */
 	@Override
 	public void attack(Character attacker) {
 

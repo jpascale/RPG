@@ -14,7 +14,8 @@ public class CreatureList {
 		this.creatureList = new LinkedList<Creature>();
 	}
 	
-	/* Checks the creatureList for dead creatures and removes them from the array.
+	/**
+	 * Checks the creatureList for dead creatures and removes them from the array.
 	 * @return 
 	 */
 	public void removeBodies(){
@@ -26,7 +27,8 @@ public class CreatureList {
 		remove(dead);
 	}
 	
-	/* Checks the number of each type of creature in the list and
+	/**
+	 * Checks the number of each type of creature in the list and
 	 * creates more creatures if needed.
 	 * @return 
 	 */
@@ -62,7 +64,8 @@ public class CreatureList {
 			add(CreatureFactory.createCreature3(game.getWorld().getTile(X, Y)));
 		}
 	}
-	/* Calls the AI method for each of the creatures in the list.
+	/**
+	 * Calls the AI method for each of the creatures in the list.
 	 * @param delta (time since last update)
 	 * @return 
 	 */

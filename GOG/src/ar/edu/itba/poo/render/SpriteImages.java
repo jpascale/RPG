@@ -25,7 +25,13 @@ public class SpriteImages {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Returns the image in the direction given.
+	 * 
+	 * @param dir Direction
+	 * @return Image
+	 */
 	public Image getDirection(Dir dir){
 		
 		switch(dir) {

@@ -14,10 +14,10 @@ public class EquipmentRenderer {
 	private static int POSY = 90;
 	private static int Y_SEPARATION = 15;
 	
-	public EquipmentRenderer() {
-		
-	}
-	
+	/**
+	 * Draws the Equipment and which of the items is equipped
+	 * @param gr
+	 */
 	public static void render(Graphics gr){
 		gr.setColor(Color.white);
 		int i = 0;

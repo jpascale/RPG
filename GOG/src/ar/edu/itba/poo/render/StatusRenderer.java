@@ -23,6 +23,9 @@ public class StatusRenderer {
 		StatusRenderer.maxmp = maxmp;
 	}
 	
+	/**
+	 * Draws the Status (HP, MP).
+	 */
 	public static void render(Graphics gr){
 		gr.setColor(Color.red);
 		gr.drawRect(posX, posYhp, LENGTH, HEIGHT);

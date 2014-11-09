@@ -43,7 +43,8 @@ public class Creature extends Alive implements Combat {
 			
 	}
 	
-	/* Simple AI for the creature. Receives the time passed since last update
+	/**
+	 * Simple AI for the creature. Receives the time passed since last update
 	 * and moves the creature if its near the character or attacks it if its next to it.
 	 * 
 	 * @param delta (time passed from last update)
@@ -117,7 +118,8 @@ public class Creature extends Alive implements Combat {
 		return ID;
 	}
 	
-	/* Receives damage and if the creature dies, it throws the item 
+	/**
+	 * Receives damage and if the creature dies, it throws the item 
 	 * and removes the creature from the map.
 	 * 
 	 * @param damage integer

@@ -11,6 +11,12 @@ public class CharacterMovementHandler implements Observer<Character> {
 		renderer = new CharacterRenderer();
 	}
 	
+	/**
+	 * Notifies the CharacterRenderer the change 
+	 * in position and heading of the Character. 
+	 * 
+	 * @param data Character;
+	 */
 	@Override
 	public void handleUpdate(Character data) {
 		renderer.setDir(data.getHeading());

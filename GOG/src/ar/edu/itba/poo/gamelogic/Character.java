@@ -25,8 +25,8 @@ public class Character extends Alive implements Combat, Serializable {
 	}
 	
 	//TODO: Manage errors
-	/*Picks up an item if its on the tile, else it throws down the equipped item.
-	 * @return 
+	/**
+	 * Picks up an item if its on the tile, else it throws down the equipped item. 
 	 */
 	public void itemAction(){
 		if (this.getPos().hasItem()){
@@ -39,9 +39,11 @@ public class Character extends Alive implements Combat, Serializable {
 			Console.add("No tiene un arma seleccionada para tirar");
 		else{
 			Item weapon = equip.getWeapon();
+			
 			this.getPos().setItem(weapon);
 			weapon.setPos(this.getPos());
 			weapon.notifyObservers();
+			
 			equip.changeWeapon();
 			equip.removeItem(weapon);
 			Console.add("Has tirado el arma " + weapon.getName());
@@ -52,9 +54,9 @@ public class Character extends Alive implements Combat, Serializable {
 		this.lvl.gainExp(exp);
 	}
 	
-	/*Receives damage and revives the character if it dies
+	/**
+	 * Receives damage and revives the character if it dies.
 	 * @param damage integer
-	 * @return 
 	 */
 	@Override
 	public void receiveAttack(int damage) {

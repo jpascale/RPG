@@ -13,11 +13,12 @@ public class ItemHandler implements Observer<Item> {
 		return instance;
 	}
 	
-	public void addrenderer(Item data){
-		ItemRenderer.addRenderer(new ItemRenderer(data.getID()));
-		handleUpdate(data);
-	}
-	
+	/**
+	 * Notifies the CharacterRenderer if the item
+	 * should be rendered and over which tile. 
+	 * 
+	 * @param data Item;
+	 */
 	@Override
 	public void handleUpdate(Item data) {
 		ItemRenderer renderer = ItemRenderer.getRenderer(data.getID());
@@ -33,5 +34,9 @@ public class ItemHandler implements Observer<Item> {
 			renderer.setY(data.getPos().getY());
 		}
 	}
-
+	
+	public void addrenderer(Item data){
+		ItemRenderer.addRenderer(new ItemRenderer(data.getID()));
+		handleUpdate(data);
+	}
 }

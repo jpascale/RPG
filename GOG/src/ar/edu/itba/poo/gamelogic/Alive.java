@@ -28,9 +28,9 @@ public class Alive implements Observable, Serializable{
 			this.swims = false;
 	}
 	
-	/* Moves the alive to the next tile in the direction given.
+	/**
+	 * Moves the alive to the next tile in the direction given.
 	 * @param dir direction;
-	 * @return void
 	 */
 	public void move(Dir dir){
 		
@@ -58,10 +58,11 @@ public class Alive implements Observable, Serializable{
 		status.receiveDamage(damage);
 			
 	}
-	/*Returns an int that is a random interger between two numbers.
+	/**
+	 * Returns an int that is a random interger between two numbers.
 	 * @param min lowest integer;
 	 * @param max highest integer;
-	 * @return 
+	 * @return int Random; 
 	 */
 	public static int randInt(int min, int max) {
 	    Random rand = new Random();

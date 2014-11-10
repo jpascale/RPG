@@ -22,6 +22,7 @@ public class LevelProfile implements Observable, Serializable{
 	
 	
 	public LevelProfile(Character character){	
+		
 		this.observers = new ArrayList<Observer>();
 		
 		this.character = character;
@@ -32,12 +33,24 @@ public class LevelProfile implements Observable, Serializable{
 	}
 	
 	public void levelUp(){
+		
 		if (this.level != MAX_LVL) {
+			
 			this.level++;
 			this.exp = 0;
 			this.maxexp = EXP_CONST * this.level;
+				
+			int hpmodif = character.getType().getHpmodif();
+			int manmodif = character.getType().getManmodif();
+			int classmanmodif = character.getType().getClassManModif();
+				
+			character.getStatus().updateNextLvlStatus(hpmodif, manmodif, classmanmodif);
+			character.getStatus().heal();
 			
-			this.character.handleUpdateStats(); //TODO Improve this
+			character.getType().updateLevelUpHit();
+			
+			//Not notifying because gainExp will do it
+			
 		}
 	}
 	

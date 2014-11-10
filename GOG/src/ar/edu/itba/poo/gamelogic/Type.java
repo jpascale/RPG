@@ -57,7 +57,8 @@ public abstract class Type implements Serializable{
 		return strategytype;
 	}
 	
-	
-	public abstract void attack(Character attacker);
- 
+
+	public abstract void attack(Character attacker); 
+	public abstract void updateLevelUpHit();
+
 }

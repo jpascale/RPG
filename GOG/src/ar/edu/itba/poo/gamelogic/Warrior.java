@@ -13,6 +13,8 @@ public class Warrior extends Type implements Serializable{
 	private static int WARRIOR_MAN_MODIF = 0; 
 	private static int WARRIOR_CLASS_MAN_MODIF = 0;
 	
+	private static int WARRIOR_DELTA_HIT_UP = 10; 
+	
 	public Warrior(int minHit, int maxHit) {
 		super(WARRIOR_NAME, WARRIOR_HP_MODIF, WARRIOR_MAN_MODIF, minHit, maxHit, WARRIOR_CLASS_MAN_MODIF, Classes.WARRIOR);
 	}
@@ -43,6 +45,12 @@ public class Warrior extends Type implements Serializable{
 		}
 		else Console.add("No se encuentra el objetivo para atacar");
 			
+	}
+	
+	@Override
+	public void updateLevelUpHit(){
+		this.setMaxHit(this.getMaxHit() + WARRIOR_DELTA_HIT_UP);
+		this.setMinHit(this.getMinHit() + WARRIOR_DELTA_HIT_UP);
 	}
 	
 }

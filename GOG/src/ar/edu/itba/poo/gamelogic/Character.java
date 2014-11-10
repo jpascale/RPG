@@ -74,17 +74,17 @@ public class Character extends Alive implements Combat, Serializable {
 	 *		Observer methods
 	 */
 	
-	public void handleUpdateStats(){
-		
-		int hpmodif = this.getType().getHpmodif();
-		int manmodif = this.getType().getManmodif();
-		int classmanmodif = this.getType().getClassManModif();
-		
-		this.getStatus().updateNextLvlStatus(hpmodif, manmodif, classmanmodif);
-		notifyObservers();
-		this.getStatus().heal();
-				
-	}
+//	public void handleUpdateStats(){
+//		
+//		int hpmodif = this.getType().getHpmodif();
+//		int manmodif = this.getType().getManmodif();
+//		int classmanmodif = this.getType().getClassManModif();
+//		
+//		this.getStatus().updateNextLvlStatus(hpmodif, manmodif, classmanmodif);
+//		//notifyObservers();
+//		this.getStatus().heal();
+//				
+//	}
 	
 	/*
 	 *		Getters & Setters

@@ -25,7 +25,6 @@ public class GraphicMap {
 		try {
 			this.tiledmap = new TiledMap(MAP_PATH);
 		} catch (SlickException e) {
-			// TODO: Raise error
 			e.printStackTrace();
 		}
 		

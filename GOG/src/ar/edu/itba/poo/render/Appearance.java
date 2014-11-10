@@ -6,7 +6,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import ar.edu.itba.poo.slick.InputHandler;
-import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
 
 public class Appearance {
@@ -34,7 +33,6 @@ public class Appearance {
 			stay = sheet.getSprite(0, 0);
 			walk = animDown;
 		} catch (SlickException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

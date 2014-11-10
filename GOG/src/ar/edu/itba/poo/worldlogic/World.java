@@ -40,8 +40,6 @@ public class World{
 	}
 	
 	
-	//TODO: Complete doc
-	
 	/**
 	 * Returns a Tile object that represents one position in the world.
 	 * <p>

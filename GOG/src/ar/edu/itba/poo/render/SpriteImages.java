@@ -21,7 +21,6 @@ public class SpriteImages {
 			this.right = new Image(right);
 			
 		} catch (SlickException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

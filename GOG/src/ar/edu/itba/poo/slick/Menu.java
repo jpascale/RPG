@@ -14,10 +14,8 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 import ar.edu.itba.poo.IO.GameIO;
 import ar.edu.itba.poo.IO.GameSlot;
 import ar.edu.itba.poo.gamelogic.Classes;
-import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.gamelogic.GameFactory;
-import ar.edu.itba.poo.gamelogic.Warrior;
-import ar.edu.itba.poo.gamelogic.Wizard;
+
 
 public class Menu extends BasicGameState {
 	
@@ -97,11 +95,11 @@ public class Menu extends BasicGameState {
 		g.drawImage(land, 0, 0);
 		
 		g.setColor(Color.black);
-	    g.drawString("Main Menu", 50, 10);
+	    g.drawString("Main Menu", 50, 130);
 	    
 	    int i = 0;
 	    for (String strings : menu[menutype]) {
-	    	g.drawString(strings, 50, 100 + 20*i);
+	    	g.drawString(strings, 60, 180 + 30*i);
 	    	i++;
 		}
 	}

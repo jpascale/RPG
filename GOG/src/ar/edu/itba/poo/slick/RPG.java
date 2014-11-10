@@ -61,7 +61,6 @@ public class RPG extends BasicGameState {
 
 	public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
 		try {
-			//TODO: Modularize this
 			
 			game = Game.getInstance();
 			
@@ -80,9 +79,7 @@ public class RPG extends BasicGameState {
 			
 			music = new Music("data/b_jean.ogg");
 			
-			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -95,8 +92,6 @@ public class RPG extends BasicGameState {
 		if(!music.playing())
 			music.loop() ;
 		InputHandler.handleInput(container, delta, player);
-		
-			//TODO: Change this
 
 			creatures.creatureFactory();
 			creatures.removeBodies();
@@ -104,7 +99,6 @@ public class RPG extends BasicGameState {
 			
 			if(game.isEndgame()){
 				sbg.enterState(2, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
-			// 	music.fade(3, 0, true);
 			}
 				
 	}

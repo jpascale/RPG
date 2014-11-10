@@ -24,7 +24,6 @@ public class Console {
 			consoleFont.getEffects().add(new ColorEffect(java.awt.Color.WHITE));
 			consoleFont.loadGlyphs();
 		} catch (SlickException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

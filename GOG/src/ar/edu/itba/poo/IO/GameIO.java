@@ -78,7 +78,6 @@ public class GameIO {
 			
 			load.close();
 			
-			//TODO: SET OBSERVERS
 			character.getPos().setAlive(character);
 			
 			character.getStatus().addObserver(new StatusHandler(character.getStatus()));

@@ -8,7 +8,6 @@ public class GameStateMachine extends StateBasedGame {
 
 	public GameStateMachine(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

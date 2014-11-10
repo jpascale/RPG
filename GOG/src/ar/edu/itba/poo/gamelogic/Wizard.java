@@ -16,7 +16,7 @@ public class Wizard extends Type implements Serializable{
 	private static int MAGIC_USE = 5;
 	
 	public Wizard(int minHit, int maxHit) {
-		super(WIZARD_NAME, WIZARD_HP_MODIF, WIZARD_MAN_MODIF, minHit, maxHit, WIZARD_CLASS_MAN_MODIF);
+		super(WIZARD_NAME, WIZARD_HP_MODIF, WIZARD_MAN_MODIF, minHit, maxHit, WIZARD_CLASS_MAN_MODIF, Classes.WIZARD);
 	}
 
 	/**

@@ -14,7 +14,7 @@ public class Warrior extends Type implements Serializable{
 	private static int WARRIOR_CLASS_MAN_MODIF = 0;
 	
 	public Warrior(int minHit, int maxHit) {
-		super(WARRIOR_NAME, WARRIOR_HP_MODIF, WARRIOR_MAN_MODIF, minHit, maxHit, WARRIOR_CLASS_MAN_MODIF);
+		super(WARRIOR_NAME, WARRIOR_HP_MODIF, WARRIOR_MAN_MODIF, minHit, maxHit, WARRIOR_CLASS_MAN_MODIF, Classes.WARRIOR);
 	}
 	
 	/**

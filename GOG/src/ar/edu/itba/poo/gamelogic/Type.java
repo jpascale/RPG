@@ -15,16 +15,17 @@ public abstract class Type implements Serializable{
 	private final double manmodif;
 	
 	private int classmanmodif;
-	private Classes type;
+	private Classes strategytype;
 	
 	
-	public Type (String name, double hpmodif, double manmodif, int minHit, int maxHit, int classmanmodif){
+	public Type (String name, double hpmodif, double manmodif, int minHit, int maxHit, int classmanmodif, Classes strategytype){
 		this.name = name;
 		this.hpmodif = hpmodif;
 		this.manmodif = manmodif;
 		this.minHit = minHit;
 		this.maxHit = maxHit;
 		this.classmanmodif = classmanmodif;
+		this.strategytype = strategytype;
 	}
 	
 	/*
@@ -53,7 +54,7 @@ public abstract class Type implements Serializable{
 		return classmanmodif;
 	}
 	public Classes getType() {
-		return type;
+		return strategytype;
 	}
 	
 	

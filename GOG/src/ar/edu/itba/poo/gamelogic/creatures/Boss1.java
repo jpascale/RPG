@@ -17,7 +17,9 @@ public class Boss1 extends Creature {
 	private static CreatureType CTYPE = CreatureType.BOSS_1;
 
 	public Boss1(Tile pos, long ID) {
+		
 		super(HP, MAN, pos, MINHIT, MAXHIT, CTYPE, ID);
+		
 		if(Game.getInstance().getCharacter().getType() instanceof Wizard)
 			this.setItem(ItemFactory.createItem("Rod of Awesomeness", 2.0, null));
 		else

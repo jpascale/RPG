@@ -5,6 +5,7 @@ import ar.edu.itba.poo.gamelogic.CreatureType;
 import ar.edu.itba.poo.worldlogic.Tile;
 
 public class Creature3 extends Creature {
+	
 	private static int HP = 90;
 	private static int MAN = 0;
 	private static int MINHIT = 13;

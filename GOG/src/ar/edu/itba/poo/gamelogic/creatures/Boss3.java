@@ -21,7 +21,9 @@ public class Boss3 extends Creature {
 
 	@Override
 	public boolean receiveAttack(int damage) {
+		
 		super.receiveAttack(damage);
+		
 		if(this.getStatus().isDead()){
 			Game.getInstance().setEndgame(true);
 			return true;

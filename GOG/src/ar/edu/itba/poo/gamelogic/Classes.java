@@ -17,6 +17,7 @@ public enum Classes {
 			case WARRIOR:
 				ret = WARRIOR_NAME;
 				break;
+				
 			case WIZARD:
 				ret = WIZARD_NAME;
 				break;

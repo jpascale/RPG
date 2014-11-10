@@ -11,7 +11,8 @@ import ar.edu.itba.poo.worldlogic.Dir;
 
 public class CharacterRenderer implements Serializable{
 	
-	private static Appearance appear = new Appearance("data/red2.png", 16, 24);;
+	private static String APPEAR_PATH = "data/red2.png";
+	private static Appearance appear = new Appearance(APPEAR_PATH, 16, 24);;
 	
 	private static int X, Y;
 	private static Dir dir;

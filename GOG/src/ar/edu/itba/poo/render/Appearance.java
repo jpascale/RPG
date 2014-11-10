@@ -20,8 +20,6 @@ public class Appearance {
 	private Animation animRight;
 	private Animation animUp;
 
-	
-	//TODO: Check throws SlickException
 	public Appearance(String ref, int tw, int th){
 		
 		try {
@@ -32,39 +30,43 @@ public class Appearance {
 			animUp = new Animation(sheet, 0, 3, 3, 3, true, InputHandler.ACTION_INTERVAL/4, false);
 			stay = sheet.getSprite(0, 0);
 			walk = animDown;
+			
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
 		
 	}
+	
 	/**
 	 * Changes the image and animation to be shown in render
 	 * to the direction given.
 	 * 
 	 * @param dir Direction;
 	 */
+	
 	public void changeAnimation(Dir dir){
+		
 		switch(dir) {
 			
-		case SOUTH:
-			walk = animDown;
-			stay =	sheet.getSprite(0, 0);
-			break;
+			case SOUTH:
+				walk = animDown;
+				stay =	sheet.getSprite(0, 0);
+				break;
 			
-		case EAST:
-			walk = animRight;
-			stay =	sheet.getSprite(0, 2);
-			break;
+			case EAST:
+				walk = animRight;
+				stay =	sheet.getSprite(0, 2);
+				break;
 			
-		case WEST:
-			walk = animLeft;
-			stay = sheet.getSprite(0, 1);
-			break;
+			case WEST:
+				walk = animLeft;
+				stay = sheet.getSprite(0, 1);
+				break;
 			
-		case NORTH:
-			walk = animUp;
-			stay = sheet.getSprite(0, 3);
-			break;
+			case NORTH:
+				walk = animUp;
+				stay = sheet.getSprite(0, 3);
+				break;
 		}
 	}
 	

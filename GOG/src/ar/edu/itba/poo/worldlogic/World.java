@@ -48,8 +48,7 @@ public class World{
 	 * 
 	 * @param  x position
 	 * @param  y position
-	 * @throws		
-	 * @return	
+	 * @return specified Tile	
 	 * @see ar.itba.edu.poo.gamelogic.Tile
 	 */
 	

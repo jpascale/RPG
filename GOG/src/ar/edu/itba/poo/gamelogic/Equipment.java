@@ -57,7 +57,6 @@ public class Equipment implements Observable, Serializable{
 			weapon = slots.get(0);
 		}
 		this.notifyObservers();
-		Console.add("Estas usando " + weapon.getName() + " como arma");
 	}
 	
 	public boolean throwableWeapon(){

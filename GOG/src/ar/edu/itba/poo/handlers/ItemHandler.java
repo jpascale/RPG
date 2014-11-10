@@ -31,7 +31,8 @@ public class ItemHandler implements Observer<Item>, Serializable {
 			renderer.setX(-1);
 			renderer.setY(-1);
 		}
-		else{
+		else
+		{
 			renderer.setRenderable(true);
 			renderer.setX(data.getPos().getX());
 			renderer.setY(data.getPos().getY());

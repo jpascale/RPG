@@ -10,7 +10,7 @@ public class LevelProfile implements Observable, Serializable{
 	
 	private ArrayList<Observer> observers;
 	
-	public static int MAX_LVL = 47;
+	public static int MAX_LVL = 20;
 	public static int EXP_CONST = 50;
 	
 	private transient Character character;

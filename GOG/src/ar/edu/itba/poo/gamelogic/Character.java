@@ -78,6 +78,22 @@ public class Character extends Alive implements Combat, Serializable {
 		return ret;
 	}
 
+	@Override
+	public int attack() {
+		return type.attack(this);
+	}
+
+	public boolean meditate(){
+		
+		boolean ret = false;
+		
+		if (this.getStatus().getMinman() != this.getStatus().getMaxman()){
+			this.getStatus().meditate();
+			ret = true;
+		}
+		
+		return ret;
+	}
 	
 	/*
 	 *		Getters & Setters
@@ -107,9 +123,6 @@ public class Character extends Alive implements Combat, Serializable {
 		lvl.setCharacter(this);
 	}
 
-	@Override
-	public int attack() {
-		return type.attack(this);
-	}
 
+	
 }

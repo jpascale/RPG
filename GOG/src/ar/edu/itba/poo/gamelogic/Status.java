@@ -48,6 +48,11 @@ public class Status implements Observable, Serializable{
 		notifyObservers();
 	}
 	
+	public void meditate(){
+		minman = maxman;
+		notifyObservers();
+	}
+	
 	public void loseMana(int mp){
 		if(minman >= mp)
 			minman -= mp;

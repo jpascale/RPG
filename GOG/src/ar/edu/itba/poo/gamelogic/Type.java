@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 public abstract class Type implements Serializable{
 	
-	private String name;
 	private int minHit;
 	private int maxHit;
 	
@@ -16,8 +15,9 @@ public abstract class Type implements Serializable{
 	private Classes type;
 	
 	
-	public Type (String name, double hpmodif, double manmodif, int minHit, int maxHit, int classmanmodif){
-		this.name = name;
+	public Type (Classes type, double hpmodif, double manmodif, int minHit, int maxHit, int classmanmodif){
+		
+		this.type = type;
 		this.hpmodif = hpmodif;
 		this.manmodif = manmodif;
 		this.minHit = minHit;

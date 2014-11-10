@@ -8,7 +8,6 @@ import ar.edu.itba.poo.worldlogic.Tile;
 
 public class Warrior extends Type implements Serializable{
 
-	private static String WARRIOR_NAME = "Warrior";
 	private static int WARRIOR_HP_MODIF = 10;
 	private static int WARRIOR_MAN_MODIF = 0; 
 	private static int WARRIOR_CLASS_MAN_MODIF = 0;
@@ -16,7 +15,7 @@ public class Warrior extends Type implements Serializable{
 	private static int WARRIOR_DELTA_HIT_UP = 10; 
 	
 	public Warrior(int minHit, int maxHit) {
-		super(WARRIOR_NAME, WARRIOR_HP_MODIF, WARRIOR_MAN_MODIF, minHit, maxHit, WARRIOR_CLASS_MAN_MODIF);
+		super(Classes.WARRIOR, WARRIOR_HP_MODIF, WARRIOR_MAN_MODIF, minHit, maxHit, WARRIOR_CLASS_MAN_MODIF);
 	}
 	
 	/**

@@ -14,9 +14,9 @@ public class StatusRenderer implements Serializable {
 	
 	private static int LENGTH = 100;
 	private static int HEIGHT = 10;
-	private static int posX = 670;
-	private static int posYhp = 400;
-	private static int posYmp = posYhp + 30;
+	private static int posX = 710;
+	private static int posYmp = 420;
+	private static int posYhp = posYmp + 30;
 	
 	public StatusRenderer(int minhp, int maxhp, int minmp, int maxmp) {
 		StatusRenderer.minhp = minhp;

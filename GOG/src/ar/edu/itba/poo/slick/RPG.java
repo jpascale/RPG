@@ -112,7 +112,7 @@ public class RPG extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame sbg, Graphics gr) throws SlickException {
 		
 		if (background != null)
-			gr.drawImage(background, 0, 0);
+			background.draw(0, 0, 820, 570);
 		
 		console.draw();
 		tiledmap.render(0, 90);

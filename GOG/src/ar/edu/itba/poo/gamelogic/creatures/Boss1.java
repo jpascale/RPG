@@ -25,11 +25,15 @@ public class Boss1 extends Creature {
 	}
 	
 	@Override
-	public void receiveAttack(int damage) {
+	public boolean receiveAttack(int damage) {
+		
 		super.receiveAttack(damage);
+		
 		if(this.getStatus().isDead()){
 			Game.getInstance().setBoss1dead(true);
+			return true;
 		}
+		return false;
 	}
 
 }

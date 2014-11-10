@@ -20,13 +20,16 @@ public class Boss2 extends Creature {
 	}
 
 	@Override
-	public void receiveAttack(int damage) {
+	public boolean receiveAttack(int damage) {
 		super.receiveAttack(damage);
+		
 		if(this.getStatus().isDead()){
 			Game.getInstance().getCharacter().setSwims(true);
 			Console.add("Has conseguido la balsa");
 			Game.getInstance().setBoss2dead(true);
+			return true;
 		}
+		return false;
 	}
 	
 

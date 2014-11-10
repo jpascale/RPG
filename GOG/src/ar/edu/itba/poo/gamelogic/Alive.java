@@ -54,9 +54,9 @@ public class Alive implements Observable, Serializable{
 		
 	}
 		
-	public void receiveAttack(int damage){
-		status.receiveDamage(damage);
-			
+	public boolean receiveAttack(int damage){
+		return status.receiveDamage(damage);
+	
 	}
 	
 

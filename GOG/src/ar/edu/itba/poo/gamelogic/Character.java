@@ -63,14 +63,19 @@ public class Character extends Alive implements Combat, Serializable {
 	 * @param damage integer
 	 */
 	@Override
-	public void receiveAttack(int damage) {
+	public boolean receiveAttack(int damage) {
+		
+		boolean ret = false;
 		
 		super.receiveAttack(damage);
 		
 		if(this.getStatus().isDead()){
 			Game.getInstance().reviveCharacter();
+			ret = true;
 		}
 		notifyObservers();
+		
+		return ret;
 	}
 
 	

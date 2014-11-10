@@ -123,19 +123,25 @@ public class Creature extends Alive implements Combat {
 	 * and removes the creature from the map.
 	 * 
 	 * @param damage integer
-	 * @return 
+	 * @return true if creature dies
 	 */
 	@Override
-	public void receiveAttack(int damage) {
+	public boolean receiveAttack(int damage) {
+		
+		boolean ret = false;
 		
 		super.receiveAttack(damage);
-		Console.add("Has sacado " + damage + " puntos de vida.");
+		
+		//Console.add("Has sacado " + damage + " puntos de vida.");
 		if(this.getStatus().isDead()){
 			this.notifyObservers();
 			this.throwItem();
 			this.getPos().freeAlive();
 			Console.add("La criatura ha muerto.");
+			ret = true;
 		}
+		
+		return ret;
 	}
 
 }

@@ -43,9 +43,9 @@ public class Warrior extends Type implements Serializable{
 			
 			return damage;
 			
-		} else 
+		} else {
 			return 0;
-			
+		}
 	}
 	
 	@Override

@@ -15,6 +15,8 @@ public class Wizard extends Type implements Serializable{
 	private static int WIZARD_CLASS_MAN_MODIF = 1;
 	private static int MAGIC_USE = 5;
 	
+	public static int NO_MANA = -1;
+	
 	private static int WIZARD_DELTA_SPELL_UP = 6;
 	
 	public Wizard(int minHit, int maxHit) {
@@ -22,7 +24,7 @@ public class Wizard extends Type implements Serializable{
 	}
 
 	/**
-	 * Checks the next 5 tiles in the characters direction until an alive its found and attacks it.
+	 * Checks 5 tiles around in the characters direction until an alive its found and attacks it.
 	 * @param attacker Character
 	 */
 	@Override
@@ -64,7 +66,7 @@ public class Wizard extends Type implements Serializable{
 				return 0;
 		}
 
-		return 0;
+		return NO_MANA;
 	}
 
 	@Override

@@ -135,12 +135,10 @@ public class Creature extends Alive implements Combat {
 		
 		super.receiveAttack(damage);
 		
-		//Console.add("Has sacado " + damage + " puntos de vida.");
 		if(this.getStatus().isDead()){
 			this.notifyObservers();
 			this.throwItem();
 			this.getPos().freeAlive();
-			Console.add("La criatura ha muerto.");
 			ret = true;
 		}
 		

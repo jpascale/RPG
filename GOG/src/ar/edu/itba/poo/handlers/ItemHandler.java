@@ -19,7 +19,8 @@ public class ItemHandler implements Observer<Item>, Serializable {
 	 * Notifies the CharacterRenderer if the item
 	 * should be rendered and over which tile. 
 	 * 
-	 * @param data Item;
+	 * @param Item;
+	 * @see ar.edu.itba.poo.gamelogic.Item
 	 */
 	@Override
 	public void handleUpdate(Item data) {

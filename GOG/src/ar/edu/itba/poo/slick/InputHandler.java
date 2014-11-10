@@ -17,11 +17,15 @@ public abstract class InputHandler {
 	public static int ACTION_INTERVAL = 150; // 0.15 seconds
 	private static int interval = 0;
 	
+	public static int NO_MANA = -1;
+	
 	public static String MSG_NO_SELECTED_THROW_ITEM = "No puedes tirar el item.";
 	public static String MSG_ATTACK_CREATURE = "Has atacado a la criatura!";
 	public static String MSG_DAMAGE_CREATURE = "Le has pegado a la criatura por ";
 	public static String MSG_RECOVER_MANA = "Has recuperado tu mana.";
 	public static String MSG_NOT_RECOVER_MANA = "No puedes meditar.";
+	public static String MSG_EXCLAMATION = "!!!";
+	public static String MSG_NO_MANA = "Necesitas meditar (Tecla M) para poder atacar";
 	
 	
 	public static void handleInput(GameContainer container, int delta, Character player){
@@ -56,30 +60,20 @@ public abstract class InputHandler {
 				
 				//Attack
 				else if (input.isKeyPressed(Input.KEY_SPACE)){
-					int damage = player.attack();
-					
-					if (damage > 0){
-						Console.add(MSG_ATTACK_CREATURE);
-						Console.add(MSG_DAMAGE_CREATURE + damage + "!!!");
-					}
-					
+					handleAttack(player);
 					interval = 0;
 				}
 				
 				else if (input.isKeyPressed(Input.KEY_M)){
-					if (player.meditate())
-						Console.add(MSG_RECOVER_MANA);
-					else
-						Console.add(MSG_NOT_RECOVER_MANA);
+					handleMeditate(player);
 				}
 				
 				//Items
 				else if(input.isKeyPressed(Input.KEY_A)){
-					if (!player.itemAction())
-						Console.add(MSG_NO_SELECTED_THROW_ITEM);
+					handleItemAction(player);
 				}
 				else if(input.isKeyPressed(Input.KEY_Q)){
-					player.getEquip().changeWeapon();
+					handleEquipmentAction(player);
 				}
 				
 				// Save
@@ -114,8 +108,37 @@ public abstract class InputHandler {
 		player.move(dir);
 		CharacterRenderer.setMoving(true);
 	}
+	
 	public static void handleStopMove(){
 		CharacterRenderer.setMoving(false);
 	}
 	
+	public static void handleAttack(Character player){
+		int damage = player.attack();
+		
+		if (damage == NO_MANA){
+			Console.add(MSG_NO_MANA);
+		}
+		if (damage > 0){
+			Console.add(MSG_ATTACK_CREATURE);
+			Console.add(MSG_DAMAGE_CREATURE + damage + MSG_EXCLAMATION);
+		
+		}
+	}
+	
+	public static void handleMeditate(Character player){
+		if (player.meditate())
+			Console.add(MSG_RECOVER_MANA);
+		else
+			Console.add(MSG_NOT_RECOVER_MANA);
+	}
+	
+	public static void handleItemAction(Character player){
+		if (!player.itemAction())
+			Console.add(MSG_NO_SELECTED_THROW_ITEM);
+	}
+	
+	public static void handleEquipmentAction(Character player){
+		player.getEquip().changeWeapon();
+	}
 }

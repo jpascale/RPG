@@ -1,5 +1,9 @@
 package ar.edu.itba.poo.slick;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -20,10 +24,12 @@ import ar.edu.itba.poo.gamelogic.GameFactory;
 public class Menu extends BasicGameState {
 	
 	Image land;
+	File loadfile;
 	int menutype = 0;
 	private String[][] menu = { {"1. New Game","2. Load Game","3. Exit"}, 
 								{"1. Warrior","2. Wizard", "3. Back"}, 
 								{"1. File 1", "2. File 2", "3. File 3", "4. Back"} };
+	
 	
 	public Menu(){
 		try {
@@ -73,16 +79,25 @@ public class Menu extends BasicGameState {
 		}
 		if(menutype == 2){
 			if(input.isKeyPressed(Input.KEY_1)){
-				GameIO.loadGame(GameSlot.SLOT_1);
-				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+				loadfile = new File(GameSlot.slot1_dir);
+				if(loadfile.exists() && !loadfile.isDirectory()){ 
+					GameIO.loadGame(GameSlot.SLOT_1);
+					sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+				}
 			}
 			if(input.isKeyPressed(Input.KEY_2)){
-				GameIO.loadGame(GameSlot.SLOT_2);
-				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+				loadfile = new File(GameSlot.slot2_dir);
+				if(loadfile.exists() && !loadfile.isDirectory()){ 
+					GameIO.loadGame(GameSlot.SLOT_2);
+					sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+				}
 			}
 			if(input.isKeyPressed(Input.KEY_3)){
-				GameIO.loadGame(GameSlot.SLOT_3);
-				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+				loadfile = new File(GameSlot.slot3_dir);
+				if(loadfile.exists() && !loadfile.isDirectory()){ 
+					GameIO.loadGame(GameSlot.SLOT_3);
+					sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+				}
 			}
 			if(input.isKeyPressed(Input.KEY_4)){
 				menutype = 0;
@@ -92,7 +107,7 @@ public class Menu extends BasicGameState {
 	
 	@Override
 	public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
-		g.drawImage(land, 0, 0);
+		land.draw(0, 0, 820, 570);
 		
 		g.setColor(Color.black);
 	    g.drawString("Main Menu", 50, 130);

@@ -26,9 +26,9 @@ public class LevelRenderer {
 	public static void render(Graphics gr){
 		
 		gr.setColor(Color.white);
-		gr.drawString("<" + level + ">", DRAW_LVL_X, DRAW_LVL_Y);
+		gr.drawString("Level: <" + level + ">", DRAW_LVL_X, DRAW_LVL_Y);
 		
-		gr.drawString("<" + exp + "/" + maxexp + ">", DRAW_EXP_X, DRAW_EXP_Y);
+		gr.drawString("EXP: <" + exp + "/" + maxexp + ">", DRAW_EXP_X, DRAW_EXP_Y);
 	}
 
 }

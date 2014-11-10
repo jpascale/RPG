@@ -89,7 +89,7 @@ public class GameIO {
 			character.getStatus().notifyObservers();
 			
 			game.setCreatures(new CreatureList(game));
-			
+			//Create Bosses
 			if(!game.isBoss1dead())
 				game.getCreatureList().add(CreatureFactory.createBoss1(map.getTile(35, 25)));
 			

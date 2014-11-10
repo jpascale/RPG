@@ -54,7 +54,7 @@ public class RPG extends BasicGameState {
 	public RPG(String title) {
 		super();
 		try {
-			//background = new Image("data/main.jpg");
+			background = new Image("data/main.jpg");
 		//Use "Exception" because it ends execution otherwise
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -129,8 +129,8 @@ public class RPG extends BasicGameState {
 	
 	public void render(GameContainer container, StateBasedGame sbg, Graphics gr) throws SlickException {
 		
-		//if (background != null)
-		//	gr.drawImage(background, 0, 0);
+		if (background != null)
+			gr.drawImage(background, 0, 0);
 		
 		console.draw();
 		tiledmap.render(0, 90);

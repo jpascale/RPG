@@ -30,7 +30,7 @@ public class Alive implements Observable, Serializable{
 	
 	/**
 	 * Moves the alive to the next tile in the direction given.
-	 * @param dir direction;
+	 * @param direction;
 	 */
 	public void move(Dir dir){
 		

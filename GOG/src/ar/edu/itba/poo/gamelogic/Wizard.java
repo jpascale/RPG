@@ -43,7 +43,7 @@ public class Wizard extends Type implements Serializable{
 					Alive target = posnext.getAlive();
 
 					double weaponModifier = attacker.getEquip().getWeapon().getModifier();
-					int damage = (int) Math.round(Alive.randInt(getMinHit(), getMaxHit()) * weaponModifier);
+					int damage = (int) Math.round(Game.randInt(getMinHit(), getMaxHit()) * weaponModifier);
 
 					target.receiveAttack(damage);
 					attacker.getStatus().loseMana(MAGIC_USE);

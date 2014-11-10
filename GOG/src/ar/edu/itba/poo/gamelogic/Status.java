@@ -61,8 +61,8 @@ public class Status implements Observable, Serializable{
 	
 	public void updateNextLvlStatus(int hpmodif, int manmodif, int classmanmodif) {
 		
-		int hpdelta = Alive.randInt(hpmodif, hpmodif + HP_DELTA_UP);
-		int mandelta = Alive.randInt(manmodif, manmodif + MAN_DELTA_UP) * 10 * classmanmodif;
+		int hpdelta = Game.randInt(hpmodif, hpmodif + HP_DELTA_UP);
+		int mandelta = Game.randInt(manmodif, manmodif + MAN_DELTA_UP) * 10 * classmanmodif;
 		
 		this.maxhp += hpdelta;
 		this.minhp += hpdelta;

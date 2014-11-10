@@ -59,19 +59,19 @@ public class Alive implements Observable, Serializable{
 	
 	}
 	
-
-	public static int randInt(int lowerbound, int upperbound) {
-	    Random rand = new Random();
-	    int randomNum = rand.nextInt((upperbound - lowerbound) + 1) + lowerbound;
-	    return randomNum;
-	}
 	
 	public void setPos(Tile pos) {
 		this.pos = pos;
 		pos.setAlive(this);
 	}
 	
-	//TODO coment this
+	/**
+	 * Calculates the experience an Alive gives to the 
+	 * attacker when dying. 
+	 * 
+	 * @param alive
+	 * @return exp
+	 */
 	public static int calculateExp(Alive alive){
 		
 		int maxhp = alive.getStatus().getMaxhp();

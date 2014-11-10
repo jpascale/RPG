@@ -47,20 +47,20 @@ public class CreatureList {
 				creature3++;
 		}
 		for (; creature1 <= CREATURE_NUMBER; creature1++) {
-			X = Alive.randInt(7, 39);
-			Y = Alive.randInt(22, 29);
+			X = Game.randInt(7, 39);
+			Y = Game.randInt(22, 29);
 			add(CreatureFactory.createCreature1(game.getWorld().getTile(X, Y)));	
 		}
 		
 		for (; creature2 <= CREATURE_NUMBER; creature2++) {
-			X = Alive.randInt(12, 39);
-			Y = Alive.randInt(12, 20);
+			X = Game.randInt(12, 39);
+			Y = Game.randInt(12, 20);
 			add(CreatureFactory.createCreature2(game.getWorld().getTile(X, Y)));
 		}
 		
 		for (; creature3 <= CREATURE_NUMBER; creature3++) {
-			X = Alive.randInt(2, 30);
-			Y = Alive.randInt(2, 9);
+			X = Game.randInt(2, 30);
+			Y = Game.randInt(2, 9);
 			add(CreatureFactory.createCreature3(game.getWorld().getTile(X, Y)));
 		}
 	}

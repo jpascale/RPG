@@ -1,5 +1,7 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.util.Random;
+
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.World;
 //import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
@@ -119,6 +121,12 @@ public class Game {
 
 	public void setCreatures(CreatureList creatures) {
 		this.creatures = creatures;
+	}
+
+	public static int randInt(int lowerbound, int upperbound) {
+	    Random rand = new Random();
+	    int randomNum = rand.nextInt((upperbound - lowerbound) + 1) + lowerbound;
+	    return randomNum;
 	}
 	
 }

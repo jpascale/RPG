@@ -32,7 +32,7 @@ public class Warrior extends Type implements Serializable{
 			Alive target = pos.getNext(heading).getAlive();
 
 			double weaponModifier = attacker.getEquip().getWeapon().getModifier();
-			int damage = (int) Math.round(Alive.randInt(getMinHit(), getMaxHit()) * weaponModifier);
+			int damage = (int) Math.round(Game.randInt(getMinHit(), getMaxHit()) * weaponModifier);
 
 			
 			target.receiveAttack(damage);

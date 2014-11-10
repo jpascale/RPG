@@ -25,6 +25,12 @@ public abstract class Type implements Serializable{
 		this.classmanmodif = classmanmodif;
 	}
 	
+	
+	public abstract int attack(Character attacker);
+	
+	public abstract void updateLevelUpHit();
+
+	
 	/*
 	 *		Getters & Setters
 	 */
@@ -54,8 +60,5 @@ public abstract class Type implements Serializable{
 		return type;
 	}
 	
-
-	public abstract int attack(Character attacker); 
-	public abstract void updateLevelUpHit();
 
 }

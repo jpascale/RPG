@@ -27,7 +27,7 @@ public class Wizard extends Type implements Serializable{
 	 * @param attacker Character
 	 */
 	@Override
-	public void attack(Character attacker) {
+	public int attack(Character attacker) {
 
 		if(attacker.getStatus().getMinman() >= MAGIC_USE){
 			Dir heading = attacker.getHeading();
@@ -44,14 +44,15 @@ public class Wizard extends Type implements Serializable{
 					double weaponModifier = attacker.getEquip().getWeapon().getModifier();
 					int damage = (int) Math.round(Alive.randInt(getMinHit(), getMaxHit()) * weaponModifier);
 
-					Console.add("Has atacado a la criatura");
 					target.receiveAttack(damage);
 					attacker.getStatus().loseMana(MAGIC_USE);
 					attacked = true;
 
 					if (target.getStatus().isDead()){
-						attacker.gainExp(Alive.calculateExp(target)); //TODO: Give me experience
+						attacker.gainExp(Alive.calculateExp(target)); 
 					}
+					
+					return damage;
 				}
 				else if(posnext.getType()!=Trigger.BLOCKED){
 					pos = posnext;
@@ -61,10 +62,10 @@ public class Wizard extends Type implements Serializable{
 					break;
 			}
 			if(attacked == false)
-				Console.add("No se encuentra el objetivo para atacar");
+				return 0;
 		}
-		else Console.add("No tiene el mana suficiente para atacar");
 
+		return 0;
 	}
 
 	@Override

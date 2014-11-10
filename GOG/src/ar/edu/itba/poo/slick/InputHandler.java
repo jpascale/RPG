@@ -17,7 +17,9 @@ public abstract class InputHandler {
 	public static int ACTION_INTERVAL = 150; // 0.15 seconds
 	private static int interval = 0;
 	
-	public static String NO_SELECTED_THROW_ITEM = "No puedes tirar el item.";
+	public static String MSG_NO_SELECTED_THROW_ITEM = "No puedes tirar el item.";
+	public static String MSG_ATTACK_CREATURE = "Has atacado a la criatura!";
+	public static String MSG_DAMAGE_CREATURE = "Le haz pegado a la criatura por ";
 	
 	
 	public static void handleInput(GameContainer container, int delta, Character player){
@@ -57,14 +59,20 @@ public abstract class InputHandler {
 				
 				//Attack
 				else if (input.isKeyPressed(Input.KEY_SPACE)){
-					player.attack();
+					int damage = player.attack();
+					
+					if (damage > 0){
+						Console.add(MSG_ATTACK_CREATURE);
+						Console.add(MSG_DAMAGE_CREATURE + damage + "!!!");
+					}
+					
 					interval = 0;
 				}
 				
 				//Items
 				else if(input.isKeyPressed(Input.KEY_A)){
 					if (!player.itemAction())
-						Console.add(NO_SELECTED_THROW_ITEM);
+						Console.add(MSG_NO_SELECTED_THROW_ITEM);
 				}
 				else if(input.isKeyPressed(Input.KEY_Q)){
 					player.getEquip().changeWeapon();

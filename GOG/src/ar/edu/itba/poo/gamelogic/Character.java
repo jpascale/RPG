@@ -108,8 +108,8 @@ public class Character extends Alive implements Combat, Serializable {
 	}
 
 	@Override
-	public void attack() {
-		type.attack(this);
+	public int attack() {
+		return type.attack(this);
 	}
 
 }

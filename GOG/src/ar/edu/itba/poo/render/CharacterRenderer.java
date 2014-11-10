@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 import org.newdawn.slick.GameContainer;
 
+import ar.edu.itba.poo.frontend.InputHandler;
+import ar.edu.itba.poo.frontend.RPG;
 import ar.edu.itba.poo.gamelogic.Game;
-import ar.edu.itba.poo.slick.InputHandler;
-import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
 
 public class CharacterRenderer implements Serializable{

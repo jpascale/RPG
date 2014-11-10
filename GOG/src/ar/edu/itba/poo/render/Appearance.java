@@ -5,7 +5,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
-import ar.edu.itba.poo.slick.InputHandler;
+import ar.edu.itba.poo.frontend.InputHandler;
 import ar.edu.itba.poo.worldlogic.Dir;
 
 public class Appearance {

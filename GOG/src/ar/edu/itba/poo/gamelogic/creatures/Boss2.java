@@ -1,9 +1,9 @@
 package ar.edu.itba.poo.gamelogic.creatures;
 
+import ar.edu.itba.poo.frontend.Console;
 import ar.edu.itba.poo.gamelogic.Creature;
 import ar.edu.itba.poo.gamelogic.CreatureType;
 import ar.edu.itba.poo.gamelogic.Game;
-import ar.edu.itba.poo.slick.Console;
 import ar.edu.itba.poo.worldlogic.Tile;
 
 public class Boss2 extends Creature {

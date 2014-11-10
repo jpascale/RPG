@@ -1,4 +1,4 @@
-package ar.edu.itba.poo.slick;
+package ar.edu.itba.poo.frontend;
 
 import java.io.File;
 import java.io.FileInputStream;

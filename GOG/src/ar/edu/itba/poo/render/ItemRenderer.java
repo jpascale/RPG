@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
+import ar.edu.itba.poo.frontend.RPG;
 import ar.edu.itba.poo.gamelogic.Item;
-import ar.edu.itba.poo.slick.RPG;
 
 public class ItemRenderer {
 	

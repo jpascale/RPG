@@ -11,7 +11,7 @@ public class Tile implements Serializable{
 	private int y;
 	
 	//Items or Alives in this position
-	private Item item;
+	private transient Item item;
 	private transient Alive alive;
 	
 	private Trigger trigger;

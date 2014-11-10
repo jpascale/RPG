@@ -1,9 +1,11 @@
 package ar.edu.itba.poo.handlers;
 
+import java.io.Serializable;
+
 import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.render.ItemRenderer;
 
-public class ItemHandler implements Observer<Item> {
+public class ItemHandler implements Observer<Item>, Serializable {
 	
 	static ItemHandler instance;
 

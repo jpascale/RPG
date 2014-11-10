@@ -1,5 +1,7 @@
 package ar.edu.itba.poo.render;
 
+import java.io.Serializable;
+
 import org.newdawn.slick.GameContainer;
 
 import ar.edu.itba.poo.gamelogic.Game;
@@ -7,9 +9,9 @@ import ar.edu.itba.poo.slick.InputHandler;
 import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
 
-public class CharacterRenderer{
+public class CharacterRenderer implements Serializable{
 	
-	private static Appearance appear;
+	private static Appearance appear = new Appearance("data/red2.png", 16, 24);;
 	
 	private static int X, Y;
 	private static Dir dir;
@@ -17,7 +19,6 @@ public class CharacterRenderer{
 	
 
 	public CharacterRenderer() {
-		appear = new Appearance("data/red2.png", 16, 24);
 		X = Game.START_X;
 		Y = Game.START_Y;
 		dir = Dir.SOUTH;

@@ -3,6 +3,8 @@ package ar.edu.itba.poo.gamelogic;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import ar.edu.itba.poo.handlers.EquipmentHandler;
+import ar.edu.itba.poo.handlers.ItemHandler;
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
 import ar.edu.itba.poo.slick.Console;
@@ -17,7 +19,7 @@ public class Equipment implements Observable, Serializable{
 	
 	private ArrayList<Item> slots;
 	private Item weapon;
-	private ArrayList<Observer> observers;
+	private transient ArrayList<Observer> observers;
 	
 	
 	public Equipment() {
@@ -70,7 +72,28 @@ public class Equipment implements Observable, Serializable{
 		return names;
 	}
 	public int getItemSlot(Item item){
-		return slots.indexOf(item);
+		if (slots.contains(item))
+			return slots.indexOf(item);
+		else
+			return -1;
+	}
+	
+	public void loadEquipment(){
+		observers = new ArrayList<Observer>();
+		observers.add(new EquipmentHandler());
+		for (Item item : slots) {
+			ItemHandler.getInstance().addrenderer(item);
+		}
+		this.notifyObservers();
+	}
+	
+	public boolean containsItem(String name){
+		for (Item item : slots) {
+			if(item.getName().equals(name))
+				return true;
+		}
+		return false;
+		
 	}
 	
 	

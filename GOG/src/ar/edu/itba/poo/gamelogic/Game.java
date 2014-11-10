@@ -113,5 +113,13 @@ public class Game {
 	public void setEndgame(boolean endgame) {
 		this.endgame = endgame;
 	}
+
+	public CreatureList getCreatures() {
+		return creatures;
+	}
+
+	public void setCreatures(CreatureList creatures) {
+		this.creatures = creatures;
+	}
 	
 }

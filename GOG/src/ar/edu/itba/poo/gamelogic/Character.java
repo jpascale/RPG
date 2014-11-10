@@ -100,7 +100,7 @@ public class Character extends Alive implements Combat, Serializable {
 	}
 	
 	public void setLevelProfileCharacter(){
-		lvl.serCharacter(this);
+		lvl.setCharacter(this);
 	}
 
 	@Override

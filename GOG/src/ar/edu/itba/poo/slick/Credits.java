@@ -29,7 +29,7 @@ public class Credits extends BasicGameState {
 		}
 		
 		if(input.isKeyPressed(Input.KEY_ENTER)){
-			sbg.enterState(0, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+			container.exit();
 		}
 
 	}
@@ -39,7 +39,7 @@ public class Credits extends BasicGameState {
 			throws SlickException {
 			gr.setColor(Color.white);
 			gr.drawString("Felicitaciones, has ganado el juego!!!", 250, 250);
-			gr.drawString("Presione Enter para volver al menu principal.", 250, 300);
+			gr.drawString("Presione Enter para salir del juego.", 250, 300);
 
 	}
 

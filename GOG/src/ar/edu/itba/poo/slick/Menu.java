@@ -11,7 +11,11 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
+import ar.edu.itba.poo.IO.GameIO;
+import ar.edu.itba.poo.IO.GameSlot;
+import ar.edu.itba.poo.gamelogic.Classes;
 import ar.edu.itba.poo.gamelogic.Game;
+import ar.edu.itba.poo.gamelogic.GameFactory;
 import ar.edu.itba.poo.gamelogic.Warrior;
 import ar.edu.itba.poo.gamelogic.Wizard;
 
@@ -58,14 +62,11 @@ public class Menu extends BasicGameState {
 		}
 		if(menutype == 1){
 			if(input.isKeyPressed(Input.KEY_1)){
-				Game.getInstance().getCharacter().setStrategy(new Warrior(5, 8));
+				GameFactory.gameInitializer(Classes.WARRIOR);
 				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 			}
 			if(input.isKeyPressed(Input.KEY_2)){
-				Game.getInstance().getCharacter().setStrategy(new Wizard(3, 5));
-				Game.getInstance().getCharacter().getStatus().setMaxman(70);
-				Game.getInstance().getCharacter().getStatus().setMinman(70);
-				Game.getInstance().getCharacter().getStatus().notifyObservers();
+				GameFactory.gameInitializer(Classes.WIZARD);
 				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 			}
 			if(input.isKeyPressed(Input.KEY_3)){
@@ -74,6 +75,7 @@ public class Menu extends BasicGameState {
 		}
 		if(menutype == 2){
 			if(input.isKeyPressed(Input.KEY_1)){
+				GameIO.loadGame(GameSlot.SLOT_1);
 				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 			}
 			if(input.isKeyPressed(Input.KEY_2)){

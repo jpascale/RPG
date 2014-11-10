@@ -8,7 +8,7 @@ import ar.edu.itba.poo.handlers.Observer;
 
 public class LevelProfile implements Observable, Serializable{
 	
-	private transient ArrayList<Observer> observers;
+	private ArrayList<Observer> observers;
 	
 	public static int MAX_LVL = 47;
 	public static int EXP_CONST = 50;
@@ -121,7 +121,7 @@ public class LevelProfile implements Observable, Serializable{
 	public void setMaxexp(int maxexp) {
 		this.maxexp = maxexp;
 	}
-	public void serCharacter(Character character){
+	public void setCharacter(Character character){
 		this.character = character;
 	}
 	

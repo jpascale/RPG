@@ -13,7 +13,7 @@ public class Item implements Observable, Serializable{
 	private String name;
 	private double modifier;
 	private transient Tile pos;
-	private transient ArrayList<Observer> observers;
+	private ArrayList<Observer> observers;
 	private long ID;
 	
 	public Item(String name, double modifier, Tile tile, long ID) {

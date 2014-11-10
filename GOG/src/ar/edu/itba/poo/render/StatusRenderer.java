@@ -1,9 +1,11 @@
 package ar.edu.itba.poo.render;
 
+import java.io.Serializable;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
-public class StatusRenderer {
+public class StatusRenderer implements Serializable {
 	
 	private static int minhp;
 	private static int maxhp;

@@ -8,7 +8,7 @@ import ar.edu.itba.poo.handlers.Observer;
 
 public class Status implements Observable, Serializable{
 	
-	private transient ArrayList<Observer> observers = null;
+	private ArrayList<Observer> observers = null;
 	
 	private static int HP_DELTA_UP = 5;
 	private static int MAN_DELTA_UP = 5;

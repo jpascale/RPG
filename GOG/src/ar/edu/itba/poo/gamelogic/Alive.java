@@ -12,7 +12,7 @@ import ar.edu.itba.poo.worldlogic.Trigger;
 
 public class Alive implements Observable, Serializable{
 	
-	private transient ArrayList<Observer> observers = null;
+	private ArrayList<Observer> observers = null;
 	
 	private Dir heading;
 	private Status status;

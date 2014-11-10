@@ -17,4 +17,12 @@ public class ItemFactory {
 		return item;
 	}
 
+	public static long getItemID() {
+		return itemID;
+	}
+
+	public static void setItemID(long itemID) {
+		ItemFactory.itemID = itemID;
+	}
+
 }

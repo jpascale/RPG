@@ -1,9 +1,11 @@
 package ar.edu.itba.poo.handlers;
 
+import java.io.Serializable;
+
 import ar.edu.itba.poo.gamelogic.Status;
 import ar.edu.itba.poo.render.StatusRenderer;
 
-public class StatusHandler implements Observer<Status> {
+public class StatusHandler implements Observer<Status>, Serializable {
 	
 	StatusRenderer renderer;
 

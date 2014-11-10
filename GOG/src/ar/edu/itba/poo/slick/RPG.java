@@ -18,10 +18,6 @@ import ar.edu.itba.poo.gamelogic.CreatureFactory;
 import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.gamelogic.ItemFactory;
-import ar.edu.itba.poo.handlers.CharacterMovementHandler;
-import ar.edu.itba.poo.handlers.EquipmentHandler;
-import ar.edu.itba.poo.handlers.LevelProfileHandler;
-import ar.edu.itba.poo.handlers.StatusHandler;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.render.CreatureRenderer;
 import ar.edu.itba.poo.render.EquipmentRenderer;
@@ -68,36 +64,19 @@ public class RPG extends BasicGameState {
 			//TODO: Modularize this
 			
 			game = Game.getInstance();
-			player = game.getCharacter();
 			
 			GameIO.setGame(game);
-			
-			//Start observing character data
-			player.addObserver(new CharacterMovementHandler());
-			player.getStatus().addObserver(new StatusHandler(player.getStatus()));
-			player.getLvl().addObserver(new LevelProfileHandler());
-			player.getEquip().addObserver(new EquipmentHandler());
-			player.getEquip().addItem(ItemFactory.createItem("Nudillos", 1.0, null));
 			
 			console = new Console();
 			Console.add("Bienvenido a Game of Games!");
 	
 			map = game.getWorld();
-			map.getTile(3, 28 ).setItem(ItemFactory.createItem("Big Bad Blade", 5.0, map.getTile(3,28)));
 			
 			graphicmap = GraphicMap.getInstance();
 			graphicmap.setWorldTriggers();
 			
 			tiledmap = graphicmap.getTiledMap();
-			
-			creatures = game.getCreatureList();
-			if(!game.isBoss1dead())
-				creatures.add(CreatureFactory.createBoss1(map.getTile(35, 25)));
-			if(!game.isBoss2dead())
-				creatures.add(CreatureFactory.createBoss2(map.getTile(6, 16)));
-			creatures.add(CreatureFactory.createBoss3(map.getTile(35, 6)));
-
-			player = game.getCharacter();
+			 
 			
 			music = new Music("data/b_jean.ogg");
 			
@@ -109,7 +88,10 @@ public class RPG extends BasicGameState {
 	}
 
 	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
-	
+		
+		player = game.getCharacter();
+		creatures = game.getCreatureList();
+		
 		if(!music.playing())
 			music.loop() ;
 		InputHandler.handleInput(container, delta, player);
@@ -121,8 +103,8 @@ public class RPG extends BasicGameState {
 			creatures.creaturesAI(delta);
 			
 			if(game.isEndgame()){
-				sbg.enterState(2  , new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
-				music.fade(3, 0, true);
+				sbg.enterState(2, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+			// 	music.fade(3, 0, true);
 			}
 				
 	}

@@ -61,15 +61,11 @@ public abstract class InputHandler {
 				else if(input.isKeyPressed(Input.KEY_Q)){
 					player.getEquip().changeWeapon();
 				}
-				else if(input.isKeyPressed(Input.KEY_Y)){
+				else if(input.isKeyPressed(Input.KEY_1)){
 					GameIO.saveGame(GameSlot.SLOT_1);
 				}
-				else if(input.isKeyPressed(Input.KEY_H)){
-					GameIO.loadGame(GameSlot.SLOT_1);
-				}
-				
 				else if (input.isKeyPressed(Input.KEY_M)){
-					Console.add("Mi posicion es " + player.getPos().getX() + " " + player.getPos().getY());
+					Console.add("Mi posicion es " + player.getPos().getX() + " " + player.getPos().getY() + " " + player.getHeading().toString());
 					interval = 0;
 				}
 				

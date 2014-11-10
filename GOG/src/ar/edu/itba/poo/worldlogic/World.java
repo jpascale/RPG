@@ -1,10 +1,12 @@
 package ar.edu.itba.poo.worldlogic;
 
+import java.io.Serializable;
+
 import ar.edu.itba.poo.gamelogic.Game;
 
 
 
-public class World {
+public class World{
 	
 	private static World instance = null;
 	

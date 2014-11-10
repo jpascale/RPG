@@ -1,9 +1,11 @@
 package ar.edu.itba.poo.handlers;
 
+import java.io.Serializable;
+
 import ar.edu.itba.poo.gamelogic.Character;
 import ar.edu.itba.poo.render.CharacterRenderer;
 
-public class CharacterMovementHandler implements Observer<Character> {
+public class CharacterMovementHandler implements Observer<Character>, Serializable {
 
 	CharacterRenderer renderer;
 	

@@ -28,6 +28,10 @@ public class Alive implements Observable, Serializable{
 			this.swims = false;
 	}
 	
+	/**
+	 * Moves the alive to the next tile in the direction given.
+	 * @param dir direction;
+	 */
 	public void move(Dir dir){
 		
 		Tile actual;
@@ -46,7 +50,6 @@ public class Alive implements Observable, Serializable{
 					actual.freeAlive();
 				}
 			}
-		
 		this.notifyObservers();
 		
 	}
@@ -55,7 +58,12 @@ public class Alive implements Observable, Serializable{
 		status.receiveDamage(damage);
 			
 	}
-	
+	/**
+	 * Returns an int that is a random interger between two numbers.
+	 * @param min lowest integer;
+	 * @param max highest integer;
+	 * @return int Random; 
+	 */
 	public static int randInt(int min, int max) {
 	    Random rand = new Random();
 	    int randomNum = rand.nextInt((max - min) + 1) + min;
@@ -67,6 +75,7 @@ public class Alive implements Observable, Serializable{
 		pos.setAlive(this);
 	}
 	
+	//TODO coment this
 	public static int calculateExp(Alive alive){
 		
 		int maxhp = alive.getStatus().getMaxhp();
@@ -123,7 +132,7 @@ public class Alive implements Observable, Serializable{
 	
 	public void setHeading(Dir heading){
 		this.heading = heading;
-		//Notify observers
+		notifyObservers();
 	}
 	
 	public boolean checkSwims() {

@@ -39,7 +39,12 @@ public class Appearance {
 		}
 		
 	}
-	
+	/**
+	 * Changes the image and animation to be shown in render
+	 * to the direction given.
+	 * 
+	 * @param dir Direction;
+	 */
 	public void changeAnimation(Dir dir){
 		switch(dir) {
 			

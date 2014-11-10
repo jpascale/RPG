@@ -7,6 +7,10 @@ import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
 import ar.edu.itba.poo.slick.Console;
 
+
+//The characters inventory for weapon storing and selection.
+//Has a maximum of 10 slots. First weapon added will be unremovable
+//as will be the no weapon attack.
 public class Equipment implements Observable, Serializable{
 	
 	public static int MAX_INVENTORY_SLOTS = 10;
@@ -29,17 +33,19 @@ public class Equipment implements Observable, Serializable{
 			item.setPos(null);
 			item.notifyObservers();
 			this.notifyObservers();
-			
-			//TODO: Notify;
 		}
 	}
 
 	public void removeItem(Item item) {
-		if(slots.indexOf(item)!=0)
 			slots.remove(item);
 			this.notifyObservers();
 	}
 	
+	/**
+	 * Makes the character equip the next weapon in the inventory.
+	 * 
+	 * @return void
+	 */
 	public void changeWeapon(){
 		int index = slots.indexOf(weapon)+1;
 		
@@ -79,7 +85,11 @@ public class Equipment implements Observable, Serializable{
 	public void setWeapon(Item weapon) {
 		this.weapon = weapon;
 	}
-
+	
+	/*
+	 *		Observable Methods
+	 */
+	
 	@Override
 	public void addObserver(Observer observer) {
 		observers.add(observer);

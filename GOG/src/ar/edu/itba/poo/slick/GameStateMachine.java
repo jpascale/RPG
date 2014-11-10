@@ -15,6 +15,7 @@ public class GameStateMachine extends StateBasedGame {
 	public void initStatesList(GameContainer arg0) throws SlickException {
 		addState(new Menu());
 		addState(new RPG("GOG"));
+		addState(new Credits());
 	}
 	
 }

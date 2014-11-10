@@ -15,6 +15,7 @@ public abstract class Type implements Serializable{
 	private final double manmodif;
 	
 	private int classmanmodif;
+	private Classes type;
 	
 	
 	public Type (String name, double hpmodif, double manmodif, int minHit, int maxHit, int classmanmodif){
@@ -51,8 +52,12 @@ public abstract class Type implements Serializable{
 	public int getClassManModif(){
 		return classmanmodif;
 	}
+	public Classes getType() {
+		return type;
+	}
 	
-	
+
 	public abstract void attack(Character attacker); 
 	public abstract void updateLevelUpHit();
+
 }

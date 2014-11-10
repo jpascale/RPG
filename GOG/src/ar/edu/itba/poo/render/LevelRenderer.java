@@ -20,6 +20,9 @@ public class LevelRenderer {
 		LevelRenderer.maxexp = maxexp;
 	}
 	
+	/**
+	 * Draws the LevelProfile.
+	 */
 	public static void render(Graphics gr){
 		
 		gr.setColor(Color.white);

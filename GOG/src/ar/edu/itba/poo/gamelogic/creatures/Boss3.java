@@ -23,8 +23,7 @@ public class Boss3 extends Creature {
 	public void receiveAttack(int damage) {
 		super.receiveAttack(damage);
 		if(this.getStatus().isDead()){
-			Console.add("HAS GANADO EL JUEGO!!!");
-			//TODO End Game, probably GameStateChange.
+			Game.getInstance().setEndgame(true);
 		}
 	}
 	

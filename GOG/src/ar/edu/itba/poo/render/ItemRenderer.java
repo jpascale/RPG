@@ -37,7 +37,9 @@ public class ItemRenderer {
 		}
 		return null;
 	}
-	
+	/**
+	 * Draws the items.
+	 */
 	public static void render(){
 		for (ItemRenderer item : renders) {
 			if(item.renderable){

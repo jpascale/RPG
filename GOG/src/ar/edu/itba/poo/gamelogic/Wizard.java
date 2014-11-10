@@ -22,6 +22,10 @@ public class Wizard extends Type implements Serializable{
 		super(WIZARD_NAME, WIZARD_HP_MODIF, WIZARD_MAN_MODIF, minHit, maxHit, WIZARD_CLASS_MAN_MODIF);
 	}
 
+	/**
+	 * Checks the next 5 tiles in the characters direction until an alive its found and attacks it.
+	 * @param attacker Character
+	 */
 	@Override
 	public void attack(Character attacker) {
 

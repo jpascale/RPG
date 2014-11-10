@@ -26,10 +26,6 @@ public class Status implements Observable, Serializable{
 		this.minman = this.maxman = man;
 		this.isdead = false;
 	}
-
-	public boolean isDead(){
-		return this.isdead;
-	}
 	
 	public void receiveDamage(int damage) {
 		
@@ -49,6 +45,7 @@ public class Status implements Observable, Serializable{
 		isdead = false;
 		notifyObservers();
 	}
+	
 	public void loseMana(int mp){
 		if(minman >= mp)
 			minman -= mp;
@@ -127,5 +124,9 @@ public class Status implements Observable, Serializable{
 
 	public void setMaxman(int maxman) {
 		this.maxman = maxman;
+	}
+	
+	public boolean isDead(){
+		return this.isdead;
 	}
 }

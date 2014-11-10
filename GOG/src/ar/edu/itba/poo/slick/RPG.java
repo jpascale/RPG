@@ -1,5 +1,6 @@
 package ar.edu.itba.poo.slick;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -7,6 +8,8 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 import ar.edu.itba.poo.IO.GameIO;
@@ -14,13 +17,8 @@ import ar.edu.itba.poo.gamelogic.Character;
 import ar.edu.itba.poo.gamelogic.CreatureFactory;
 import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.Game;
-import ar.edu.itba.poo.gamelogic.Item;
 import ar.edu.itba.poo.gamelogic.ItemFactory;
-import ar.edu.itba.poo.gamelogic.creatures.Boss1;
-import ar.edu.itba.poo.gamelogic.creatures.Boss2;
-import ar.edu.itba.poo.gamelogic.creatures.Boss3;
 import ar.edu.itba.poo.handlers.CharacterMovementHandler;
-import ar.edu.itba.poo.handlers.CreatureMovementHandler;
 import ar.edu.itba.poo.handlers.EquipmentHandler;
 import ar.edu.itba.poo.handlers.LevelProfileHandler;
 import ar.edu.itba.poo.handlers.StatusHandler;
@@ -56,7 +54,7 @@ public class RPG extends BasicGameState {
 	public RPG(String title) {
 		super();
 		try {
-			background = new Image("data/main.jpg");
+			//background = new Image("data/main.jpg");
 		//Use "Exception" because it ends execution otherwise
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -99,8 +97,7 @@ public class RPG extends BasicGameState {
 
 			player = game.getCharacter();
 			
-			//music = new Music("data/b_jean.ogg");
-			//music.loop();
+			music = new Music("data/b_jean.ogg");
 			
 			
 		} catch (Exception e) {
@@ -111,6 +108,8 @@ public class RPG extends BasicGameState {
 
 	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
 	
+		if(!music.playing())
+			music.loop() ;
 		InputHandler.handleInput(container, delta, player);
 		
 			//TODO: Change this
@@ -119,13 +118,17 @@ public class RPG extends BasicGameState {
 			creatures.removeBodies();
 			creatures.creaturesAI(delta);
 			
-		
+			if(game.isEndgame()){
+				sbg.enterState(2  , new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+				music.fade(3, 0, true);
+			}
+				
 	}
 	
 	public void render(GameContainer container, StateBasedGame sbg, Graphics gr) throws SlickException {
 		
-		if (background != null)
-			gr.drawImage(background, 0, 0);
+		//if (background != null)
+		//	gr.drawImage(background, 0, 0);
 		
 		console.draw();
 		tiledmap.render(0, 90);
@@ -134,7 +137,7 @@ public class RPG extends BasicGameState {
 		CharacterRenderer.render();
 		StatusRenderer.render(gr);
 		LevelRenderer.render(gr);
-		EquipmentRenderer.render(gr);
+		//EquipmentRenderer.render(gr);
 		
 	}
 

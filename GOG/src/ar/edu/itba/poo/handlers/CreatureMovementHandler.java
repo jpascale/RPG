@@ -1,10 +1,8 @@
 package ar.edu.itba.poo.handlers;
 
 import ar.edu.itba.poo.gamelogic.Creature;
-import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.CreatureType;
 import ar.edu.itba.poo.render.CreatureRenderer;
-import ar.edu.itba.poo.worldlogic.Tile;
 
 public class CreatureMovementHandler implements Observer<Creature> {
 	
@@ -15,7 +13,13 @@ public class CreatureMovementHandler implements Observer<Creature> {
 			instance = new CreatureMovementHandler();
 		return instance;
 	}
-
+	
+	/**
+	 * Gets the CreatureRenderer with the same ID as the creature
+	 * and notifies its changes.
+	 * 
+	 * @param data Creature;
+	 */
 	@Override
 	public void handleUpdate(Creature data) {
 		CreatureRenderer renderer = CreatureRenderer.getRenderer(data.getID());

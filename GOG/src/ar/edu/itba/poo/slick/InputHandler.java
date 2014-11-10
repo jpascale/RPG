@@ -27,7 +27,6 @@ public abstract class InputHandler {
 	public static void handleInput(GameContainer container, int delta, Character player){
 		
 		Input input = container.getInput();
-		//Character player = game.getCharacter();
 		
 		if(input.isKeyPressed(Input.KEY_ESCAPE)){
 			container.exit();
@@ -39,23 +38,19 @@ public abstract class InputHandler {
 
 			//Move
 				if (input.isKeyDown(Input.KEY_UP)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.NORTH);
+					handleMove(player, Dir.NORTH);
 					interval = 0;
 				}
 				else if (input.isKeyDown(Input.KEY_DOWN)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.SOUTH);
+					handleMove(player, Dir.SOUTH);
 					interval = 0;
 				}
 				else if (input.isKeyDown(Input.KEY_LEFT)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.WEST);
+					handleMove(player, Dir.WEST);
 					interval = 0;
 				}
 				else if (input.isKeyDown(Input.KEY_RIGHT)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.EAST);
+					handleMove(player, Dir.EAST);
 					interval = 0;
 				}
 				
@@ -105,7 +100,7 @@ public abstract class InputHandler {
 				}
 				
 				else
-					CharacterRenderer.setMoving(false);
+					handleStopMove();
 				
 			
 			if (interval >= ACTION_INTERVAL)
@@ -114,4 +109,13 @@ public abstract class InputHandler {
 		}
 		
 	}
+	
+	public static void handleMove(Character player, Dir dir){
+		player.move(dir);
+		CharacterRenderer.setMoving(true);
+	}
+	public static void handleStopMove(){
+		CharacterRenderer.setMoving(false);
+	}
+	
 }

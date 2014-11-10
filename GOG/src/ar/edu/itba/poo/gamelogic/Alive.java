@@ -58,15 +58,11 @@ public class Alive implements Observable, Serializable{
 		status.receiveDamage(damage);
 			
 	}
-	/**
-	 * Returns an int that is a random interger between two numbers.
-	 * @param min lowest integer;
-	 * @param max highest integer;
-	 * @return int Random; 
-	 */
-	public static int randInt(int min, int max) {
+	
+
+	public static int randInt(int lowerbound, int upperbound) {
 	    Random rand = new Random();
-	    int randomNum = rand.nextInt((max - min) + 1) + min;
+	    int randomNum = rand.nextInt((upperbound - lowerbound) + 1) + lowerbound;
 	    return randomNum;
 	}
 	

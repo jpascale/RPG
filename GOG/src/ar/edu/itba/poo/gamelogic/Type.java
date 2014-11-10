@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 public abstract class Type implements Serializable{
 	
-	private String name;
 	private int minHit;
 	private int maxHit;
 	
@@ -13,17 +12,17 @@ public abstract class Type implements Serializable{
 	private final double manmodif;
 	
 	private int classmanmodif;
-	private Classes strategytype;
+	private Classes type;
 	
 	
-	public Type (String name, double hpmodif, double manmodif, int minHit, int maxHit, int classmanmodif, Classes strategytype){
-		this.name = name;
+	public Type (Classes type, double hpmodif, double manmodif, int minHit, int maxHit, int classmanmodif){
+		
+		this.type = type;
 		this.hpmodif = hpmodif;
 		this.manmodif = manmodif;
 		this.minHit = minHit;
 		this.maxHit = maxHit;
 		this.classmanmodif = classmanmodif;
-		this.strategytype = strategytype;
 	}
 	
 	/*
@@ -52,7 +51,7 @@ public abstract class Type implements Serializable{
 		return classmanmodif;
 	}
 	public Classes getType() {
-		return strategytype;
+		return type;
 	}
 	
 

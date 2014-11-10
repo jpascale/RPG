@@ -19,7 +19,7 @@ public class Wizard extends Type implements Serializable{
 	private static int WIZARD_DELTA_SPELL_UP;
 	
 	public Wizard(int minHit, int maxHit) {
-		super(WIZARD_NAME, WIZARD_HP_MODIF, WIZARD_MAN_MODIF, minHit, maxHit, WIZARD_CLASS_MAN_MODIF, Classes.WIZARD);
+		super(Classes.WIZARD, WIZARD_HP_MODIF, WIZARD_MAN_MODIF, minHit, maxHit, WIZARD_CLASS_MAN_MODIF);
 	}
 
 	/**

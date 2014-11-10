@@ -24,19 +24,22 @@ public class Character extends Alive implements Combat, Serializable {
 		this.equip = new Equipment();
 	}
 	
-	//TODO: Manage errors
+
 	/**
 	 * Picks up an item if its on the tile, else it throws down the equipped item. 
 	 */
-	public void itemAction(){
+	public boolean itemAction(){
+		
+		boolean itemaction = false;
 		if (this.getPos().hasItem()){
+			
 			Item item = this.getPos().getItem();
 			this.equip.addItem(item);
 			this.getPos().setItem(null);
-			Console.add("Has levantado el arma " + item.getName());
+			itemaction = true;
 		}
 		else if(!equip.throwableWeapon())
-			Console.add("No tiene un arma seleccionada para tirar");
+			itemaction = false;
 		else{
 			Item weapon = equip.getWeapon();
 			
@@ -46,8 +49,10 @@ public class Character extends Alive implements Combat, Serializable {
 			
 			equip.changeWeapon();
 			equip.removeItem(weapon);
-			Console.add("Has tirado el arma " + weapon.getName());
+			itemaction = true;
 		}
+		
+		return itemaction;
 	}
 	
 	public void gainExp(int exp){

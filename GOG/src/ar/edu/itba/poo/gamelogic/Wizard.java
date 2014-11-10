@@ -2,7 +2,6 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.io.Serializable;
 
-import ar.edu.itba.poo.slick.Console;
 import ar.edu.itba.poo.worldlogic.Dir;
 import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.Trigger;

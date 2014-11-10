@@ -4,7 +4,6 @@ import ar.edu.itba.poo.worldlogic.Tile;
 import ar.edu.itba.poo.worldlogic.World;
 //import ar.edu.itba.poo.updater.StatsLevelUpUpdater;
 
-//TODO: MAKE SINGLETON
 
 public class Game {
 	

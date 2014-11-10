@@ -1,6 +1,5 @@
 package ar.edu.itba.poo.gamelogic;
 
-import java.io.ObjectInputStream.GetField;
 
 public class GameFactory {
 

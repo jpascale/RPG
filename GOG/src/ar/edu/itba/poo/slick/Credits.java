@@ -38,8 +38,8 @@ public class Credits extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame sbg, Graphics gr)
 			throws SlickException {
 			gr.setColor(Color.white);
-			gr.drawString("Felicitaciones, has ganado el juego!!!", 350, 250);
-			gr.drawString("Presione Enter para volver al menu principal.", 350, 300);
+			gr.drawString("Felicitaciones, has ganado el juego!!!", 250, 250);
+			gr.drawString("Presione Enter para volver al menu principal.", 250, 300);
 
 	}
 

@@ -19,6 +19,10 @@ public class Game {
 	
 	private Character character;
 	private CreatureList creatures;
+	
+	private boolean boss1dead = false;
+	private boolean boss2dead = false;
+	private boolean endgame = false;
 		
 	
 	private Game() {
@@ -84,6 +88,30 @@ public class Game {
 	
 	public CreatureList getCreatureList(){
 		return creatures;
+	}
+	
+	public boolean isBoss1dead() {
+		return boss1dead;
+	}
+
+	public void setBoss1dead(boolean boss1dead) {
+		this.boss1dead = boss1dead;
+	}
+
+	public boolean isBoss2dead() {
+		return boss2dead;
+	}
+
+	public void setBoss2dead(boolean boss2dead) {
+		this.boss2dead = boss2dead;
+	}
+
+	public boolean isEndgame() {
+		return endgame;
+	}
+
+	public void setEndgame(boolean endgame) {
+		this.endgame = endgame;
 	}
 	
 }

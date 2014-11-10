@@ -10,10 +10,13 @@ import ar.edu.itba.poo.worldlogic.Trigger;
 public class Wizard extends Type implements Serializable{
 	
 	private static String WIZARD_NAME = "Wizard";
+	
 	private static int WIZARD_HP_MODIF = 5;
 	private static int WIZARD_MAN_MODIF = 10;
 	private static int WIZARD_CLASS_MAN_MODIF = 1;
 	private static int MAGIC_USE = 5;
+	
+	private static int WIZARD_DELTA_SPELL_UP;
 	
 	public Wizard(int minHit, int maxHit) {
 		super(WIZARD_NAME, WIZARD_HP_MODIF, WIZARD_MAN_MODIF, minHit, maxHit, WIZARD_CLASS_MAN_MODIF);
@@ -58,5 +61,11 @@ public class Wizard extends Type implements Serializable{
 		}
 		else Console.add("No tiene el mana suficiente para atacar");
 
+	}
+
+	@Override
+	public void updateLevelUpHit(){
+		this.setMaxHit(this.getMaxHit() + WIZARD_DELTA_SPELL_UP);
+		this.setMinHit(this.getMinHit() + WIZARD_DELTA_SPELL_UP);
 	}
 }

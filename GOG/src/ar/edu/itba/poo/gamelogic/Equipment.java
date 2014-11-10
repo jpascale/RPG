@@ -3,7 +3,6 @@ package ar.edu.itba.poo.gamelogic;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import ar.edu.itba.poo.handlers.EquipmentHandler;
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
 import ar.edu.itba.poo.slick.Console;

@@ -54,4 +54,5 @@ public abstract class Type implements Serializable{
 	
 	
 	public abstract void attack(Character attacker); 
+	public abstract void updateLevelUpHit();
 }

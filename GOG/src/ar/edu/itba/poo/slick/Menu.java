@@ -79,9 +79,11 @@ public class Menu extends BasicGameState {
 				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 			}
 			if(input.isKeyPressed(Input.KEY_2)){
+				GameIO.loadGame(GameSlot.SLOT_2);
 				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 			}
 			if(input.isKeyPressed(Input.KEY_3)){
+				GameIO.loadGame(GameSlot.SLOT_3);
 				sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 			}
 			if(input.isKeyPressed(Input.KEY_4)){

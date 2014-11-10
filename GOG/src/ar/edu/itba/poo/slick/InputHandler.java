@@ -78,7 +78,14 @@ public abstract class InputHandler {
 					player.getEquip().changeWeapon();
 				}
 				
+				// Save
 				else if(input.isKeyPressed(Input.KEY_1)){
+					GameIO.saveGame(GameSlot.SLOT_1);
+				}
+				else if(input.isKeyPressed(Input.KEY_2)){
+					GameIO.saveGame(GameSlot.SLOT_2);
+				}
+				else if(input.isKeyPressed(Input.KEY_3)){
 					GameIO.saveGame(GameSlot.SLOT_1);
 				}
 				

@@ -5,8 +5,9 @@ import java.util.HashSet;
 
 import org.newdawn.slick.Image;
 
+import ar.edu.itba.poo.frontend.InputHandler;
+import ar.edu.itba.poo.frontend.RPG;
 import ar.edu.itba.poo.gamelogic.CreatureType;
-import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
 
 public class CreatureRenderer {
@@ -87,8 +88,10 @@ public class CreatureRenderer {
 	public static void render(){
 		CreatureRenderer dead = null;
 		for (CreatureRenderer render : renders) {
-			if(render.dead)
+			if(render.dead){
 				dead = render;
+				InputHandler.handleDeadCreature();
+			}
 			else{
 				Image creatureImage = appearanceMap.get(render.type).getDirection(render.dir);
 				creatureImage.draw((render.X-1)*RPG.SIZE + render.offsetX, (render.Y-1)*RPG.SIZE+90 + render.offsetY);

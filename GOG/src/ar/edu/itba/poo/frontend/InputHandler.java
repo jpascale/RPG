@@ -1,4 +1,4 @@
-package ar.edu.itba.poo.slick;
+package ar.edu.itba.poo.frontend;
 
 import ar.edu.itba.poo.IO.GameIO;
 import ar.edu.itba.poo.IO.GameSlot;
@@ -26,6 +26,7 @@ public abstract class InputHandler {
 	public static String MSG_NOT_RECOVER_MANA = "No puedes meditar.";
 	public static String MSG_EXCLAMATION = "!!!";
 	public static String MSG_NO_MANA = "Necesitas meditar (Tecla M) para poder atacar";
+	public static String MSG_DEAD_CREATURE = "Has matado a la criatura!";
 	
 	
 	public static void handleInput(GameContainer container, int delta, Character player){
@@ -140,5 +141,9 @@ public abstract class InputHandler {
 	
 	public static void handleEquipmentAction(Character player){
 		player.getEquip().changeWeapon();
+	}
+	
+	public static void handleDeadCreature(){
+		Console.add(MSG_DEAD_CREATURE);
 	}
 }

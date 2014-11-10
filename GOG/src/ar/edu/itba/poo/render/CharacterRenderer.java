@@ -4,14 +4,15 @@ import java.io.Serializable;
 
 import org.newdawn.slick.GameContainer;
 
+import ar.edu.itba.poo.frontend.InputHandler;
+import ar.edu.itba.poo.frontend.RPG;
 import ar.edu.itba.poo.gamelogic.Game;
-import ar.edu.itba.poo.slick.InputHandler;
-import ar.edu.itba.poo.slick.RPG;
 import ar.edu.itba.poo.worldlogic.Dir;
 
 public class CharacterRenderer implements Serializable{
 	
-	private static Appearance appear = new Appearance("data/red2.png", 16, 24);;
+	private static String APPEAR_PATH = "data/red2.png";
+	private static Appearance appear = new Appearance(APPEAR_PATH, 16, 24);;
 	
 	private static int X, Y;
 	private static Dir dir;

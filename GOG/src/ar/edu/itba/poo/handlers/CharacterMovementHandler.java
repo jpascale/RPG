@@ -19,6 +19,7 @@ public class CharacterMovementHandler implements Observer<Character>, Serializab
 	 * 
 	 * @param data Character;
 	 */
+	
 	@Override
 	public void handleUpdate(Character data) {
 		renderer.setDir(data.getHeading());

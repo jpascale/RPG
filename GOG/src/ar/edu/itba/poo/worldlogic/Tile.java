@@ -97,7 +97,6 @@ public class Tile implements Serializable{
 
 	public void setItem(Item item) {
 		this.item = item;
-		//TODO: Notify.
 	}
 
 	public Trigger getType() {

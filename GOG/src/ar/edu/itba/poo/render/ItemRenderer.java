@@ -5,7 +5,7 @@ import java.util.HashSet;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-import ar.edu.itba.poo.slick.RPG;
+import ar.edu.itba.poo.frontend.RPG;
 
 public class ItemRenderer {
 	

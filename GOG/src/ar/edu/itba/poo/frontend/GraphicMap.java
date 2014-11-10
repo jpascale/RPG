@@ -1,4 +1,4 @@
-package ar.edu.itba.poo.slick;
+package ar.edu.itba.poo.frontend;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;

@@ -19,6 +19,7 @@ public class EquipmentHandler implements Observer<Equipment> {
 	 */
 	@Override
 	public void handleUpdate(Equipment data) {
+		
 		ArrayList<String> names;
 		int equipped;
 		

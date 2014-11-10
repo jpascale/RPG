@@ -91,8 +91,10 @@ public class RPG extends BasicGameState {
 			tiledmap = graphicmap.getTiledMap();
 			
 			creatures = game.getCreatureList();
-			creatures.add(CreatureFactory.createBoss1(map.getTile(35, 25)));
-			creatures.add(CreatureFactory.createBoss2(map.getTile(6, 16)));
+			if(!game.isBoss1dead())
+				creatures.add(CreatureFactory.createBoss1(map.getTile(35, 25)));
+			if(!game.isBoss2dead())
+				creatures.add(CreatureFactory.createBoss2(map.getTile(6, 16)));
 			creatures.add(CreatureFactory.createBoss3(map.getTile(35, 6)));
 
 			player = game.getCharacter();
@@ -137,7 +139,7 @@ public class RPG extends BasicGameState {
 		CharacterRenderer.render();
 		StatusRenderer.render(gr);
 		LevelRenderer.render(gr);
-		//EquipmentRenderer.render(gr);
+		EquipmentRenderer.render(gr);
 		
 	}
 

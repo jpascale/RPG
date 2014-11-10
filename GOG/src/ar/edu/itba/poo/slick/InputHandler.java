@@ -19,13 +19,14 @@ public abstract class InputHandler {
 	
 	public static String MSG_NO_SELECTED_THROW_ITEM = "No puedes tirar el item.";
 	public static String MSG_ATTACK_CREATURE = "Has atacado a la criatura!";
-	public static String MSG_DAMAGE_CREATURE = "Le haz pegado a la criatura por ";
+	public static String MSG_DAMAGE_CREATURE = "Le has pegado a la criatura por ";
+	public static String MSG_RECOVER_MANA = "Has recuperado tu mana.";
+	public static String MSG_NOT_RECOVER_MANA = "No puedes meditar.";
 	
 	
 	public static void handleInput(GameContainer container, int delta, Character player){
 		
 		Input input = container.getInput();
-		//Character player = game.getCharacter();
 		
 		if(input.isKeyPressed(Input.KEY_ESCAPE)){
 			container.exit();
@@ -37,23 +38,19 @@ public abstract class InputHandler {
 
 			//Move
 				if (input.isKeyDown(Input.KEY_UP)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.NORTH);
+					handleMove(player, Dir.NORTH);
 					interval = 0;
 				}
 				else if (input.isKeyDown(Input.KEY_DOWN)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.SOUTH);
+					handleMove(player, Dir.SOUTH);
 					interval = 0;
 				}
 				else if (input.isKeyDown(Input.KEY_LEFT)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.WEST);
+					handleMove(player, Dir.WEST);
 					interval = 0;
 				}
 				else if (input.isKeyDown(Input.KEY_RIGHT)){
-					CharacterRenderer.setMoving(true);
-					player.move(Dir.EAST);
+					handleMove(player, Dir.EAST);
 					interval = 0;
 				}
 				
@@ -67,6 +64,13 @@ public abstract class InputHandler {
 					}
 					
 					interval = 0;
+				}
+				
+				else if (input.isKeyPressed(Input.KEY_M)){
+					if (player.meditate())
+						Console.add(MSG_RECOVER_MANA);
+					else
+						Console.add(MSG_NOT_RECOVER_MANA);
 				}
 				
 				//Items
@@ -88,18 +92,7 @@ public abstract class InputHandler {
 				else if(input.isKeyPressed(Input.KEY_3)){
 					GameIO.saveGame(GameSlot.SLOT_1);
 				}
-				
-				//For Debug
-				/*
-				else if (input.isKeyPressed(Input.KEY_M)){
-					Console.add("Mi posicion es " + player.getPos().getX() + " " + player.getPos().getY() + " " + player.getHeading().toString());
-					interval = 0;
-				}
-				else if(input.isKeyPressed(Input.KEY_S)){
-					Console.add("HP: " + player.getStatus().getMinhp() + "/" + player.getStatus().getMaxhp() + "; Lvl: " + player.getLvl().getLevel() + "; Exp: " + player.getLvl().getExp() + "/ "+ player.getLvl().getMaxexp()); 
-				}
-				*/
-				
+
 				//Cheat
 				else if(input.isKeyPressed(Input.KEY_Z)){
 					player.getStatus().heal();
@@ -107,7 +100,7 @@ public abstract class InputHandler {
 				}
 				
 				else
-					CharacterRenderer.setMoving(false);
+					handleStopMove();
 				
 			
 			if (interval >= ACTION_INTERVAL)
@@ -116,4 +109,13 @@ public abstract class InputHandler {
 		}
 		
 	}
+	
+	public static void handleMove(Character player, Dir dir){
+		player.move(dir);
+		CharacterRenderer.setMoving(true);
+	}
+	public static void handleStopMove(){
+		CharacterRenderer.setMoving(false);
+	}
+	
 }

@@ -9,7 +9,7 @@ import ar.edu.itba.poo.slick.Console;
 import ar.edu.itba.poo.worldlogic.Tile;
 
 public class Boss3 extends Creature {
-	private static int HP = 600;
+	private static int HP = 5000;
 	private static int MAN = 0;
 	private static int MINHIT = 25;
 	private static int MAXHIT = 30;

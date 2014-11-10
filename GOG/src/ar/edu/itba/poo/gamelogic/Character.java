@@ -3,7 +3,6 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.io.Serializable;
 
-import ar.edu.itba.poo.slick.Console;
 import ar.edu.itba.poo.worldlogic.Tile;
 
 

@@ -127,6 +127,7 @@ public class Creature extends Alive implements Combat {
 	 */
 	@Override
 	public void receiveAttack(int damage) {
+		
 		super.receiveAttack(damage);
 		Console.add("Has sacado " + damage + " puntos de vida.");
 		if(this.getStatus().isDead()){

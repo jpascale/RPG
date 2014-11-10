@@ -17,6 +17,8 @@ public abstract class InputHandler {
 	public static int ACTION_INTERVAL = 150; // 0.15 seconds
 	private static int interval = 0;
 	
+	public static String NO_SELECTED_THROW_ITEM = "No puedes tirar el item.";
+	
 	
 	public static void handleInput(GameContainer container, int delta, Character player){
 		
@@ -31,6 +33,7 @@ public abstract class InputHandler {
 		
 		if (interval >= ACTION_INTERVAL){
 
+			//Move
 				if (input.isKeyDown(Input.KEY_UP)){
 					CharacterRenderer.setMoving(true);
 					player.move(Dir.NORTH);
@@ -51,16 +54,23 @@ public abstract class InputHandler {
 					player.move(Dir.EAST);
 					interval = 0;
 				}
+				
+				//Attack
 				else if (input.isKeyPressed(Input.KEY_SPACE)){
 					player.attack();
 					interval = 0;
 				}
+				
+				//Items
 				else if(input.isKeyPressed(Input.KEY_A)){
-					player.itemAction();
+					if (!player.itemAction())
+						Console.add(NO_SELECTED_THROW_ITEM);
 				}
 				else if(input.isKeyPressed(Input.KEY_Q)){
 					player.getEquip().changeWeapon();
 				}
+				
+				//TODO: CHANGE
 				else if(input.isKeyPressed(Input.KEY_Y)){
 					GameIO.saveGame(GameSlot.SLOT_1);
 				}
@@ -68,15 +78,7 @@ public abstract class InputHandler {
 					GameIO.loadGame(GameSlot.SLOT_1);
 				}
 				
-				else if (input.isKeyPressed(Input.KEY_M)){
-					Console.add("Mi posicion es " + player.getPos().getX() + " " + player.getPos().getY());
-					interval = 0;
-				}
-				
-				else if(input.isKeyPressed(Input.KEY_S)){
-					Console.add("HP: " + player.getStatus().getMinhp() + "/" + player.getStatus().getMaxhp() + "; Lvl: " + player.getLvl().getLevel() + "; Exp: " + player.getLvl().getExp() + "/ "+ player.getLvl().getMaxexp()); 
-				}
-				
+				//Cheat
 				else if(input.isKeyPressed(Input.KEY_Z)){
 					player.getStatus().heal();
 					player.notifyObservers();

@@ -2,13 +2,14 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
 
 public class Status implements Observable, Serializable{
 	
-	private ArrayList<Observer> observers = null;
+	private HashSet<Observer> observers = null;
 	
 	private static int HP_DELTA_UP = 5;
 	private static int MAN_DELTA_UP = 5;
@@ -20,7 +21,7 @@ public class Status implements Observable, Serializable{
 	private boolean isdead;
 	
 	public Status(int hp, int man) {
-		this.observers = new ArrayList<Observer>();
+		this.observers = new HashSet<Observer>();
 		
 		this.minhp = this.maxhp = hp;
 		this.minman = this.maxman = man;
@@ -77,7 +78,7 @@ public class Status implements Observable, Serializable{
 	public void addObserver(Observer observer) {
 		
 		if (observers == null)
-			observers = new ArrayList<Observer>();
+			observers = new HashSet<Observer>();
 			
 		observers.add(observer);
 		notifyObservers();

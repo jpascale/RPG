@@ -1,5 +1,6 @@
 package ar.edu.itba.poo.gamelogic;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 
 public class CreatureList {
@@ -7,11 +8,11 @@ public class CreatureList {
 	private static int CREATURE_NUMBER = 5;
 	
 	private Game game;
-	private LinkedList<Creature> creatureList;
+	private HashSet<Creature> creatureList;
 	
 	public CreatureList(Game game) {
 		this.game = game;
-		this.creatureList = new LinkedList<Creature>();
+		this.creatureList = new HashSet<Creature>();
 	}
 	
 	/**
@@ -83,7 +84,7 @@ public class CreatureList {
 		creatureList.remove(creature);
 	}
 
-	public LinkedList<Creature> getCreatureList() {
+	public HashSet<Creature> getCreatureList() {
 		return creatureList;
 	}
 }

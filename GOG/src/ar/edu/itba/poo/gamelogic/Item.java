@@ -2,7 +2,7 @@ package ar.edu.itba.poo.gamelogic;
 
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.HashSet;
 
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
@@ -13,7 +13,7 @@ public class Item implements Observable, Serializable{
 	private String name;
 	private double modifier;
 	private transient Tile pos;
-	private ArrayList<Observer> observers;
+	private HashSet<Observer> observers;
 	private long ID;
 	
 	public Item(String name, double modifier, Tile tile, long ID) {
@@ -21,7 +21,7 @@ public class Item implements Observable, Serializable{
 		this.modifier = modifier;
 		this.pos = tile; 
 		this.ID = ID;
-		this.observers = new ArrayList<Observer>();
+		this.observers = new HashSet<Observer>();
 	}
 
 	/*

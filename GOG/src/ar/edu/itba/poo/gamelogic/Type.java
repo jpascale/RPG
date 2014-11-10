@@ -12,12 +12,12 @@ public abstract class Type implements Serializable{
 	private final double manmodif;
 	
 	private int classmanmodif;
-	private Classes type;
+	private Classes classtype;
 	
 	
 	public Type (Classes type, double hpmodif, double manmodif, int minHit, int maxHit, int classmanmodif){
 		
-		this.type = type;
+		this.classtype = type;
 		this.hpmodif = hpmodif;
 		this.manmodif = manmodif;
 		this.minHit = minHit;
@@ -56,8 +56,8 @@ public abstract class Type implements Serializable{
 	public int getClassManModif(){
 		return classmanmodif;
 	}
-	public Classes getType() {
-		return type;
+	public Classes getClassType() {
+		return classtype;
 	}
 	
 

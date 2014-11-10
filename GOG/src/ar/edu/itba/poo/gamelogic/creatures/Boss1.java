@@ -1,5 +1,6 @@
 package ar.edu.itba.poo.gamelogic.creatures;
 
+import ar.edu.itba.poo.gamelogic.Classes;
 import ar.edu.itba.poo.gamelogic.Creature;
 import ar.edu.itba.poo.gamelogic.CreatureType;
 import ar.edu.itba.poo.gamelogic.Game;
@@ -18,7 +19,7 @@ public class Boss1 extends Creature {
 
 	public Boss1(Tile pos, long ID) {
 		super(HP, MAN, pos, MINHIT, MAXHIT, CTYPE, ID);
-		if(Game.getInstance().getCharacter().getType() instanceof Wizard)
+		if(Game.getInstance().getCharacter().getType().getClassType() == Classes.WIZARD)
 			this.setItem(ItemFactory.createItem("Rod of Awesomeness", 2.0, null));
 		else
 			this.setItem(ItemFactory.createItem("Stick of Manliness", 2.0, null));

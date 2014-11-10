@@ -3,7 +3,6 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.io.Serializable;
 
-import ar.edu.itba.poo.slick.Console;
 import ar.edu.itba.poo.worldlogic.Tile;
 
 
@@ -64,14 +63,19 @@ public class Character extends Alive implements Combat, Serializable {
 	 * @param damage integer
 	 */
 	@Override
-	public void receiveAttack(int damage) {
+	public boolean receiveAttack(int damage) {
+		
+		boolean ret = false;
 		
 		super.receiveAttack(damage);
 		
 		if(this.getStatus().isDead()){
 			Game.getInstance().reviveCharacter();
+			ret = true;
 		}
 		notifyObservers();
+		
+		return ret;
 	}
 
 	
@@ -104,8 +108,8 @@ public class Character extends Alive implements Combat, Serializable {
 	}
 
 	@Override
-	public void attack() {
-		type.attack(this);
+	public int attack() {
+		return type.attack(this);
 	}
 
 }

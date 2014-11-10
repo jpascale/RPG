@@ -1,6 +1,5 @@
 package ar.edu.itba.poo.gamelogic;
 
-import java.io.ObjectInputStream.GetField;
 
 import ar.edu.itba.poo.handlers.CharacterMovementHandler;
 import ar.edu.itba.poo.handlers.EquipmentHandler;

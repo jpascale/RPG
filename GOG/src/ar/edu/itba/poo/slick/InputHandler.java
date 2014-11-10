@@ -17,6 +17,10 @@ public abstract class InputHandler {
 	public static int ACTION_INTERVAL = 150; // 0.15 seconds
 	private static int interval = 0;
 	
+	public static String MSG_NO_SELECTED_THROW_ITEM = "No puedes tirar el item.";
+	public static String MSG_ATTACK_CREATURE = "Has atacado a la criatura!";
+	public static String MSG_DAMAGE_CREATURE = "Le haz pegado a la criatura por ";
+	
 	
 	public static void handleInput(GameContainer container, int delta, Character player){
 		
@@ -31,6 +35,7 @@ public abstract class InputHandler {
 		
 		if (interval >= ACTION_INTERVAL){
 
+			//Move
 				if (input.isKeyDown(Input.KEY_UP)){
 					CharacterRenderer.setMoving(true);
 					player.move(Dir.NORTH);
@@ -51,28 +56,44 @@ public abstract class InputHandler {
 					player.move(Dir.EAST);
 					interval = 0;
 				}
+				
+				//Attack
 				else if (input.isKeyPressed(Input.KEY_SPACE)){
-					player.attack();
+					int damage = player.attack();
+					
+					if (damage > 0){
+						Console.add(MSG_ATTACK_CREATURE);
+						Console.add(MSG_DAMAGE_CREATURE + damage + "!!!");
+					}
+					
 					interval = 0;
 				}
+				
+				//Items
 				else if(input.isKeyPressed(Input.KEY_A)){
-					player.itemAction();
+					if (!player.itemAction())
+						Console.add(MSG_NO_SELECTED_THROW_ITEM);
 				}
 				else if(input.isKeyPressed(Input.KEY_Q)){
 					player.getEquip().changeWeapon();
 				}
+				
 				else if(input.isKeyPressed(Input.KEY_1)){
 					GameIO.saveGame(GameSlot.SLOT_1);
 				}
+				
+				//For Debug
+				/*
 				else if (input.isKeyPressed(Input.KEY_M)){
 					Console.add("Mi posicion es " + player.getPos().getX() + " " + player.getPos().getY() + " " + player.getHeading().toString());
 					interval = 0;
 				}
-				
 				else if(input.isKeyPressed(Input.KEY_S)){
 					Console.add("HP: " + player.getStatus().getMinhp() + "/" + player.getStatus().getMaxhp() + "; Lvl: " + player.getLvl().getLevel() + "; Exp: " + player.getLvl().getExp() + "/ "+ player.getLvl().getMaxexp()); 
 				}
+				*/
 				
+				//Cheat
 				else if(input.isKeyPressed(Input.KEY_Z)){
 					player.getStatus().heal();
 					player.notifyObservers();

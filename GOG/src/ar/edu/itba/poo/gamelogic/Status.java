@@ -27,8 +27,8 @@ public class Status implements Observable, Serializable{
 		this.isdead = false;
 	}
 	
-	public void receiveDamage(int damage) {
-		
+	public boolean receiveDamage(int damage) {
+
 		if (damage >= minhp){
 			minhp = 0;
 			isdead = true;
@@ -37,6 +37,8 @@ public class Status implements Observable, Serializable{
 			minhp -= damage;
 		
 		notifyObservers();
+		
+		return isdead;
 	}
 	
 	public void heal(){

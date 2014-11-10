@@ -32,14 +32,17 @@ public class Creature extends Alive implements Combat {
 	}
 	
 	@Override
-	public void attack() {
-
+	public int attack() {
+		
+		int damage = 0;
 		Tile posNext = this.getPos().getNext(this.getHeading());
 		
 		if(posNext != null && posNext.getAlive() != null){
-			int damage = Alive.randInt(getMinHit(),getMaxHit());
+			damage = Alive.randInt(getMinHit(),getMaxHit());
 			posNext.getAlive().receiveAttack(damage);
 		}
+		
+		return damage;
 			
 	}
 	
@@ -123,18 +126,25 @@ public class Creature extends Alive implements Combat {
 	 * and removes the creature from the map.
 	 * 
 	 * @param damage integer
-	 * @return 
+	 * @return true if creature dies
 	 */
 	@Override
-	public void receiveAttack(int damage) {
+	public boolean receiveAttack(int damage) {
+		
+		boolean ret = false;
+		
 		super.receiveAttack(damage);
-		Console.add("Has sacado " + damage + " puntos de vida.");
+		
+		//Console.add("Has sacado " + damage + " puntos de vida.");
 		if(this.getStatus().isDead()){
 			this.notifyObservers();
 			this.throwItem();
 			this.getPos().freeAlive();
 			Console.add("La criatura ha muerto.");
+			ret = true;
 		}
+		
+		return ret;
 	}
 
 }

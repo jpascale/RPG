@@ -1,7 +1,6 @@
 package ar.edu.itba.poo.gamelogic;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 import ar.edu.itba.poo.handlers.Observable;

@@ -1,8 +1,5 @@
 package ar.edu.itba.poo.worldlogic;
 
-import java.io.Serializable;
-
-import ar.edu.itba.poo.gamelogic.Game;
 
 
 

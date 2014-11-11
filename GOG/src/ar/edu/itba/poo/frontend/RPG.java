@@ -14,10 +14,8 @@ import org.newdawn.slick.tiled.TiledMap;
 
 import ar.edu.itba.poo.IO.GameIO;
 import ar.edu.itba.poo.gamelogic.Character;
-import ar.edu.itba.poo.gamelogic.CreatureFactory;
 import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.Game;
-import ar.edu.itba.poo.gamelogic.ItemFactory;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.render.CreatureRenderer;
 import ar.edu.itba.poo.render.EquipmentRenderer;

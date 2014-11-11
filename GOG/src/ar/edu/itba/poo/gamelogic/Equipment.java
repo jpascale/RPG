@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import ar.edu.itba.poo.frontend.Console;
 import ar.edu.itba.poo.handlers.EquipmentHandler;
 import ar.edu.itba.poo.handlers.ItemHandler;
 import ar.edu.itba.poo.handlers.Observable;

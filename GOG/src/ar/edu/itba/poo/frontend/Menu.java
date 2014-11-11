@@ -16,7 +16,7 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 import ar.edu.itba.poo.IO.GameIO;
 import ar.edu.itba.poo.IO.GameSlot;
 import ar.edu.itba.poo.gamelogic.Classes;
-import ar.edu.itba.poo.gamelogic.GameFactory;
+import ar.edu.itba.poo.handlers.GameFactory;
 
 
 public class Menu extends BasicGameState {

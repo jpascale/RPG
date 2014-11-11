@@ -77,21 +77,21 @@ public class Menu extends BasicGameState {
 		}
 		if(menutype == 2){
 			if(input.isKeyPressed(Input.KEY_1)){
-				loadfile = new File(GameSlot.slot1_dir);
+				loadfile = new File(GameSlot.SLOT1_DIR);
 				if(loadfile.exists() && !loadfile.isDirectory()){ 
 					GameIO.loadGame(GameSlot.SLOT_1);
 					sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 				}
 			}
 			if(input.isKeyPressed(Input.KEY_2)){
-				loadfile = new File(GameSlot.slot2_dir);
+				loadfile = new File(GameSlot.SLOT2_DIR);
 				if(loadfile.exists() && !loadfile.isDirectory()){ 
 					GameIO.loadGame(GameSlot.SLOT_2);
 					sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 				}
 			}
 			if(input.isKeyPressed(Input.KEY_3)){
-				loadfile = new File(GameSlot.slot3_dir);
+				loadfile = new File(GameSlot.SLOT3_DIR);
 				if(loadfile.exists() && !loadfile.isDirectory()){ 
 					GameIO.loadGame(GameSlot.SLOT_3);
 					sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
@@ -119,7 +119,6 @@ public class Menu extends BasicGameState {
 
 	@Override
 	public int getID() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

@@ -1,12 +1,12 @@
-package ar.edu.itba.poo.gamelogic;
+package ar.edu.itba.poo.handlers;
 
-import ar.edu.itba.poo.gamelogic.creatures.Boss1;
-import ar.edu.itba.poo.gamelogic.creatures.Boss2;
-import ar.edu.itba.poo.gamelogic.creatures.Boss3;
-import ar.edu.itba.poo.gamelogic.creatures.Creature1;
-import ar.edu.itba.poo.gamelogic.creatures.Creature2;
-import ar.edu.itba.poo.gamelogic.creatures.Creature3;
-import ar.edu.itba.poo.handlers.CreatureMovementHandler;
+import ar.edu.itba.poo.creatures.Boss1;
+import ar.edu.itba.poo.creatures.Boss2;
+import ar.edu.itba.poo.creatures.Boss3;
+import ar.edu.itba.poo.creatures.Creature1;
+import ar.edu.itba.poo.creatures.Creature2;
+import ar.edu.itba.poo.creatures.Creature3;
+import ar.edu.itba.poo.gamelogic.CreatureType;
 import ar.edu.itba.poo.worldlogic.Tile;
 
 public class CreatureFactory {

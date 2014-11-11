@@ -27,9 +27,6 @@ public class Game {
 		
 	
 	private Game() {
-		
-		//Player name
-		this.name = "Player";
 
 		/*
 		 *		World

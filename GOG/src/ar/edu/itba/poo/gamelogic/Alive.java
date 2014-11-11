@@ -2,6 +2,7 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
@@ -11,7 +12,7 @@ import ar.edu.itba.poo.worldlogic.Trigger;
 
 public class Alive implements Observable, Serializable{
 	
-	private ArrayList<Observer> observers = null;
+	private HashSet<Observer> observers = null;
 	
 	private Dir heading;
 	private Status status;
@@ -23,7 +24,6 @@ public class Alive implements Observable, Serializable{
 			this.heading = Dir.SOUTH;
 			this.status = new Status(hp, man);
 			this.setPos(pos);
-			this.observers = new ArrayList<Observer>();
 			this.swims = false;
 	}
 	
@@ -87,7 +87,7 @@ public class Alive implements Observable, Serializable{
 	public void addObserver(Observer observer) {
 		
 		if (observers == null)
-			observers = new ArrayList<Observer>();
+			observers = new HashSet<Observer>();
 		
 		observers.add(observer);
 	}

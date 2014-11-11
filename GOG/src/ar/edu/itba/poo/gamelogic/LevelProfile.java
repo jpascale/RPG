@@ -2,13 +2,14 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import ar.edu.itba.poo.handlers.Observable;
 import ar.edu.itba.poo.handlers.Observer;
 
 public class LevelProfile implements Observable, Serializable{
 	
-	private ArrayList<Observer> observers;
+	private HashSet<Observer> observers;
 	
 	public static int MAX_LVL = 20;
 	public static int EXP_CONST = 50;
@@ -23,7 +24,7 @@ public class LevelProfile implements Observable, Serializable{
 	
 	public LevelProfile(Character character){	
 		
-		this.observers = new ArrayList<Observer>();
+		this.observers = new HashSet<Observer>();
 		
 		this.character = character;
 		

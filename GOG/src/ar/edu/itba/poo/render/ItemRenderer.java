@@ -1,16 +1,15 @@
 package ar.edu.itba.poo.render;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import ar.edu.itba.poo.frontend.RPG;
-import ar.edu.itba.poo.gamelogic.Item;
 
 public class ItemRenderer {
 	
-	private static ArrayList<ItemRenderer> renders = new ArrayList<ItemRenderer>();
+	private static HashSet<ItemRenderer> renders = new HashSet<ItemRenderer>();
 	private static Image image;
 	
 	private int X, Y;

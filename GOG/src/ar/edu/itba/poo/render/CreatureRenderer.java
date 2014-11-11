@@ -1,22 +1,19 @@
 package ar.edu.itba.poo.render;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import org.newdawn.slick.Image;
 
-import ar.edu.itba.poo.frontend.Console;
 import ar.edu.itba.poo.frontend.InputHandler;
 import ar.edu.itba.poo.frontend.RPG;
-import ar.edu.itba.poo.gamelogic.Creature;
-import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.CreatureType;
 import ar.edu.itba.poo.worldlogic.Dir;
 
 public class CreatureRenderer {
 	
 	private static HashMap<CreatureType, SpriteImages> appearanceMap;
-	private static ArrayList<CreatureRenderer> renders = new ArrayList<CreatureRenderer>();
+	private static HashSet<CreatureRenderer> renders = new HashSet<CreatureRenderer>();
 	
 	private int X, Y, offsetX, offsetY;
 	private Dir dir;

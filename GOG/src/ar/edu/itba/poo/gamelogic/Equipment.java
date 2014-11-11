@@ -2,6 +2,7 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import ar.edu.itba.poo.frontend.Console;
 import ar.edu.itba.poo.handlers.EquipmentHandler;
@@ -19,12 +20,12 @@ public class Equipment implements Observable, Serializable{
 	
 	private ArrayList<Item> slots;
 	private Item weapon;
-	private transient ArrayList<Observer> observers;
+	private transient HashSet<Observer> observers;
 	
 	
 	public Equipment() {
 		this.slots = new ArrayList<Item>();
-		this.observers = new ArrayList<Observer>();
+		this.observers = new HashSet<Observer>();
 	}
 
 	public void addItem(Item item){
@@ -78,7 +79,7 @@ public class Equipment implements Observable, Serializable{
 	}
 	
 	public void loadEquipment(){
-		observers = new ArrayList<Observer>();
+		observers = new HashSet<Observer>();
 		observers.add(new EquipmentHandler());
 		for (Item item : slots) {
 			ItemHandler.getInstance().addrenderer(item);

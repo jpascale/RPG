@@ -14,8 +14,8 @@ public class StatusRenderer implements Serializable {
 	
 	private static int LENGTH = 100;
 	private static int HEIGHT = 10;
-	private static int posX = 710;
-	private static int posYmp = 420;
+	private static int posX = 730;
+	private static int posYmp = 415;
 	private static int posYhp = posYmp + 30;
 	
 	public StatusRenderer(int minhp, int maxhp, int minmp, int maxmp) {
@@ -29,23 +29,23 @@ public class StatusRenderer implements Serializable {
 	 * Draws the Status (HP, MP).
 	 */
 	public static void render(Graphics gr){
-		gr.setColor(Color.red);
+		gr.setColor(new Color(90, 0, 0));
 		gr.drawRect(posX, posYhp, LENGTH, HEIGHT);
 		gr.fillRect(posX, posYhp, LENGTH, HEIGHT);
 		
-		gr.setColor(Color.orange);
+		gr.setColor(Color.red);
 		gr.drawRect(posX, posYhp,((minhp * LENGTH) / maxhp), HEIGHT);
 		gr.fillRect(posX, posYhp,((minhp * LENGTH) / maxhp), HEIGHT);
 		
 		gr.setColor(Color.white);
 		gr.drawString(minhp + "/" + maxhp, posX + 30, posYhp - 4);
 		
-		gr.setColor(Color.blue);
+		gr.setColor(new Color(0, 0, 90));
 		gr.drawRect(posX, posYmp, LENGTH, HEIGHT);
 		gr.fillRect(posX, posYmp, LENGTH, HEIGHT);
 		
 		if (minmp != 0){
-			gr.setColor(Color.cyan);
+			gr.setColor(Color.blue);
 			gr.drawRect(posX, posYmp,((minmp * LENGTH) / maxmp), HEIGHT);
 			gr.fillRect(posX, posYmp,((minmp * LENGTH) / maxmp), HEIGHT);
 		}

@@ -2,6 +2,8 @@ package ar.edu.itba.poo.gamelogic;
 
 import java.util.HashSet;
 
+import ar.edu.itba.poo.handlers.CreatureFactory;
+
 public class CreatureList {
 	
 	private static int CREATURE_NUMBER = 5;

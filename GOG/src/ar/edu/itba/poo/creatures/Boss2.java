@@ -1,4 +1,4 @@
-package ar.edu.itba.poo.gamelogic.creatures;
+package ar.edu.itba.poo.creatures;
 
 import ar.edu.itba.poo.frontend.Console;
 import ar.edu.itba.poo.gamelogic.Creature;

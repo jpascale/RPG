@@ -8,10 +8,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import ar.edu.itba.poo.gamelogic.Character;
-import ar.edu.itba.poo.gamelogic.CreatureFactory;
 import ar.edu.itba.poo.gamelogic.CreatureList;
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.gamelogic.ItemFactory;
+import ar.edu.itba.poo.handlers.CreatureFactory;
 import ar.edu.itba.poo.handlers.StatusHandler;
 import ar.edu.itba.poo.worldlogic.World;
 

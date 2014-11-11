@@ -2,6 +2,7 @@ package ar.edu.itba.poo.gamelogic;
 
 
 import ar.edu.itba.poo.handlers.CharacterMovementHandler;
+import ar.edu.itba.poo.handlers.CreatureFactory;
 import ar.edu.itba.poo.handlers.EquipmentHandler;
 import ar.edu.itba.poo.handlers.LevelProfileHandler;
 import ar.edu.itba.poo.handlers.StatusHandler;

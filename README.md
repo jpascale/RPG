@@ -36,11 +36,8 @@ File > Import
 ```
 
 <h2><b>Controles</b></h2>
-
-Flecha derecha: Moverse a la derecha
-Flecha izquierda: Moverse a la izquierda
-Arriba: Moverse hacia el norte
-Flecha: Moverse hacia el sur
+```
+Moverse: Flechas
 
 Barra especiadora: Atacar
 
@@ -53,7 +50,7 @@ Z: Recuperar todos los stats (Cheat)
 1: Guardar partida en Slot 1
 2: Guardar partida en Slot 2
 3: Guardar partida en Slot 3
-
+```
 
 <h2><b>Jugabilidad</b></h2>
 

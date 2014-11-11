@@ -1,8 +1,6 @@
 package ar.edu.itba.poo.frontend;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;

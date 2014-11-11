@@ -1,7 +1,6 @@
 package ar.edu.itba.poo.gamelogic;
 
 import java.util.HashSet;
-import java.util.LinkedList;
 
 public class CreatureList {
 	

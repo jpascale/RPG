@@ -3,7 +3,6 @@ package ar.edu.itba.poo.handlers;
 import java.io.Serializable;
 
 import ar.edu.itba.poo.gamelogic.LevelProfile;
-import ar.edu.itba.poo.handlers.Observer;
 import ar.edu.itba.poo.render.LevelRenderer;
 
 public class LevelProfileHandler implements Observer<LevelProfile>, Serializable{

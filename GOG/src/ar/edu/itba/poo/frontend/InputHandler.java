@@ -1,14 +1,14 @@
 package ar.edu.itba.poo.frontend;
 
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Input;
+
 import ar.edu.itba.poo.IO.GameIO;
 import ar.edu.itba.poo.IO.GameSlot;
+import ar.edu.itba.poo.gamelogic.Character;
 import ar.edu.itba.poo.gamelogic.Game;
 import ar.edu.itba.poo.render.CharacterRenderer;
 import ar.edu.itba.poo.worldlogic.Dir;
-import ar.edu.itba.poo.gamelogic.Character;
-
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Input;
 
 public abstract class InputHandler {
 	

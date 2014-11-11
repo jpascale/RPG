@@ -2,8 +2,6 @@ package ar.edu.itba.poo.render;
 
 import java.io.Serializable;
 
-import org.newdawn.slick.GameContainer;
-
 import ar.edu.itba.poo.frontend.InputHandler;
 import ar.edu.itba.poo.frontend.RPG;
 import ar.edu.itba.poo.gamelogic.Game;

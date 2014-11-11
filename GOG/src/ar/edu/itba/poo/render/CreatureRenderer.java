@@ -22,6 +22,7 @@ public class CreatureRenderer {
 	private long ID;
 
 	public CreatureRenderer(int posX, int posY, CreatureType ctype, long ID) {
+		
 		appearanceMap = new HashMap<CreatureType, SpriteImages>();
 		appearanceMap.put(CreatureType.CREATURE_1, new SpriteImages("data/nido/down.png", "data/nido/up.png", "data/nido/left.png", "data/nido/right.png"));
 		appearanceMap.put(CreatureType.CREATURE_2, new SpriteImages("data/whirl/down.png", "data/whirl/up.png", "data/whirl/left.png", "data/whirl/right.png"));

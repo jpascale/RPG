@@ -1,11 +1,12 @@
-package ar.edu.itba.poo.gamelogic;
+package ar.edu.itba.poo.handlers;
 
 
-import ar.edu.itba.poo.handlers.CharacterMovementHandler;
-import ar.edu.itba.poo.handlers.CreatureFactory;
-import ar.edu.itba.poo.handlers.EquipmentHandler;
-import ar.edu.itba.poo.handlers.LevelProfileHandler;
-import ar.edu.itba.poo.handlers.StatusHandler;
+import ar.edu.itba.poo.gamelogic.Character;
+import ar.edu.itba.poo.gamelogic.Classes;
+import ar.edu.itba.poo.gamelogic.Game;
+import ar.edu.itba.poo.gamelogic.ItemFactory;
+import ar.edu.itba.poo.gamelogic.Warrior;
+import ar.edu.itba.poo.gamelogic.Wizard;
 import ar.edu.itba.poo.worldlogic.World;
 
 public class GameFactory {

@@ -43,65 +43,65 @@ public abstract class InputHandler {
 		if (interval >= ACTION_INTERVAL){
 
 			//Move
-				if (input.isKeyDown(Input.KEY_UP)){
-					handleMove(player, Dir.NORTH);
-					interval = 0;
-				}
-				else if (input.isKeyDown(Input.KEY_DOWN)){
-					handleMove(player, Dir.SOUTH);
-					interval = 0;
-				}
-				else if (input.isKeyDown(Input.KEY_LEFT)){
-					handleMove(player, Dir.WEST);
-					interval = 0;
-				}
-				else if (input.isKeyDown(Input.KEY_RIGHT)){
-					handleMove(player, Dir.EAST);
-					interval = 0;
-				}
-				
-				//Attack
-				else if (input.isKeyPressed(Input.KEY_SPACE)){
-					handleAttack(player);
-					interval = 0;
-				}
-				
-				else if (input.isKeyPressed(Input.KEY_M)){
-					handleMeditate(player);
-				}
-				
-				//Items
-				else if(input.isKeyPressed(Input.KEY_A)){
-					handleItemAction(player);
-				}
-				else if(input.isKeyPressed(Input.KEY_Q)){
-					handleEquipmentAction(player);
-				}
-				
-				// Save
-				else if(input.isKeyPressed(Input.KEY_1)){
-					handleSaveGame(GameSlot.SLOT_1);
-				}
-				else if(input.isKeyPressed(Input.KEY_2)){
-					handleSaveGame(GameSlot.SLOT_2);
-				}
-				else if(input.isKeyPressed(Input.KEY_3)){
-					handleSaveGame(GameSlot.SLOT_3);
-				}
+			if (input.isKeyDown(Input.KEY_UP)){
+				handleMove(player, Dir.NORTH);
+				interval = 0;
+			}
+			else if (input.isKeyDown(Input.KEY_DOWN)){
+				handleMove(player, Dir.SOUTH);
+				interval = 0;
+			}
+			else if (input.isKeyDown(Input.KEY_LEFT)){
+				handleMove(player, Dir.WEST);
+				interval = 0;
+			}
+			else if (input.isKeyDown(Input.KEY_RIGHT)){
+				handleMove(player, Dir.EAST);
+				interval = 0;
+			}
 
-				//Cheat
-				else if(input.isKeyPressed(Input.KEY_Z)){
-					player.getStatus().heal();
-					player.notifyObservers();
-				}
-				
-				else
-					handleStopMove();
-				
-			
+			//Attack
+			else if (input.isKeyPressed(Input.KEY_SPACE)){
+				handleAttack(player);
+				interval = 0;
+			}
+
+			else if (input.isKeyPressed(Input.KEY_M)){
+				handleMeditate(player);
+			}
+
+			//Items
+			else if(input.isKeyPressed(Input.KEY_A)){
+				handleItemAction(player);
+			}
+			else if(input.isKeyPressed(Input.KEY_Q)){
+				handleEquipmentAction(player);
+			}
+
+			// Save
+			else if(input.isKeyPressed(Input.KEY_1)){
+				handleSaveGame(GameSlot.SLOT_1);
+			}
+			else if(input.isKeyPressed(Input.KEY_2)){
+				handleSaveGame(GameSlot.SLOT_2);
+			}
+			else if(input.isKeyPressed(Input.KEY_3)){
+				handleSaveGame(GameSlot.SLOT_3);
+			}
+
+			//Cheat
+			else if(input.isKeyPressed(Input.KEY_Z)){
+				player.getStatus().heal();
+				player.notifyObservers();
+			}
+
+			else
+				handleStopMove();
+
+
 			if (interval >= ACTION_INTERVAL)
 				interval = ACTION_INTERVAL;
-			
+
 		}
 		
 	}
@@ -129,6 +129,7 @@ public abstract class InputHandler {
 	}
 	
 	public static void handleMeditate(Character player){
+		
 		if (player.meditate())
 			Console.add(MSG_RECOVER_MANA);
 		else

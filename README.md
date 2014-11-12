@@ -1,15 +1,19 @@
 Game of Games
 ===
 
-Instituto Tecnológico de Buenos Aires
-Programación Orientada a objetos
+<b>Instituto Tecnológico de Buenos Aires</b>
+<b>Programación Orientada a objetos</b>
 
-Profesores:
+<b>Nombre del proyecto:</b> Game of Games
+
+
+
+<b>Profesores:</b>
 	-Pablo Giorgi
 	-Augusto Nizzo McIntosh
 	-Claudio 
 
-Alumnos:
+<b>Alumnos:</b>
 	-Juan Martín Pascale - 55027
 	-Teófilo Duffau - 54151
 
@@ -92,12 +96,17 @@ Archivos
 
 <b>Aclaración:</b> Se usó el patrón Observer en todo el backend. Cada método, cuando es necesario, notifica a todos los observadores un cambio de comportamiento. Los observers son seteados desde afuera del backend. Esto permite que en caso de querer cambiar el frontend del juego, se lo remueve, se agrega uno nuevo y se utilizan observers propios de ser necesario.
 
+
 <h2><b>worldlogic</b></h2>
+
 El mundo (World) está dividido en tiles (Tiles) que son posiciones donde puede estár el personaje, alguna criatura (Alive) o un item (Item). La orientación se maneja con un sistema de direcciones: norte, sur, este y oeste. Cada Tile posee triggers, los cuales indican si es una posición legal, normal o si hay agua. Los triggers se guardan en un archivo y se cargan cada vez que inicia el juego. Sólo puede haber un Alive por tile.
 
 Para el mapa (World) se utiliza el patrón Singleton.
 
+<b>Aclaración:</b> En el frontend se utiliza una clase TileMap (funcionalidad de Slick2D). Para no mezclar frontend con backend, se creó World que es exclusivo del backend y GraphicMap en en frontend que utiliza TiledMap de Slick2D y funciona como intermediario.
+
 <h2><b>gamelogic</b></h2>
+
 La Clase más importante es Character. Es la clase que representa al personaje del jugador. Character hereda de Alive, que es la clase que representa algo "vivo" dentro del juego. Se hizo esto con el objetivo de reutilizar código ya que el personaje y las criaturas tienen varios comportamientos en común. Character engloba distintas clases, cada una cumple una funcionalidad distinta con el objetivo de organizar bien el código.
 
 Las clases más importantes que engloba Alive son:
@@ -116,3 +125,21 @@ Type: Tipo de clase del personaje (En este proyecto Guerrero o Mago). Character 
 
 Equipment: Inventario del personaje. Agarra/tira un objeto en un tile, y lo equipa.
 ```
+
+Otra clase importante es Game, es un Singleton, engloba todo y se usa para guardar/cargar archivos y setear observers.
+
+
+<h2><b>handlers</b></h2>
+
+Es el intermediario principal entre el frontend y el backend. Está compuesto por observers que todo el tiempo reciben actualizaciones de cambio de estado del juego y avisan a los renders.
+
+
+<h2><b>IO</b></h2>
+
+Funciones para guardar y cargar la partida. Inspirado en el modelo que uiliza Ubisoft, esta funcionalidad se basa en tres slots donde se puede guardar una partida.
+
+
+<h2><b>render</b></h2>
+
+Utiliza funciones graficas de Slick 2D para cargar gráficos y dibujar. Recibe toda la información de los handlers que observan el juego.
+

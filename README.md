@@ -9,9 +9,9 @@ Game of Games
 
 
 <b>Profesores:</b>
-	-Pablo Giorgi
-	-Augusto Nizzo McIntosh
-	-Claudio 
+	-Pablo Alejandro Giorgi
+	-Augusto Nizzo Mc Intosh
+	-Claudio Zamoszcyk
 
 <b>Alumnos:</b>
 	-Juan Martín Pascale - 55027
@@ -35,14 +35,14 @@ git clone git@github.com:jpascale/RPG.git
 File > Import
 ```
 
-3. Ejecutar.
+3. Ejecutar el main de Main.java en ar.edu.itba.poo.frontend.
 
 4. _(Opcional)_ En caso de no ejecutar es un problema de los archivos nativos de Slick2D. La solución es:
 ```
 	Click derecho sobre el proyecto > Properties > Java Build Path
 	Add JARs > Agregar todos los JAR de lib/jars
 
-	Expandir lwjgl.jar > Clickear "Edit..." > Setear como directorio los nativos del sistema operativo que se esté usando. EJ: "GOG/lib/native/macosx"
+	Expandir lwjgl.jar > Clickear "Edit..." > Setear como directorio los nativos del sistema operativo que se esté usando. EJ: "GOG/lib/native/macosx" para Mac Os.
 ```
 
 <h2><b>Controles</b></h2>
@@ -111,7 +111,7 @@ La Clase más importante es Character. Es la clase que representa al personaje d
 
 Las clases más importantes que engloba Alive son:
 ```
-Status: Todo lo relacionado a la vida y mana. Los Alive que son criaturas se crean con mana 0.
+Status: Todo lo relacionado a la vida y mana. Los Alive, que son criaturas, se crean con mana 0 en su Status. Podrían tener mana en versiones futuras.
 Tile: Posición donde está parado.
 
 Alive tiene una dirección (Dir - Enum) y un indicador que habilita el poder atravezar zonas con agua.
@@ -126,7 +126,7 @@ Type: Tipo de clase del personaje (En este proyecto Guerrero o Mago). Character 
 Equipment: Inventario del personaje. Agarra/tira un objeto en un tile, y lo equipa.
 ```
 
-Otra clase importante es Game, es un Singleton, engloba todo y se usa para guardar/cargar archivos y setear observers.
+Otra clase importante es Game, es un Singleton, engloba todo y se usa para obtener información del juego utilizada desde afuera del backend, por ejemplo guardar/cargar archivos y setear observers.
 
 
 <h2><b>handlers</b></h2>
